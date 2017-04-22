@@ -1,6 +1,6 @@
 module Shopify
-  module Products
-    module Imports
+  module Import
+    module Products
       class Create
         def initialize(shopify_data_feed)
           @shopify_data_feed = shopify_data_feed
@@ -32,7 +32,7 @@ module Shopify
         end
 
         def product_attributes
-          Shopify::Products::DataParsers::BaseData.prepare_data(shopify_product)
+          DataParsers::Create.to_spree(shopify_product)
         end
 
         def shopify_product
