@@ -30,4 +30,24 @@ RSpec.describe Shopify::Import::Product, type: :module do
       expect(subject.find_all.length).to eq 2
     end
   end
+
+  describe '#find_and_import', vcr: { cassette_name: 'shopify/product/find_and_import' } do
+    it 'creates single data feed' do
+      expect { subject.find_and_import(9884552707) }.to change(Shopify::DataFeed, :count).by(1)
+    end
+
+    it 'creates single spree product' do
+      expect { subject.find_and_import(9884552707) }.to change(Spree::Product, :count).by(1)
+    end
+  end
+
+  describe '#find_all_first_and_import', vcr: { cassette_name: 'shopify/product/find_all_first_and_import' } do
+    it 'creates data feeds' do
+      expect { subject.find_all_first_and_import }.to change(Shopify::DataFeed, :count).by(2)
+    end
+
+    it 'creates single spree product' do
+      expect { subject.find_all_first_and_import }.to change(Spree::Product, :count).by(2)
+    end
+  end
 end

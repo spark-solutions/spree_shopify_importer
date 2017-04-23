@@ -32,4 +32,10 @@ RSpec.describe Shopify::Import::Base, type: :model do
       expect { subject.new.find(1) }.to raise_error ActiveResource::ResourceNotFound
     end
   end
+
+  describe '#find_and_import', :vcr do
+    it 'raises error ActiveResource::ResourceNotFound' do
+      expect { subject.new.find_and_import(1) }.to raise_error ActiveResource::ResourceNotFound
+    end
+  end
 end

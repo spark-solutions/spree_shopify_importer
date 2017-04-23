@@ -13,6 +13,11 @@ module Shopify
         api_class.find(id)
       end
 
+      def find_and_import(id)
+        resource = find(id)
+        create_data_feed_and_spree_object(resource)
+      end
+
       def find_all(**opts)
         results = []
         find_in_batches(**opts) do |batch|
@@ -20,6 +25,12 @@ module Shopify
           batch.each { |resource| results << resource }
         end
         results
+      end
+
+      def find_all_first_and_import(**opts)
+        find_all(**opts).each do |resource|
+          create_data_feed_and_spree_object(resource)
+        end
       end
 
       private
@@ -37,8 +48,21 @@ module Shopify
         Shopify::Import::Client.instance.get_connection(credentials)
       end
 
+      def create_data_feed_and_spree_object(resource)
+        shopify_data_feed = Shopify::DataFeeds::Create.new(resource).save!
+        shopify_spree_creator.new(shopify_data_feed).save!
+      end
+
       def api_class
-        "ShopifyAPI::#{self.class.to_s.demodulize}".constantize
+        "ShopifyAPI::#{class_name}".constantize
+      end
+
+      def shopify_spree_creator
+        "Shopify::Import::#{class_name}s::Create".constantize
+      end
+
+      def class_name
+        self.class.to_s.demodulize
       end
     end
   end
