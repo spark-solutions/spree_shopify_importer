@@ -7,6 +7,9 @@ env:
   - DB=postgres
   - DB=mysql
 
+services:
+  - redis-server
+
 gemfile:
   - gemfiles/spree_3_2.gemfile
   - gemfiles/spree_3_3.gemfile
