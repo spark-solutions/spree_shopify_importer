@@ -9,7 +9,6 @@ module SpreeShopifyImporter
         def all(**opts)
           results = []
           find_in_batches(**opts) do |batch|
-            break if batch.blank?
             results += batch
           end
           results
@@ -21,8 +20,8 @@ module SpreeShopifyImporter
           opts = { page: 1 }.merge(opts)
           loop do
             batch = api_class.find(:all, params: opts)
-            yield batch
             break if batch.blank?
+            yield batch
             opts[:page] += 1
           end
         end
