@@ -11,7 +11,6 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
     - '**/Guardfile'
-  TargetRubyVersion: 2.2
 Documentation:
   Enabled: false
 Metrics/AbcSize:
@@ -37,9 +36,9 @@ Naming/UncommunicativeMethodParamName:
   Enabled: false
 Lint/Debugger:
   Enabled: false
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   AutoCorrect: true
-Lint/EndAlignment:
+Layout/EndAlignment:
   AutoCorrect: true
 Lint/AmbiguousBlockAssociation:
   Exclude:

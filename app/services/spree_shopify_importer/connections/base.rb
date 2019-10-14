@@ -6,26 +6,18 @@ module SpreeShopifyImporter
           api_class.get(:count, opts)
         end
 
-        def all(**opts)
+        def all
           results = []
-          find_in_batches(**opts) do |batch|
-            break if batch.blank?
+          batch = api_class.find(:all, params: { limit: 2 })
+          loop do
             results += batch
+            break unless batch.next_page?
+            batch = batch.fetch_next_page
           end
           results
         end
 
         private
-
-        def find_in_batches(**opts)
-          opts = { page: 1 }.merge(opts)
-          loop do
-            batch = api_class.find(:all, params: opts)
-            break if batch.blank?
-            yield batch
-            opts[:page] += 1
-          end
-        end
 
         def api_class
           "ShopifyAPI::#{name.demodulize}".constantize
