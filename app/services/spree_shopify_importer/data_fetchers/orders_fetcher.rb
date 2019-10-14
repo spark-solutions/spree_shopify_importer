@@ -4,7 +4,7 @@ module SpreeShopifyImporter
       private
 
       def resources
-        SpreeShopifyImporter::Connections::Order.all(@params)
+        SpreeShopifyImporter::Connections::Order.all
       end
 
       def job

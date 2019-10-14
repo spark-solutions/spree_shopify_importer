@@ -7,7 +7,7 @@ module SpreeShopifyImporter
 
       def import!
         resources.each do |resource|
-          job.perform_later(resource.to_json)
+          job.perform_later(resource.attributes.to_json)
         end
       end
 
