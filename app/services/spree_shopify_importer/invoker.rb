@@ -6,14 +6,15 @@ module SpreeShopifyImporter
       SpreeShopifyImporter::DataFetchers::TaxonsFetcher,
       SpreeShopifyImporter::DataFetchers::OrdersFetcher
     ].freeze
-
+# TO DO: fetching api_version and setting as shopify_api_version
     def initialize(credentials: nil)
       @credentials = credentials
       @credentials ||= {
         api_key: Spree::Config[:shopify_api_key],
         password: Spree::Config[:shopify_password],
         shop_domain: Spree::Config[:shopify_shop_domain],
-        token: Spree::Config[:shopify_token]
+        token: Spree::Config[:shopify_token],
+        api_version: Spree::Config[:shopify_api_version],
       }
     end
 
