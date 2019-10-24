@@ -1,16 +1,16 @@
 FactoryBot.define do
   factory :shopify_base_option, class: ShopifyAPI::Option do
     skip_create
-    sequence(:id) { |n| n }
+    sequence(:id)         { |n| n }
     sequence(:product_id) { |n| n }
-    sequence(:name) { |n| "Option ##{n}" }
+    sequence(:name)       { |n| "Option ##{n}" }
     sequence(:position, 1)
 
     transient do
       options_count 1
     end
     factory :shopify_single_option do
-      values ['Default Option']
+      values { ['Default Option'] }
     end
 
     factory :shopify_multiple_option do

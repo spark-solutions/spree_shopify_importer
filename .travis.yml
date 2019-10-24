@@ -8,17 +8,18 @@ env:
   - DB=mysql
 
 gemfile:
-  - gemfiles/spree_3_2.gemfile
-  - gemfiles/spree_3_3.gemfile
-  - gemfiles/spree_3_4.gemfile
+  - gemfiles/spree_3_5.gemfile
+  - gemfiles/spree_3_7.gemfile
+  - gemfiles/spree_4_0.gemfile
   - gemfiles/spree_master.gemfile
 
 rvm:
-  - 2.4.3
-  - 2.3.1
-  - 2.2.7
+  - 2.5.1
+  - 2.4.4
+  - 2.3.8
 
 addons:
+  postgresql: 9.4
   code_climate:
     repo_token: 7ca9964050acd0a0fbedb864033493bb31c166b170bb034246b714b46419c605
 
@@ -27,3 +28,18 @@ before_install:
 
 after_success:
   - bundle exec codeclimate-test-reporter
+
+matrix:
+  allow_failures:
+    - gemfile: gemfiles/spree_master.gemfile
+  exclude:
+    - rvm: 2.3.8
+      gemfile: gemfiles/spree_4_0.gemfile
+    - rvm: 2.4.4
+      gemfile: gemfiles/spree_4_0.gemfile
+    - rvm: 2.3.8
+      gemfile: gemfiles/spree_master.gemfile
+    - rvm: 2.4.4
+      gemfile: gemfiles/spree_master.gemfile
+    - rvm: 2.5.1
+      gemfile: gemfiles/spree_3_5.gemfile
