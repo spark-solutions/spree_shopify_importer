@@ -3,11 +3,11 @@
 source "https://rubygems.org"
 
 gem "curb"
-gem "spree", "~> 3.2.0"
+gem "spree", "~> 3.7.0"
 gem "spree_address_book", github: "spree-contrib/spree_address_book"
-gem "spree_auth_devise", "~> 3.3"
-gem "activesupport", "~> 5.0.0"
+gem 'spree_auth_devise', '~> 3.5'
 gem "activeresource", github: "rails/activeresource"
 gem "rails-controller-testing"
+gem "sass-rails"
 
 gemspec path: "../"
