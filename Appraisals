@@ -6,7 +6,7 @@ appraise 'spree-3-2' do
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
-  gem 'spree_address_book'
+  gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
 end
 
 appraise 'spree-3-3' do
@@ -15,7 +15,7 @@ appraise 'spree-3-3' do
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
-  gem 'spree_address_book'
+  gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
 end
 
 appraise 'spree-3-4' do
@@ -24,7 +24,7 @@ appraise 'spree-3-4' do
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
-  gem 'spree_address_book'
+  gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
 end
 
 appraise 'spree-master' do
