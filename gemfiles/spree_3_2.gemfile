@@ -9,5 +9,6 @@ gem "spree_auth_devise", "~> 3.3"
 gem "activesupport", "~> 5.0.0"
 gem "activeresource", github: "rails/activeresource"
 gem "rails-controller-testing"
+gem "spree_address_book"
 
 gemspec path: "../"
