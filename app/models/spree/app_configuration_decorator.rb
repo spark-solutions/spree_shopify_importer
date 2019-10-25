@@ -1,6 +1,7 @@
 module Spree::AppConfigurationDecorator
   def self.prepended(base)
     base.preference :shopify_api_key, :string
+    base.preference :shopify_api_version, :string
     base.preference :shopify_password, :string
     base.preference :shopify_shop_domain, :string
     base.preference :shopify_token, :string
