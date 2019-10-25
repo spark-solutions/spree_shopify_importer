@@ -5,8 +5,8 @@ describe SpreeShopifyImporter::DataSavers::Reimbursements::ReimbursementCreator,
   let(:spree_order) { create(:order) }
 
   subject { described_class.new(shopify_refund, spree_customer_return, spree_order) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#create' do
     context 'with base shopify refund data', vcr: { cassette_name: 'shopify/base_refund' } do

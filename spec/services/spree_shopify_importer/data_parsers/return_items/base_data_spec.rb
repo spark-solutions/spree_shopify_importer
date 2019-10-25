@@ -6,8 +6,8 @@ describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :servic
   let(:return_authorization) { create(:return_authorization) }
 
   subject { described_class.new(shopify_refund_line_item, shopify_refund, return_authorization, inventory_unit) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#attributes', vcr: { cassette_name: 'shopify/base_refund' } do
     let(:shopify_refund) { ShopifyAPI::Refund.find(225_207_300, params: { order_id: 5_182_437_124 }) }

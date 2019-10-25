@@ -5,8 +5,8 @@ describe SpreeShopifyImporter::DataSavers::ReturnItems::ReturnItemsCreator, type
   let(:spree_order) { create(:order_with_line_items) }
 
   subject { described_class.new(shopify_refund_line_item, shopify_refund, spree_return_authorization, spree_order) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#create' do
     let!(:variant) do

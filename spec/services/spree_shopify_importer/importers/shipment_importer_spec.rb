@@ -5,8 +5,8 @@ describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service do
   let!(:spree_order) { create(:order) }
 
   subject { described_class.new(fulfillment, parent_feed, spree_order) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify/importers/shipment_importer/import' } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
