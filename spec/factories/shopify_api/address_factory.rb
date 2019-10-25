@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :shopify_address, class: ShopifyAPI::Address do
     skip_create
-    id 1
+    id            { 1 }
     first_name    { FFaker::Name.first_name }
     last_name     { FFaker::Name.last_name }
     company       { generate(:random_string) }
@@ -16,6 +16,6 @@ FactoryBot.define do
     province_code { 'NY' }
     country_code  { 'US' }
     country_name  { 'United States' }
-    default true
+    default       { true }
   end
 end
