@@ -7,7 +7,7 @@ FactoryBot.define do
     sequence(:position, 1)
 
     transient do
-      options_count 1
+      options_count { 1 }
     end
     factory :shopify_single_option do
       values { ['Default Option'] }
