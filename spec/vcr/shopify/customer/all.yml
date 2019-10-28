@@ -200,4 +200,80 @@ http_interactions:
       string: '{"customers":[]}'
     http_version: 
   recorded_at: Mon, 05 Jun 2017 05:41:55 GMT
-recorded_with: VCR 3.0.3
+- request:
+    method: get
+    uri: https://app.shopify.com/services/apis.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 24 Oct 2019 14:45:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dafad1c574243a80446ee578883c630851571928313; expires=Fri, 23-Oct-20
+        14:45:13 GMT; path=/; domain=.shopify.com; HttpOnly
+      X-Sorting-Hat-Podid:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - DENY
+      Strict-Transport-Security:
+      - max-age=315569520; includeSubdomains
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - frame-ancestors 'none'; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=services%2Fapi_meta&source%5Bsection%5D=services&source%5Buuid%5D=32d192fe-c314-444c-8341-9c988fb4c695
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=services%2Fapi_meta&source%5Bsection%5D=services&source%5Buuid%5D=32d192fe-c314-444c-8341-9c988fb4c695
+      X-Dc:
+      - gcp-us-east1,gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      X-Request-Id:
+      - 32d192fe-c314-444c-8341-9c988fb4c695
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 52acbbb68f1ccc9f-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"apis":[{"handle":"admin","versions":[{"handle":"2019-04","latest_supported":false,"display_name":"2019-04","supported":true},{"handle":"2019-07","latest_supported":false,"display_name":"2019-07","supported":true},{"handle":"2019-10","latest_supported":true,"display_name":"2019-10
+        (Latest)","supported":true},{"handle":"2020-01","latest_supported":false,"display_name":"2020-01
+        (Release candidate)","supported":false},{"handle":"unstable","latest_supported":false,"display_name":"unstable","supported":false}]},{"handle":"storefront","versions":[{"handle":"2019-07","latest_supported":false,"display_name":"2019-07","supported":true},{"handle":"2019-10","latest_supported":true,"display_name":"2019-10
+        (Latest)","supported":true},{"handle":"2020-01","latest_supported":false,"display_name":"2020-01
+        (Release candidate)","supported":false},{"handle":"unstable","latest_supported":false,"display_name":"unstable","supported":false}]}]}'
+    http_version: 
+  recorded_at: Thu, 24 Oct 2019 14:45:13 GMT
+recorded_with: VCR 5.0.0

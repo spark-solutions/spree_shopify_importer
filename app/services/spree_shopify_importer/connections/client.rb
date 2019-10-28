@@ -28,10 +28,10 @@ module SpreeShopifyImporter
       def get_connection(api_key: nil, password: nil, shop_domain: nil, token: nil, api_version: nil)
         if api_key.present? && password.present?
           ShopifyAPI::Base.api_version = api_version
-          @connection = ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin/"
+          ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin/"
         elsif token.present?
           session = ShopifyAPI::Session.new(shop_domain, token, api_version)
-          @connection = ShopifyAPI::Base.activate_session(session)
+          ShopifyAPI::Base.activate_session(session)
         else
           raise SpreeShopifyImporter::Connections::ClientError, I18n.t('shopify_import.client.missing_credentials')
         end
