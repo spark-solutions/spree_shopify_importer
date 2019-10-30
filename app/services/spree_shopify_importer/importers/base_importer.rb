@@ -23,6 +23,7 @@ module SpreeShopifyImporter
       end
 
       def find_existing_data_feed
+        return if shopify_object.blank?
         SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: shopify_object.id,
                                                shopify_object_type: shopify_object.class.to_s)
       end
