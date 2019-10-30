@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/custom_collections/388567107.json
+    uri: https://shop_domain.myshopify.com/admin/custom_collections/440333380.json
     body:
       encoding: US-ASCII
       string: ''
@@ -94,12 +94,12 @@ http_interactions:
       - 48f4738a-53c1-4512-9158-928f58fbec73
     body:
       encoding: ASCII-8BIT
-      string: '{"custom_collection":{"id":388567107,"handle":"samplecollection","title":"SampleCollection","updated_at":"2017-06-05T17:32:39+02:00","body_html":"SomeSampleCollection","published_at":"2017-05-31T18:33:25+02:00","sort_order":"best-selling","template_suffix":null,"products_count":1,"published_scope":"global"}}'
-    http_version: 
+      string: '{"custom_collection":{"id":440333380,"handle":"samplecollection","title":"SampleCollection","updated_at":"2017-06-05T17:32:39+02:00","body_html":"SomeSampleCollection","published_at":"2017-05-31T18:33:25+02:00","sort_order":"best-selling","template_suffix":null,"products_count":1,"published_scope":"global"}}'
+    http_version:
   recorded_at: Mon, 05 Jun 2017 16:11:48 GMT
 - request:
     method: get
-    uri: https://shop_domain.myshopify.com/admin/products.json?collection_id=388567107
+    uri: https://shop_domain.myshopify.com/admin/products.json?collection_id=440333380
     body:
       encoding: US-ASCII
       string: ''
@@ -197,6 +197,107 @@ http_interactions:
         Title","price":"1000.00","sku":"223331113444","position":1,"grams":10000,"inventory_policy":"deny","compare_at_price":"1200.00","fulfillment_service":"manual","inventory_management":"shopify","option1":"Default
         Title","option2":null,"option3":null,"created_at":"2017-04-08T15:40:35+02:00","updated_at":"2017-04-08T15:40:35+02:00","taxable":true,"barcode":"","image_id":null,"inventory_quantity":50,"weight":10.0,"weight_unit":"kg","old_inventory_quantity":50,"requires_shipping":true}],"options":[{"id":12016692163,"product_id":9884552707,"name":"Title","position":1,"values":["Default
         Title"]}],"images":[],"image":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Mon, 05 Jun 2017 16:11:48 GMT
-recorded_with: VCR 3.0.3
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/custom_collections/440333380.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 28 Oct 2019 15:25:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d272f6ea0f0629eb1e01df217a3929e591572276334; expires=Tue, 27-Oct-20
+        15:25:34 GMT; path=/; domain=.myshopify.com; HttpOnly
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 801c40d2-6002-4ce9-8689-f09076fb5c91
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://dme0ih8comzn4.cloudfront.net https://api.stripe.com https://mpsnare.iesnare.com
+        https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com
+        https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com
+        https://v.shopify.com https://widget.intercom.io https://js.intercomcdn.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=801c40d2-6002-4ce9-8689-f09076fb5c91'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcustom_collections&source%5Bsection%5D=admin_api&source%5Buuid%5D=801c40d2-6002-4ce9-8689-f09076fb5c91
+      X-Dc:
+      - gcp-us-east1,gcp-us-east1
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 52cdec53bfefcca3-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version:
+  recorded_at: Mon, 28 Oct 2019 15:25:35 GMT
+recorded_with: VCR 5.0.0
