@@ -16,6 +16,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
       end
 
       it 'create spree product' do
+        # binding.pry
         expect { subject.create! }.to change(Spree::Product, :count).by(1)
       end
 

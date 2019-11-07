@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version     = SpreeShopifyImporter::VERSION
   s.summary     = 'Import your old Shopify store into spree'
   s.description = 'Import Shopify store to spree for easier migration.'
-  s.required_ruby_version = '>= 2.2.7'
+  s.required_ruby_version = '>= 2.5.1'
 
   s.authors   = ['Viktor Fonic', 'Peter Rybarczyk']
   s.email     = %w[viktor.fonic@gmail.com argonuspiotr@gmail.com]
@@ -28,9 +28,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'shopify_api', '>= 4.2.2'
   s.add_dependency 'spree_core', '>= 3.1.0', '< 5.0'
   s.add_dependency 'spree_extension'
+  s.add_dependency 'acts-as-taggable-on'
   s.add_runtime_dependency 'deface', '~> 1.0'
 
-  s.add_development_dependency 'acts-as-taggable-on'
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'

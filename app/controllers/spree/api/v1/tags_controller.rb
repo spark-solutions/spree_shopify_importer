@@ -1,3 +1,4 @@
+# For Dim or Konrad: verify Controller
 module Spree
   module Api
     module V1
