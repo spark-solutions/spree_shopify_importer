@@ -25,6 +25,7 @@ appraise 'spree-4-0' do
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
+  gem "acts-as-taggable-on"
 end
 
 appraise 'spree-master' do
@@ -33,5 +34,6 @@ appraise 'spree-master' do
   gem 'activeresource', github: 'rails/activeresource'
   gem 'rails-controller-testing'
   gem 'curb'
+  gem "acts-as-taggable-on"
 end
 # rubocop:enable Style/FileName

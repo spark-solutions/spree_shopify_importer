@@ -4,6 +4,7 @@ module Spree::AppConfigurationDecorator
     base.preference :shopify_api_version, :string
     base.preference :shopify_password, :string
     base.preference :shopify_shop_domain, :string
+    base.preference :shopify_api_version, :string
     base.preference :shopify_token, :string
     base.preference :shopify_rescue_limit, :integer, default: 5
     base.preference :shopify_current_credentials, :hash

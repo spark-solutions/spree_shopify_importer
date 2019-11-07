@@ -11,7 +11,11 @@ module SpreeShopifyImporter
         end
 
         def add_tags
-          @spree_product.tag_list = tags
+          if Spree.version.to_f < 4.0
+            @spree_product.tag_list = tags
+          else
+            @spree_product.tag_list.add(tags)
+          end
           @spree_product.save!
         end
 

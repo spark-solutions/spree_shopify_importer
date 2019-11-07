@@ -287,7 +287,7 @@ http_interactions:
         NyIsInBob25lIjpudWxsLCJuYW1lIjoiUGV0ZXIgUGFuIiwicHJvdmluY2Vf
         Y29kZSI6bnVsbCwiY291bnRyeV9jb2RlIjoiUEwiLCJjb3VudHJ5X25hbWUi
         OiJQb2xhbmQiLCJkZWZhdWx0Ijp0cnVlfX19XX0=
-    http_version: 
+    http_version:
   recorded_at: Sat, 17 Jun 2017 14:37:51 GMT
 - request:
     method: get
@@ -378,6 +378,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"orders":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 17 Jun 2017 14:37:52 GMT
 recorded_with: VCR 3.0.3

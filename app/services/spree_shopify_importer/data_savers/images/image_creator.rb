@@ -21,7 +21,20 @@ module SpreeShopifyImporter
         private
 
         def create_spree_image
-          @spree_image = @spree_object.images.create!(attributes_with_attachement)
+          # Needs to be corrected for spree > 4.0
+          if Spree.version.to_f < 4.0
+            @spree_image = @spree_object.images.create!(attributes_with_attachement)
+          else
+            @spree_image = Spree::Image.new(attributes_with_attachement)
+            @spree_image.attachment.attach(
+                io: File.new(attributes_with_attachement[:attachment_content_type]),
+                filename: attributes_with_attachement[:alt],
+                content_type: attributes_with_attachement[:attachment_content_type]
+              ).save.save
+            @spree_image.save
+            @spree_object.images << @spree_image
+            @spree_image
+          end
         end
       end
     end
