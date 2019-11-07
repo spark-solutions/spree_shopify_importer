@@ -2,7 +2,7 @@ module SpreeShopifyImporter
   module DataSavers
     module Products
       class ProductBase < BaseDataSaver
-        delegate :attributes, :tags, :options, to: :parser
+        delegate :attributes, :tags, :tag_list, :options, to: :parser
 
         private
 
@@ -14,7 +14,7 @@ module SpreeShopifyImporter
           if Spree.version.to_f < 4.0
             @spree_product.tag_list = tags
           else
-            @spree_product.tag_list.add(tags)
+            @spree_product.tag_list.add(tags, parse: true)
           end
           @spree_product.save!
         end
