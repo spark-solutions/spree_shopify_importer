@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://example.myshopify.com/admin/api/2019-10/shop.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Fri, 08 Nov 2019 15:02:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de84bc67bfe58db165a1ca5a00e6fdb221573225364; expires=Sat, 07-Nov-20
+        15:02:44 GMT; path=/; domain=.myshopify.com; HttpOnly
+      - _secure_admin_session_id=c86549590c4fadf763e24753e43889bb; path=/admin; expires=Sat,
+        08 Feb 2020 15:02:44 -0000; secure; HttpOnly
+      - _secure_admin_session_id_csrf=c86549590c4fadf763e24753e43889bb; path=/admin;
+        expires=Sat, 08 Feb 2020 15:02:44 -0000; secure; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '56'
+      X-Sorting-Hat-Shopid:
+      - '2442'
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '2442'
+      X-Shardid:
+      - '56'
+      Www-Authenticate:
+      - Basic Realm="Shopify API Authentication"
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - cc6b10eb-0610-49b1-a5db-782c3240fc2e
+      X-Shopify-Stage:
+      - canary
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=cc6b10eb-0610-49b1-a5db-782c3240fc2e'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=cc6b10eb-0610-49b1-a5db-782c3240fc2e
+      X-Dc:
+      - gcp-us-east1,gcp-us-east1
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 53286dff09112b07-WAW
+    body:
+      encoding: UTF-8
+      string: '{"errors":"[API] Invalid API key or access token (unrecognized login
+        or wrong password)"}'
+    http_version: 
+  recorded_at: Fri, 08 Nov 2019 15:02:44 GMT
+recorded_with: VCR 5.0.0

@@ -14,45 +14,56 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
         }
       end
 
-      context 'valid credentials', vcr: { cassette_name: 'client/valid_api_key_and_password' } do
+      context 'valid credentials', vcr: { cassette_name: 'client/valid_credentials' } do
         it 'creates connection to Shopify API' do
-          expect(client.get_connection(credentials)).to be_persisted
+          client.get_connection(credentials)
+          expect(ShopifyAPI::Shop.current.attributes['domain']).to eq('spree-shopify-importer-test-store.myshopify.com')
         end
       end
 
       context 'invalid credentials' do
-        context 'invalid api_key', vcr: { cassette_name: 'client/invalid_api_key_and_valid_password' } do
+        context 'invalid api_key', vcr: { cassette_name: 'client/invalid_api_key' } do
           let(:invalid_api_key_credentials) { credentials.merge(api_key: 'invalid_key') }
 
           it 'raises ForbiddenAccess error' do
-            expect { client.get_connection(invalid_api_key_credentials) }
-              .to raise_error(ActiveResource::ForbiddenAccess)
+            expect do
+              client.get_connection(invalid_api_key_credentials)
+              ShopifyAPI::Shop.current
+            end.to raise_error(ActiveResource::ForbiddenAccess)
           end
         end
 
-        context 'invalid password', vcr: { cassette_name: 'client/valid_api_key_and_invalid_password' } do
+        context 'invalid password', vcr: { cassette_name: 'client/invalid_password' } do
           let(:invalid_password_credentials) { credentials.merge(password: 'invalid_password') }
 
           it 'raises UnauthorizedAccess error' do
-            expect { client.get_connection(invalid_password_credentials) }
-              .to raise_error(ActiveResource::UnauthorizedAccess)
+            expect do
+              client.get_connection(invalid_password_credentials)
+              ShopifyAPI::Shop.current
+            end.to raise_error(ActiveResource::UnauthorizedAccess)
           end
         end
-      end
 
-      context 'invalid shop_domain', vcr: { cassette_name: 'client/valid_api_key_and_password_invalid_shop_domain' } do
+        context 'invalid shop_domain', vcr: { cassette_name: 'client/invalid_shop_domain' } do
         let(:invalid_shop_domain_credentials) { credentials.merge(shop_domain: 'example.myshopify.com') }
 
         it 'raises UnauthorizedAccess error' do
-          expect { client.get_connection(invalid_shop_domain_credentials) }
-            .to raise_error(ActiveResource::UnauthorizedAccess)
+           expect do
+             client.get_connection(invalid_shop_domain_credentials)
+             ShopifyAPI::Shop.current
+           end.to raise_error(ActiveResource::UnauthorizedAccess)
+        end
         end
       end
     end
 
     context 'with auth token' do
       let(:credentials) do
-        { shop_domain: 'spree-shopify-importer-test-store.myshopify.com', token: '918b6723f062d8805b364dba757782c5' }
+        {
+          shop_domain: 'spree-shopify-importer-test-store.myshopify.com',
+          token: '918b6723f062d8805b364dba757782c5',
+          api_version: '2019-10'
+         }
       end
 
       context 'valid credentials', vcr: { cassette_name: 'client/valid_auth_token' } do
