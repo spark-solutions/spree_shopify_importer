@@ -6,7 +6,7 @@ describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, t
   let!(:spree_shipment)       { create(:shipment) }
 
   subject { described_class.new(shopify_shipping_line, shopify_order, spree_shipment) }
-  before  { get_connection_as_client }
+  before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#save!', vcr: { cassette_name: 'shopify/base_order' } do

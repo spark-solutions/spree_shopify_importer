@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
   subject { described_class.new(resource) }
-  before  { get_connection_as_client }
+  before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/importers/user_importer/import' } do

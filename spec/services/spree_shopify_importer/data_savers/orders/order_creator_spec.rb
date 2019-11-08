@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :service do
   subject { described_class.new(order_data_feed) }
-  before  { get_connection_as_client }
+  before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#save!' do
