@@ -4,7 +4,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
   include ActiveJob::TestHelper
 
   subject { described_class.new(product_data_feed) }
-  before  { get_connection_as_client }
+  before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#create!' do
