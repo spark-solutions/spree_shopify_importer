@@ -3,12 +3,10 @@ require 'spec_helper'
 describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service do
   subject { described_class.new(shopify_data_feed) }
 
-  before { ShopifyAPI::Base.site = 'https://api_key:passowrd@shop_domain.myshopify.com/admin' }
-  before { get_connection_as_client }
-  after  { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
 
   describe '#create!', vcr: { cassette_name: 'shopify/base_custom_collection' } do
-    let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(388_567_107) }
+    let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(440_333_380) }
     let(:shopify_data_feed) { create(:shopify_data_feed, data_feed: shopify_custom_collection.to_json) }
     let(:spree_taxon) { Spree::Taxon.where.not(parent: nil).last }
 
@@ -27,7 +25,6 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service 
     end
 
     context 'taxon attributes' do
-      let(:permalink) { 'shopify-custom-collections/samplecollection' }
 
       before { subject.create! }
 
@@ -36,7 +33,8 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service 
       end
 
       it 'permalink' do
-        expect(spree_taxon.permalink).to eq permalink
+
+        expect(spree_taxon.permalink).to eq "shopify-custom-collections/#{shopify_custom_collection.handle}"
       end
 
       it 'description' do
@@ -50,7 +48,7 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service 
         let!(:product_data_feed) do
           create(:shopify_data_feed,
                  shopify_object_type: 'ShopifyAPI::Product',
-                 shopify_object_id: '9884552707',
+                 shopify_object_id: '11055169028',
                  spree_object: spree_product)
         end
 
