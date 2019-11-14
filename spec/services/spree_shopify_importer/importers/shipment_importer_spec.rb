@@ -1,11 +1,18 @@
 require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service do
-  authenticate_with_shopify
+  let(:parent_feed) { create(:shopify_data_feed, data_feed: shopify_order.to_json) }
+  let(:spree_order) { create(:order) }
+
   subject { described_class.new(fulfillment, parent_feed, spree_order) }
 
-  let!(:parent_feed) { create(:shopify_data_feed, data_feed: shopify_order.to_json) }
-  let!(:spree_order) { create(:order) }
+  before  do
+    authenticate_with_shopify
+    parent_feed
+    spree_order
+  end
+
+  after { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify/importers/shipment_importer/import' } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
