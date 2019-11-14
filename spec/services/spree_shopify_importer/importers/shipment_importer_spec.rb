@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service do
-  subject { described_class.new(fulfillment, parent_feed, spree_order) }
-
   authenticate_with_shopify
+  subject { described_class.new(fulfillment, parent_feed, spree_order) }
 
   let!(:parent_feed) { create(:shopify_data_feed, data_feed: shopify_order.to_json) }
   let!(:spree_order) { create(:order) }
