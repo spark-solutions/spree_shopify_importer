@@ -28,9 +28,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'shopify_api', '>= 4.2.2'
   s.add_dependency 'spree_core', '>= 3.1.0', '< 5.0'
   s.add_dependency 'spree_extension'
+  s.add_dependency 'acts-as-taggable-on'
+
   s.add_runtime_dependency 'deface', '~> 1.0'
 
-  s.add_development_dependency 'acts-as-taggable-on'
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
