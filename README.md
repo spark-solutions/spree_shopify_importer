@@ -6,7 +6,7 @@ Spree Shopify Importer
 ====================
 
 The Spree Shopify Importer gem allows you to easily import data from Shopify store to Spree application.
-It's compatible with Spree 3.2 and above.
+It's compatible with Spree 4 and above.
 
 Behind-the-scenes, this extension is using [Shopify API gem](https://github.com/Shopify/shopify_api).
 
@@ -16,9 +16,8 @@ Currently, it's in version 0.1.0. It has been tested with thousands of real life
 
 1. Add this extension to your Gemfile with this:
   ```ruby
-  gem 'spree_shopify_importer', github: 'spree-contrib/spree_shopify_importer'
-  gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
-  gem 'spree_auth_devise', '~> 3.3'
+  gem 'spree_shopify_importer', github: 'spark-solutions/spree_shopify_importer'
+  gem 'spree_auth_devise'
 
   ```
 
@@ -75,24 +74,22 @@ Currently, you need to have access to the console to start the import.
 With default values
 
 ```ruby
- SpreeShopifyImporter::InvokerJob.new.import!
+ SpreeShopifyImporter::InvokerJob.new.perform
 ```
 
 or with credentials.
 
 ```ruby
- SpreeShopifyImporter::InvokerJob.new(credentials).import!
+ SpreeShopifyImporter::InvokerJob.new.perform(credentials)
 ```
 
 Where credentials could have two formats:
 
 ```ruby
     {
-      credentials: {
-        api_key: 'api_key', 
-        password: 'password',
-        shop_domain: 'shop_domain'
-      }
+      api_key: 'api_key', 
+      password: 'password',
+      shop_domain: 'shop_domain'
     }
 ```
 
@@ -100,10 +97,8 @@ or
 
 ```ruby
     {
-      credentials: {
-        token: 'token',
-        shop_domain: 'shop_domain'
-      }
+      token: 'token',
+      shop_domain: 'shop_domain'
     }
 ```
 ## Import Model
@@ -148,7 +143,7 @@ We welcome new pull requests!
 
 ## License
 
-Spree Shopify Importer is copyright © 2015-2018
+Spree Shopify Importer is copyright © 2015-2019
 [Spark Solutions Sp. z o.o.][spark]. It is free software,
 and may be redistributed under the terms specified in the
 [LICENSE](LICENSE.md) file.
