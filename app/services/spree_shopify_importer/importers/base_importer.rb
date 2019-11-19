@@ -3,12 +3,10 @@ module SpreeShopifyImporter
     class BaseImporter
       def initialize(resource = nil)
         @resource = resource
-        connect
       end
 
       def import!
         data_feed = process_data_feed
-
         if (spree_object = data_feed.spree_object).blank?
           creator.new(data_feed).create!
         else
@@ -23,6 +21,7 @@ module SpreeShopifyImporter
       end
 
       def find_existing_data_feed
+        return if shopify_object.blank?
         SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: shopify_object.id,
                                                shopify_object_type: shopify_object.class.to_s)
       end
@@ -49,16 +48,6 @@ module SpreeShopifyImporter
 
       def shopify_class
         raise NotImplementedError, I18n.t('errors.not_implemented.shopify_class')
-      end
-
-      def connect
-        client = SpreeShopifyImporter::Connections::Client.instance
-
-        client.get_connection(credentials) if credentials.present? && client.connection.blank?
-      end
-
-      def credentials
-        Spree::Config[:shopify_current_credentials]
       end
     end
   end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :service do
   subject { described_class.new(shopify_line_item, shopify_order, spree_order) }
-  before  { get_connection_as_client }
+  before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#create', vcr: { cassette_name: 'shopify/base_order' } do

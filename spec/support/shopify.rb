@@ -1,20 +1,12 @@
-def authenticate_with_shopify(
-  api_key: '0a9445b7b067719a0af024610364ee34', password: '800f97d6ea1a768048851cdd99a9101a',
-  shop_domain: 'spree-shopify-importer-test-store.myshopify.com', api_version: '2019-10'
-)
-  ShopifyAPI::Base.api_version = api_version
-  ShopifyAPI::Base.site = "https://#{api_key}:#{password}@#{shop_domain}/admin"
+def authenticate_with_shopify
+  SpreeShopifyImporter::Connections::Client.instance.get_connection(credentials)
 end
 
-def get_connection_as_client
-  SpreeShopifyImporter::Connections::Client.instance.get_connection(get_credencials)
-end
-
-def get_credencials
+def credentials
   {
     api_key: '0a9445b7b067719a0af024610364ee34',
     password: '800f97d6ea1a768048851cdd99a9101a',
     shop_domain: 'spree-shopify-importer-test-store.myshopify.com',
-    api_version: '0.1.0'
+    api_version: '2019-10'
   }
 end
