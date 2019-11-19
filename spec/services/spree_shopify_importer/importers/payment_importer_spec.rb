@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::PaymentImporter, type: :service do
-  let(:transaction) { shopify_order.transactions.first }
+  let(:transaction)  { shopify_order.transactions.first }
   let!(:parent_feed) { create(:shopify_data_feed) }
   let!(:spree_order) { create(:order) }
 
   subject { described_class.new(transaction, parent_feed, spree_order) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify/base_order' } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }

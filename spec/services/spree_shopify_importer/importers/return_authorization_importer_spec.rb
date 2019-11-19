@@ -4,8 +4,8 @@ describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :se
   let!(:parent_feed) { create(:shopify_data_feed) }
   let!(:spree_order) { create(:order) }
   subject { described_class.new(shopify_refund, parent_feed, spree_order) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!' do
     context 'with basic return authorization data', vcr: { cassette_name: 'shopify/order_with_refund' } do

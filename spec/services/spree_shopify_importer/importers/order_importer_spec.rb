@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::OrderImporter, type: :service do
   subject { described_class.new(resource) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/importers/order_importer' } do
     let!(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }

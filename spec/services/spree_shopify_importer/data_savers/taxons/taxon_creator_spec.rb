@@ -4,6 +4,8 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service 
   subject { described_class.new(shopify_data_feed) }
 
   before { ShopifyAPI::Base.site = 'https://api_key:passowrd@shop_domain.myshopify.com/admin' }
+  before { get_connection_as_client }
+  after  { ShopifyAPI::Base.clear_session }
 
   describe '#create!', vcr: { cassette_name: 'shopify/base_custom_collection' } do
     let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(388_567_107) }

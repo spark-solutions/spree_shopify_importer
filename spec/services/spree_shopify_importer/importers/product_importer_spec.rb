@@ -4,8 +4,8 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
   include ActiveJob::TestHelper
 
   subject { described_class.new(resource) }
-
-  before { authenticate_with_shopify }
+  before  { get_connection_as_client }
+  after   { ShopifyAPI::Base.clear_session }
 
   describe '#import!', vcr: { cassette_name: 'shopify_import/importers/product_importer' } do
     let(:resource) { ShopifyAPI::Product.find(11_101_525_828).to_json }
