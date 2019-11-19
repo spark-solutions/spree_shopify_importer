@@ -5,18 +5,18 @@ language: ruby
 
 env:
   - DB=postgres
-  - DB=mysql
+#  - DB=mysql
 
 gemfile:
-  - gemfiles/spree_3_5.gemfile
-  - gemfiles/spree_3_7.gemfile
+#  - gemfiles/spree_3_5.gemfile
+#  - gemfiles/spree_3_7.gemfile
   - gemfiles/spree_4_0.gemfile
-  - gemfiles/spree_master.gemfile
+#  - gemfiles/spree_master.gemfile
 
 rvm:
   - 2.5.1
-  - 2.4.4
-  - 2.3.8
+#  - 2.4.4
+#  - 2.3.8
 
 addons:
   postgresql: 9.4
@@ -33,13 +33,13 @@ matrix:
   allow_failures:
     - gemfile: gemfiles/spree_master.gemfile
   exclude:
-    - rvm: 2.3.8
-      gemfile: gemfiles/spree_4_0.gemfile
-    - rvm: 2.4.4
-      gemfile: gemfiles/spree_4_0.gemfile
-    - rvm: 2.3.8
-      gemfile: gemfiles/spree_master.gemfile
-    - rvm: 2.4.4
-      gemfile: gemfiles/spree_master.gemfile
+#    - rvm: 2.3.8
+#      gemfile: gemfiles/spree_4_0.gemfile
+#    - rvm: 2.4.4
+#      gemfile: gemfiles/spree_4_0.gemfile
+#    - rvm: 2.3.8
+#      gemfile: gemfiles/spree_master.gemfile
+#    - rvm: 2.4.4
+#      gemfile: gemfiles/spree_master.gemfile
     - rvm: 2.5.1
       gemfile: gemfiles/spree_3_5.gemfile
