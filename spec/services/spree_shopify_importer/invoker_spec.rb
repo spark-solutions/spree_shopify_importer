@@ -12,8 +12,10 @@ RSpec.describe SpreeShopifyImporter::Invoker do
     context 'with credentials parameter' do
       let(:credentials) do
         {
-          api_key: 'api_key', password: 'password',
-          shop_domain: 'spree-shopify-importer-test-store.myshopify.com'
+          api_key: 'api_key',
+          password: 'password',
+          shop_domain: 'spree-shopify-importer-test-store.myshopify.com',
+          api_version: '2019-10'
         }
       end
 
@@ -45,6 +47,7 @@ RSpec.describe SpreeShopifyImporter::Invoker do
         Spree::Config[:shopify_api_key] = 'api_key'
         Spree::Config[:shopify_password] = 'password'
         Spree::Config[:shopify_shop_domain] = 'spree-shopify-importer-test-store.myshopify.com'
+        Spree::Config[:shopify_api_version] = '2019-10'
       end
 
       it 'creates connection to Shopify API using preferences' do
@@ -54,6 +57,7 @@ RSpec.describe SpreeShopifyImporter::Invoker do
           api_key: Spree::Config[:shopify_api_key],
           password: Spree::Config[:shopify_password],
           shop_domain: Spree::Config[:shopify_shop_domain],
+          api_version: Spree::Config[:shopify_api_version],
           token: nil
         )
       end

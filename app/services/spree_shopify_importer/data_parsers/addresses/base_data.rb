@@ -35,6 +35,7 @@ module SpreeShopifyImporter
 
         def create_country
           Spree::Country.create!(iso: iso,
+                                 iso3: iso,
                                  name: country_name,
                                  iso_name: country_name.upcase)
         end
