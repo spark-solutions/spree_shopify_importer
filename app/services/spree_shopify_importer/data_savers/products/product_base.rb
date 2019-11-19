@@ -11,8 +11,9 @@ module SpreeShopifyImporter
         end
 
         def add_tags
-          @spree_product.tag_list = tags
-          @spree_product.save!
+          # TODO: - issues with tags
+          # @spree_product.tag_list = tags
+          # @spree_product.save!
         end
 
         def add_option_types
