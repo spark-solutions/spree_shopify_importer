@@ -3,10 +3,10 @@ require 'spec_helper'
 RSpec.describe SpreeShopifyImporter::Connections::CustomCollection, type: :model do
   subject { described_class }
   let(:credentials) do
-    { api_key: 'api_key', password: 'password', shop_domain: 'shop_domain.myshopify.com' }.freeze
+    { api_key: 'api_key', password: 'password', shop_domain: 'shop_domain.myshopify.com', api_version: '2019-10' }.freeze
   end
 
-  before { authenticate_with_shopify(credentials) }
+  before { authenticate_with_shopify }
 
   describe '.count', vcr: { cassette_name: 'shopify/custom_collection/count' } do
     let(:result) { { 'count' => 2 } }
