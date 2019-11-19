@@ -171,7 +171,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
 
         context 'option values' do
           let(:option_type1) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
-          let(:option_type2) { Spree::OptionType.find_by(name: shopify_product.options.first.name.downcase) }
+          let(:option_type2) { Spree::OptionType.find_by(name: shopify_product.options.last.name.downcase) }
           let(:option_type1_values) { shopify_product.options.first.values.map(&:downcase) }
           let(:option_type2_values) { shopify_product.options.last.values.map(&:downcase) }
 
@@ -181,12 +181,13 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
 
           it 'assigns option values to option types' do
             subject.update!
+
             expect(option_type1.option_values.pluck(:name)).to match_array option_type1_values
             expect(option_type2.option_values.pluck(:name)).to match_array option_type2_values
           end
 
           context 'with case insensitive' do
-            let!(:option_type2) { create(:option_type, name: shopify_product.options.first.name) }
+            let!(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
             let!(:option_type2_values) do
               shopify_product.options.last.values.map do |value|
                 create(:option_value, option_type: option_type2, name: value)
