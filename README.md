@@ -59,6 +59,7 @@ All default values are saved in Spree::AppConfiguration
   * shopify_password - nil
   * shopify_shop_domain - nil
   * shopify_token - nil
+  * shopify_api_version - nil
 - Import Rescue Limit - used for retrying API errors, for example API limit hit.
   * shopify_rescue_limit - 5
 - Import Queue Name
@@ -80,7 +81,7 @@ With default values
 or with credentials.
 
 ```ruby
- SpreeShopifyImporter::Invoker.new.import!(credentials)
+ SpreeShopifyImporter::Invoker.new(credentials).import!
 ```
 
 Where credentials could have two formats:
@@ -89,7 +90,8 @@ Where credentials could have two formats:
     {
       api_key: 'api_key', 
       password: 'password',
-      shop_domain: 'shop_domain'
+      shop_domain: 'shop_domain',
+      api_version: 'api_version'
     }
 ```
 
