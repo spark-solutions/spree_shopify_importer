@@ -74,13 +74,13 @@ Currently, you need to have access to the console to start the import.
 With default values
 
 ```ruby
- SpreeShopifyImporter::InvokerJob.new.perform
+ SpreeShopifyImporter::Invoker.new.import!
 ```
 
 or with credentials.
 
 ```ruby
- SpreeShopifyImporter::InvokerJob.new.perform(credentials)
+ SpreeShopifyImporter::Invoker.new.import!(credentials)
 ```
 
 Where credentials could have two formats:
