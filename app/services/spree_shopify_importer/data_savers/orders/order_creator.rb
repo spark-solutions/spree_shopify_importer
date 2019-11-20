@@ -25,10 +25,15 @@ module SpreeShopifyImporter
         private
 
         def create_spree_order
-          order = Spree::Order.new(user: user)
+          @user = fake_shopify_customer unless data_feed['customer']
+          order = Spree::Order.new(user: @user)
           order.assign_attributes(attributes)
           order.save!
           order
+        end
+
+        def fake_shopify_customer
+          Spree::User.where(email: 'shopify@shopify.com').first_or_create!(password: 'password')
         end
 
         def create_spree_line_items
@@ -118,11 +123,10 @@ module SpreeShopifyImporter
         end
 
         def create_bill_addreess
-          return if billing_address.blank?
 
           # HACK: shopify order address does not have id, so i'm not saving data feed.
           address_data_feed = SpreeShopifyImporter::DataFeed.new(data_feed: billing_address.to_json)
-          @spree_order.bill_address = address_creator.new(address_data_feed, user, true).create!
+          @spree_order.bill_address = address_creator.new(address_data_feed, @user, true).create!
           @spree_order.save!(validate: false)
         end
 
@@ -131,7 +135,7 @@ module SpreeShopifyImporter
 
           # HACK: shopify order address does not have id, so i'm not saving data feed.
           address_data_feed = SpreeShopifyImporter::DataFeed.new(data_feed: ship_address.to_json)
-          @spree_order.ship_address = address_creator.new(address_data_feed, user, true).create!
+          @spree_order.ship_address = address_creator.new(address_data_feed, @user, true).create!
           @spree_order.save!(validate: false)
         end
 
@@ -212,7 +216,11 @@ module SpreeShopifyImporter
         end
 
         def billing_address
-          @billing_address ||= shopify_order.billing_address
+          if data_feed['billing_address']
+            @billing_address ||= shopify_order.billing_address
+          else
+            @billing_address ||= shopify_order.shipping_address
+          end
         end
 
         def ship_address
