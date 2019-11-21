@@ -25,7 +25,7 @@ module SpreeShopifyImporter
         private
 
         def create_spree_order
-          @user = fake_shopify_customer unless data_feed['customer']
+          @user = data_feed['customer'] ? user : fake_shopify_customer
           order = Spree::Order.new(user: @user)
           order.assign_attributes(attributes)
           order.save!
