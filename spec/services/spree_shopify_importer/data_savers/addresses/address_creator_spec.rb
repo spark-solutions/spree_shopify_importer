@@ -18,7 +18,7 @@ describe SpreeShopifyImporter::DataSavers::Addresses::AddressCreator, type: :ser
     let(:spree_user) { create(:user) }
 
     it 'creates spree address' do
-      expect { subject.create! }.to change(Spree::Address, :count).by(1)
+      expect { subject.create! }.to change(Spree::Address, :count).by(2)
     end
 
     context 'sets address attributes' do
@@ -84,6 +84,26 @@ describe SpreeShopifyImporter::DataSavers::Addresses::AddressCreator, type: :ser
         subject.create!
 
         expect(shopify_data_feed.reload.spree_object).to eq address
+      end
+    end
+
+    context "when shopify default address present" do
+      it "adds shipping and billing addresses to spree user" do
+        subject.create!
+
+        expect(spree_user.bill_address).to be_present
+        expect(spree_user.ship_address).to be_present
+      end
+    end
+
+    context "when no default address present" do
+      let(:shopify_address) { create(:shopify_address, default: false) }
+
+      it "is not add shipping and billing addresses to spree user" do
+        subject.create!
+
+        expect(spree_user.bill_address).to be_nil
+        expect(spree_user.ship_address).to be_nil
       end
     end
   end

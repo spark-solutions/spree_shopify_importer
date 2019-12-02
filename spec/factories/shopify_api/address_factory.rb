@@ -16,6 +16,6 @@ FactoryBot.define do
     province_code { 'NY' }
     country_code  { 'US' }
     country_name  { 'United States' }
-    default true
+    default       { true }
   end
 end
