@@ -22,5 +22,6 @@ FactoryBot.define do
     inventory_quantity     { 0 }
     old_inventory_quantity { 0 }
     image_id               { nil }
+    sequence(:admin_graphql_api_id)   { |n| "gid://shopify/ProductVariant/#{n}"}
   end
 end

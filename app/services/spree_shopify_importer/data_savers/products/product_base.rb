@@ -38,6 +38,10 @@ module SpreeShopifyImporter
           end
         end
 
+        def create_delivery_profiles
+          SpreeShopifyImporter::Importers::DeliveryProfileImporter.new(@spree_product, @shopify_product).call
+        end
+
         # According to shopify api documentation variant can have only one image
         # https://help.shopify.com/api/reference/product_variant
         def variant_image(variant)
