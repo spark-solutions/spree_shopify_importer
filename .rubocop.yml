@@ -32,7 +32,7 @@ Metrics/ModuleLength:
   Exclude:
     - '**/*_spec.rb'
     - 'spec/support/shared_examples/**'
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 Lint/Debugger:
   Enabled: false
