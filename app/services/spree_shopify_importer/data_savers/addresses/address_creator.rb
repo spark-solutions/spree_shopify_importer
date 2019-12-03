@@ -9,14 +9,22 @@ module SpreeShopifyImporter
         end
 
         def create!
-          Spree::Address.transaction do
-            create_spree_address
-            assigns_spree_address_to_data_feed unless @is_order
-          end
+          create_spree_address
+          create_user_shipping_and_billing_addresses unless @is_order
+          assigns_spree_address_to_data_feed unless @is_order
           @spree_address
         end
 
         private
+
+        def create_user_shipping_and_billing_addresses
+          return unless shopify_address.default?
+
+          default_address = Spree::Address.new(attributes)
+          @spree_user.ship_address = default_address
+          @spree_user.bill_address = default_address
+          @spree_user.save(validate: false)
+        end
 
         def create_spree_address
           # Spree Orders should not be users addresses same time.

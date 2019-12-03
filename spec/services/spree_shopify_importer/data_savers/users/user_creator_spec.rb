@@ -90,7 +90,7 @@ describe SpreeShopifyImporter::DataSavers::Users::UserCreator, type: :service do
             perform_enqueued_jobs do
               subject.create!
             end
-          end.to change(Spree::Address, :count).by(1)
+          end.to change(Spree::Address, :count).by(2)
         end
       end
     end

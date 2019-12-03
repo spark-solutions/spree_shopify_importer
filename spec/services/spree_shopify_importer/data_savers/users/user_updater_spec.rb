@@ -60,7 +60,7 @@ describe SpreeShopifyImporter::DataSavers::Users::UserUpdater, type: :service do
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Address, :count).by(1)
+          end.to change(Spree::Address, :count).by(2)
         end
       end
     end

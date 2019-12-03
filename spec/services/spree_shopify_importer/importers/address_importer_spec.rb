@@ -15,7 +15,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
     end
 
     it 'creates spree address' do
-      expect { subject.import! }.to change(Spree::Address, :count).by(1)
+      expect { subject.import! }.to change(Spree::Address, :count).by(2)
     end
 
     context 'with existing data feed' do
@@ -31,7 +31,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
       end
 
       it 'creates spree address' do
-        expect { subject.import! }.to change(Spree::Address, :count).by(1)
+        expect { subject.import! }.to change(Spree::Address, :count).by(2)
       end
 
       context 'and address' do
