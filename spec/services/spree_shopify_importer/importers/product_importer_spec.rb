@@ -7,7 +7,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
-  describe '#import!', vcr: { cassette_name: 'shopify_import/importers/product_importer' } do
+  describe '#import!' do
     let(:resource) { ShopifyAPI::Product.find(11_101_525_828).to_json }
 
     it 'creates shopify data feeds' do
@@ -15,7 +15,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
         perform_enqueued_jobs do
           subject.import!
         end
-      end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
+      end.to change(SpreeShopifyImporter::DataFeed, :count).by(4)
     end
 
     it 'creates spree products' do
@@ -48,7 +48,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
             perform_enqueued_jobs do
               subject.import!
             end
-          end.to change(SpreeShopifyImporter::DataFeed, :count).by(2)
+          end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
         end
 
         it 'creates spree products' do
@@ -81,7 +81,7 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
               perform_enqueued_jobs do
                 subject.import!
               end
-            end.to change(SpreeShopifyImporter::DataFeed, :count).by(2)
+            end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
           end
 
           it 'does not create spree products' do

@@ -4,7 +4,13 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
   include ActiveJob::TestHelper
 
   subject { described_class.new(product_data_feed) }
-  before  { authenticate_with_shopify }
+
+  let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
+  before  do
+    authenticate_with_shopify
+    expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
+    expect(delivery_profile_importer).to receive(:call)
+  end
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#create!' do
