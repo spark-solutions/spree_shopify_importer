@@ -18,7 +18,7 @@ module SpreeShopifyImporter
           stock_item.update_column(:count_on_hand, inventory_quantity) if track_inventory?
         end
 
-        def assing_spree_variant_to_data_feed
+        def assign_spree_variant_to_data_feed
           @shopify_data_feed.update(spree_object: @spree_variant)
         end
 

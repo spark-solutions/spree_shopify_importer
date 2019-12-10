@@ -19,7 +19,7 @@ module SpreeShopifyImporter
         end
 
         def variant
-          return nil if (variant_id = @shopify_line_item.variant_id).blank?
+          return if (variant_id = @shopify_line_item.variant_id).blank?
 
           @variant ||= find_variant(variant_id)
 

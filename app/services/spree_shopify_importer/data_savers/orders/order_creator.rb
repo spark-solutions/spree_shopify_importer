@@ -91,6 +91,8 @@ module SpreeShopifyImporter
         end
 
         def create_spree_taxes
+          return if billing_address.blank?
+
           shopify_order.tax_lines.each do |shopify_tax_line|
             spree_tax_rate = create_tax_rate(shopify_tax_line)
             SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator.new(shopify_tax_line,
@@ -123,6 +125,7 @@ module SpreeShopifyImporter
         end
 
         def create_bill_addreess
+          return if billing_address.blank?
 
           # HACK: shopify order address does not have id, so i'm not saving data feed.
           address_data_feed = SpreeShopifyImporter::DataFeed.new(data_feed: billing_address.to_json)
@@ -217,14 +220,14 @@ module SpreeShopifyImporter
 
         def billing_address
           if data_feed['billing_address']
-            @billing_address ||= shopify_order.billing_address
+            @billing_address ||= shopify_order.try(:billing_address)
           else
-            @billing_address ||= shopify_order.shipping_address
+            @billing_address ||= shopify_order.try(:shipping_address)
           end
         end
 
         def ship_address
-          @ship_address ||= shopify_order.shipping_address
+          @ship_address ||= shopify_order.try(:shipping_address)
         end
 
         def parser
