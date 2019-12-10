@@ -17,7 +17,7 @@ module SpreeShopifyImporter
         end
 
         def line_item
-          return nil if variant.blank?
+          return if variant.blank?
 
           @line_item ||= order.line_items.find_by(variant: variant)
         end

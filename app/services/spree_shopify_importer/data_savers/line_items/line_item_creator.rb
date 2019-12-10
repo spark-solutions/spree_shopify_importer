@@ -9,6 +9,8 @@ module SpreeShopifyImporter
         end
 
         def create
+          return if spree_variant.blank?
+
           line_item = @spree_order.line_items.find_or_initialize_by(variant: spree_variant)
           line_item.assign_attributes(line_item_attributes)
           line_item.save(validate: false)

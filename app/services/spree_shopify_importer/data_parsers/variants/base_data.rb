@@ -25,7 +25,7 @@ module SpreeShopifyImporter
               option_type_id: @spree_product.option_type_ids,
               name: option_value.strip.downcase
             ).id
-          end
+          end.uniq
         end
 
         def track_inventory?
