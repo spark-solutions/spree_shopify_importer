@@ -1,4 +1,3 @@
-# rubocop:disable Style/FileName
 appraise 'spree-3-5' do
   gem 'spree', '~> 3.5.0'
   gem 'spree_auth_devise', '~> 3.3.0'
@@ -34,4 +33,3 @@ appraise 'spree-master' do
   gem 'rails-controller-testing'
   gem 'curb'
 end
-# rubocop:enable Style/FileName

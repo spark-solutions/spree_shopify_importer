@@ -63,7 +63,7 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
           shop_domain: 'spree-shopify-importer-test-store.myshopify.com',
           token: '918b6723f062d8805b364dba757782c5',
           api_version: '2019-10'
-         }
+        }
       end
 
       context 'valid credentials', vcr: { cassette_name: 'client/valid_auth_token' } do

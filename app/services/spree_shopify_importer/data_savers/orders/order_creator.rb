@@ -5,7 +5,6 @@ module SpreeShopifyImporter
       class OrderCreator < BaseDataSaver
         delegate :user, :attributes, :timestamps, to: :parser
 
-        # rubocop:disable Metrics/MethodLength
         def save!
           Spree::Order.transaction do
             @spree_order = create_spree_order
@@ -20,7 +19,6 @@ module SpreeShopifyImporter
           end
           @spree_order.update_columns(timestamps)
         end
-        # rubocop:enable Metrics/MethodLength
 
         private
 

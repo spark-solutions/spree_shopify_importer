@@ -6,7 +6,6 @@ module SpreeShopifyImporter
           @shopify_address = shopify_address
         end
 
-        # rubocop:disable Metrics/MethodLength
         def attributes
           {
             firstname: @shopify_address.first_name,
@@ -21,7 +20,6 @@ module SpreeShopifyImporter
             country: country
           }
         end
-        # rubocop:enable Metrics/MethodLength
 
         private
 
