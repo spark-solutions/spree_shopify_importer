@@ -1,18 +1,15 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   DisplayCopNames: true
   Exclude:
    - 'bin/*'
-   - 'db/schema.rb'
+   - 'db/**/*'
    - 'vendor/bundle/**/*'
    - 'spec/dummy/**/*'
    - 'gemfiles/*'
-  Include:
-    - 'lib/tasks/**/*'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/Guardfile'
-Documentation:
-  Enabled: false
+require:
+  - rubocop-rails
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/**'
@@ -23,8 +20,8 @@ Metrics/BlockLength:
     - 'spec/support/shared_examples/**'
     - '**/factories/**/*'
     - 'vendor/**/*'
-Metrics/LineLength:
-  Max: 120
+Layout/LineLength:
+  Max: 180
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/**'
@@ -32,8 +29,6 @@ Metrics/ModuleLength:
   Exclude:
     - '**/*_spec.rb'
     - 'spec/support/shared_examples/**'
-Naming/MethodParameterName:
-  Enabled: false
 Lint/Debugger:
   Enabled: false
 Layout/DefEndAlignment:
@@ -44,6 +39,8 @@ Lint/AmbiguousBlockAssociation:
   Exclude:
    - '**/*_spec.rb'
    - 'spec/support/shared_examples/**'
+Lint/NonDeterministicRequireOrder:
+  Enabled: false
 Rails:
   Enabled: true
 Rails/ActiveRecordAliases:
@@ -52,6 +49,8 @@ Rails/SkipsModelValidations:
   Enabled: false
 Rails/Output:
   Enabled: false
+Rails/RakeEnvironment:
+  Enabled: false
 Security/Open:
   Enabled: false
 Style/FrozenStringLiteralComment:
@@ -59,4 +58,6 @@ Style/FrozenStringLiteralComment:
 Style/SymbolArray:
   Enabled: false
 Style/DateTime:
+  Enabled: false
+Style/Documentation:
   Enabled: false
