@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :service do
+  subject { described_class.new(shopify_order) }
+
   let(:shopify_order) { create(:shopify_order) }
   let(:shopify_transaction) { create(:shopify_transaction, order: shopify_order) }
-  subject { described_class.new(shopify_order) }
 
   describe '#user' do
     let(:user) { create(:user) }
@@ -74,8 +75,13 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
     let(:result) do
       [base_order_attributes, order_totals, order_states].inject(&:merge)
     end
+    let(:states_getter) { instance_double(SpreeShopifyImporter::DataParsers::Orders::StatesGetter) }
 
     before do
+      expect(SpreeShopifyImporter::DataParsers::Orders::StatesGetter).to receive(:new).with(shopify_order).and_return(states_getter)
+      expect(states_getter).to receive(:order_state).and_return('complete')
+      expect(states_getter).to receive(:payment_state).and_return('paid')
+      expect(states_getter).to receive(:shipment_state).and_return('shipped')
       allow_any_instance_of(ShopifyAPI::Order).to receive(:transactions).and_return([shopify_transaction])
     end
 
@@ -84,12 +90,12 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
     end
 
     context 'with multiple transactions' do
-      let(:shopify_order) { create(:shopify_order) }
-      let(:shopify_transaction1) { create(:shopify_transaction, order: shopify_order) }
-      let(:shopify_transaction2) { create(:shopify_transaction, order: shopify_order) }
+      let(:shopify_order) { build_stubbed(:shopify_order) }
+      let(:shopify_transaction1) { build_stubbed(:shopify_transaction, order: shopify_order) }
+      let(:shopify_transaction2) { build_stubbed(:shopify_transaction, order: shopify_order) }
 
       before do
-        allow_any_instance_of(ShopifyAPI::Order)
+        expect_any_instance_of(ShopifyAPI::Order)
           .to receive(:transactions).and_return([shopify_transaction1, shopify_transaction2])
       end
 
@@ -108,8 +114,6 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Orders::BaseData, type: :servi
         expect(subject.attributes).to eq result
       end
     end
-
-    context 'other order states'
   end
 
   context '#timestamps' do

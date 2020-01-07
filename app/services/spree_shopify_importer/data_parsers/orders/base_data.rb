@@ -72,9 +72,9 @@ module SpreeShopifyImporter
 
         def order_states
           {
-            state: order_state,
-            payment_state: payment_state,
-            shipment_state: shipment_state
+            state: states_getter.order_state,
+            payment_state: states_getter.payment_state,
+            shipment_state: states_getter.shipment_state
           }
         end
 
@@ -90,38 +90,8 @@ module SpreeShopifyImporter
           @shopify_order.shipping_lines.sum { |sl| sl.price.to_d }
         end
 
-        def order_state
-          return 'returned' if @shopify_order.financial_status.eql?('refunded')
-
-          case payment_state
-          when 'paid', 'balance_due' then 'complete'
-          when 'void' then 'canceled'
-          when 'pending' then shipment_state.eql?('shipped') ? 'complete' : 'pending'
-          else
-            raise NotImplementedError
-          end
-        end
-
-        def payment_state
-          @payment_state ||= case @shopify_order.financial_status
-                             when 'pending', 'partially_paid' then 'balance_due'
-                             when 'authorized', 'paid', 'partially_refunded', 'refunded' then 'paid'
-                             when 'voided' then 'void'
-                             else
-                               raise NotImplementedError
-                             end
-        end
-
-        def shipment_state
-          @shipment_state ||= case @shopify_order.fulfillment_status
-                              when 'fulfilled' then 'shipped'
-                              when 'unfulfilled' then 'ready'
-                              when 'restocked' then 'canceled'
-                              when nil, '' then nil
-                              when 'pending', 'partial' then 'pending'
-                              else
-                                raise NotImplementedError
-                              end
+        def states_getter
+          @states_getter ||= SpreeShopifyImporter::DataParsers::Orders::StatesGetter.new(@shopify_order)
         end
       end
     end
