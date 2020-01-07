@@ -137,7 +137,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
         end
 
         it 'shipment state' do
-          expect(spree_order.shipment_state).to eq 'pending'
+          expect(spree_order.shipment_state).to eq 'partial'
         end
       end
 
