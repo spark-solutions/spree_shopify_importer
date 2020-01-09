@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shop.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 10 Jan 2020 07:04:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d71a0c223069a7a13ae8a1764b0b853e91578639876; expires=Sun, 09-Feb-20
+        07:04:36 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - e95dcf29-e5bf-422a-aa6d-724c8bdaf847
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=e95dcf29-e5bf-422a-aa6d-724c8bdaf847'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fshops&source%5Bsection%5D=admin_api&source%5Buuid%5D=e95dcf29-e5bf-422a-aa6d-724c8bdaf847
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 552ccc3ba847f2b8-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJzaG9wIjp7ImlkIjoyMDUxMzY5MSwibmFtZSI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImVtYWlsIjoidmlrdG9yLmZvbmljQGdtYWlsLmNvbSIsImRvbWFpbiI6InNwcmVlLXNob3BpZnktaW1wb3J0ZXItdGVzdC1zdG9yZS5teXNob3BpZnkuY29tIiwicHJvdmluY2UiOiIiLCJjb3VudHJ5IjoiSFIiLCJhZGRyZXNzMSI6IkNyb2F0aWFuIHN0cmVldCA1OSIsInppcCI6IjIxMDAwIiwiY2l0eSI6IlNwbGl0Iiwic291cmNlIjpudWxsLCJwaG9uZSI6IjA5ODEyMzQ1NjciLCJsYXRpdHVkZSI6NDMuNTA4MTMyMywibG9uZ2l0dWRlIjoxNi40NDAxOTM1LCJwcmltYXJ5X2xvY2FsZSI6ImVuIiwiYWRkcmVzczIiOiIiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNS0zMVQwNjoxODowMiswMjowMCIsInVwZGF0ZWRfYXQiOiIyMDE5LTAyLTEzVDIyOjM3OjAzKzAxOjAwIiwiY291bnRyeV9jb2RlIjoiSFIiLCJjb3VudHJ5X25hbWUiOiJDcm9hdGlhIiwiY3VycmVuY3kiOiJFVVIiLCJjdXN0b21lcl9lbWFpbCI6InZpa3Rvci5mb25pY0BnbWFpbC5jb20iLCJ0aW1lem9uZSI6IihHTVQrMDE6MDApIEV1cm9wZVwvUGFyaXMiLCJpYW5hX3RpbWV6b25lIjoiRXVyb3BlXC9QYXJpcyIsInNob3Bfb3duZXIiOiJWaWt0b3IgRm9uaWMiLCJtb25leV9mb3JtYXQiOiLigqx7e2Ftb3VudH19IiwibW9uZXlfd2l0aF9jdXJyZW5jeV9mb3JtYXQiOiLigqx7e2Ftb3VudH19IEVVUiIsIndlaWdodF91bml0IjoiZyIsInByb3ZpbmNlX2NvZGUiOm51bGwsInRheGVzX2luY2x1ZGVkIjp0cnVlLCJ0YXhfc2hpcHBpbmciOm51bGwsImNvdW50eV90YXhlcyI6dHJ1ZSwicGxhbl9kaXNwbGF5X25hbWUiOiJEZXZlbG9wbWVudCIsInBsYW5fbmFtZSI6ImFmZmlsaWF0ZSIsImhhc19kaXNjb3VudHMiOmZhbHNlLCJoYXNfZ2lmdF9jYXJkcyI6ZmFsc2UsIm15c2hvcGlmeV9kb21haW4iOiJzcHJlZS1zaG9waWZ5LWltcG9ydGVyLXRlc3Qtc3RvcmUubXlzaG9waWZ5LmNvbSIsImdvb2dsZV9hcHBzX2RvbWFpbiI6bnVsbCwiZ29vZ2xlX2FwcHNfbG9naW5fZW5hYmxlZCI6bnVsbCwibW9uZXlfaW5fZW1haWxzX2Zvcm1hdCI6IuKCrHt7YW1vdW50fX0iLCJtb25leV93aXRoX2N1cnJlbmN5X2luX2VtYWlsc19mb3JtYXQiOiLigqx7e2Ftb3VudH19IEVVUiIsImVsaWdpYmxlX2Zvcl9wYXltZW50cyI6ZmFsc2UsInJlcXVpcmVzX2V4dHJhX3BheW1lbnRzX2FncmVlbWVudCI6ZmFsc2UsInBhc3N3b3JkX2VuYWJsZWQiOnRydWUsImhhc19zdG9yZWZyb250Ijp0cnVlLCJlbGlnaWJsZV9mb3JfY2FyZF9yZWFkZXJfZ2l2ZWF3YXkiOmZhbHNlLCJmaW5hbmNlcyI6dHJ1ZSwicHJpbWFyeV9sb2NhdGlvbl9pZCI6MjU4ODQxNjQsImNvb2tpZV9jb25zZW50X2xldmVsIjoiaW1wbGljaXQiLCJmb3JjZV9zc2wiOnRydWUsImNoZWNrb3V0X2FwaV9zdXBwb3J0ZWQiOnRydWUsIm11bHRpX2xvY2F0aW9uX2VuYWJsZWQiOnRydWUsInNldHVwX3JlcXVpcmVkIjpmYWxzZSwicHJlX2xhdW5jaF9lbmFibGVkIjpmYWxzZSwiZW5hYmxlZF9wcmVzZW50bWVudF9jdXJyZW5jaWVzIjpbIkVVUiJdfX0=
+    http_version: 
+  recorded_at: Fri, 10 Jan 2020 07:04:36 GMT
+recorded_with: VCR 5.0.0
