@@ -1,0 +1,1171 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones/402009156.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 16:17:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=ddec91f7d7a8548c71035e6495a9d31f51578413844; expires=Thu, 06-Feb-20
+        16:17:24 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 623a9570-0190-4aa1-a9bc-b8985698888d
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin_api&source%5Buuid%5D=623a9570-0190-4aa1-a9bc-b8985698888d'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin_api&source%5Buuid%5D=623a9570-0190-4aa1-a9bc-b8985698888d
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55173de1f9f9ccaf-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 16:17:25 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?id=402009156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:05:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d57143116faa78d29be21b0c1e4fe355d1578416741; expires=Thu, 06-Feb-20
+        17:05:41 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 6ec4f314-fe7e-4849-9233-2b1c920a44a6
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=6ec4f314-fe7e-4849-9233-2b1c920a44a6'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=6ec4f314-fe7e-4849-9233-2b1c920a44a6
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 551784977d29b86f-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:05:41 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?id=402009156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:05:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d3b0899ac2a152e2f04514e78d2ac83031578416749; expires=Thu, 06-Feb-20
+        17:05:49 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - dffbc0d8-1f12-477f-a814-89f8375d15c8
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=dffbc0d8-1f12-477f-a814-89f8375d15c8'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=dffbc0d8-1f12-477f-a814-89f8375d15c8
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 551784caabc4f2a0-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:05:49 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/orders/5182437124.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:06:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dac40535ce73b2b3faa847704b5231cdc1578416773; expires=Thu, 06-Feb-20
+        17:06:13 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - c0ffd5af-92c7-4582-bb0b-bc392c044b9f
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=c0ffd5af-92c7-4582-bb0b-bc392c044b9f'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin_api&source%5Buuid%5D=c0ffd5af-92c7-4582-bb0b-bc392c044b9f
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55178560bcd8f2cc-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJvcmRlciI6eyJpZCI6NTE4MjQzNzEyNCwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwiY2xvc2VkX2F0IjpudWxsLCJjcmVhdGVkX2F0IjoiMjAxNy0wNi0xNVQxNzo1MjoyOCswMjowMCIsInVwZGF0ZWRfYXQiOiIyMDE3LTEwLTA3VDEzOjU5OjMxKzAyOjAwIiwibnVtYmVyIjoxLCJub3RlIjpudWxsLCJ0b2tlbiI6IjY0NjA5ZjA1OTIwZWJiMmM1NTQ2NjIyNGEyMWE5NmYzIiwiZ2F0ZXdheSI6ImJvZ3VzIiwidGVzdCI6dHJ1ZSwidG90YWxfcHJpY2UiOiI0NzAuMDAiLCJzdWJ0b3RhbF9wcmljZSI6IjQ1MC4wMCIsInRvdGFsX3dlaWdodCI6MCwidG90YWxfdGF4IjoiMC4wMCIsInRheGVzX2luY2x1ZGVkIjp0cnVlLCJjdXJyZW5jeSI6IkVVUiIsImZpbmFuY2lhbF9zdGF0dXMiOiJwYXJ0aWFsbHlfcmVmdW5kZWQiLCJjb25maXJtZWQiOnRydWUsInRvdGFsX2Rpc2NvdW50cyI6IjAuMDAiLCJ0b3RhbF9saW5lX2l0ZW1zX3ByaWNlIjoiNDUwLjAwIiwiY2FydF90b2tlbiI6IjgyNTRlM2RiYzFmNmFhYmQ5NDk4OTRlNzAyNmMwZmYwIiwiYnV5ZXJfYWNjZXB0c19tYXJrZXRpbmciOmZhbHNlLCJuYW1lIjoiIzEwMDEiLCJyZWZlcnJpbmdfc2l0ZSI6IiIsImxhbmRpbmdfc2l0ZSI6IlwvYWRtaW5cL2F1dGhcL3dyb25nX3Rva2VuIiwiY2FuY2VsbGVkX2F0IjpudWxsLCJjYW5jZWxfcmVhc29uIjpudWxsLCJ0b3RhbF9wcmljZV91c2QiOiI1MjcuMDEiLCJjaGVja291dF90b2tlbiI6IjE2NWYzY2QxMjAxMzI2Y2QzYWZkZTJjNTUzMmYzMTk5IiwicmVmZXJlbmNlIjpudWxsLCJ1c2VyX2lkIjpudWxsLCJsb2NhdGlvbl9pZCI6bnVsbCwic291cmNlX2lkZW50aWZpZXIiOm51bGwsInNvdXJjZV91cmwiOm51bGwsInByb2Nlc3NlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTI6MjgrMDI6MDAiLCJkZXZpY2VfaWQiOm51bGwsInBob25lIjpudWxsLCJjdXN0b21lcl9sb2NhbGUiOiJlbiIsImFwcF9pZCI6NTgwMTExLCJicm93c2VyX2lwIjoiOTQuNzUuOTYuOTgiLCJsYW5kaW5nX3NpdGVfcmVmIjpudWxsLCJvcmRlcl9udW1iZXIiOjEwMDEsImRpc2NvdW50X2FwcGxpY2F0aW9ucyI6W10sImRpc2NvdW50X2NvZGVzIjpbXSwibm90ZV9hdHRyaWJ1dGVzIjpbXSwicGF5bWVudF9nYXRld2F5X25hbWVzIjpbImJvZ3VzIl0sInByb2Nlc3NpbmdfbWV0aG9kIjoiZGlyZWN0IiwiY2hlY2tvdXRfaWQiOjE1MzQ4MjAyNjkyLCJzb3VyY2VfbmFtZSI6IndlYiIsImZ1bGZpbGxtZW50X3N0YXR1cyI6ImZ1bGZpbGxlZCIsInRheF9saW5lcyI6W10sInRhZ3MiOiIiLCJjb250YWN0X2VtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsIm9yZGVyX3N0YXR1c191cmwiOiJodHRwczpcL1wvc3ByZWUtc2hvcGlmeS1pbXBvcnRlci10ZXN0LXN0b3JlLm15c2hvcGlmeS5jb21cLzIwNTEzNjkxXC9vcmRlcnNcLzY0NjA5ZjA1OTIwZWJiMmM1NTQ2NjIyNGEyMWE5NmYzXC9hdXRoZW50aWNhdGU/a2V5PThkMDE5OGQ5NzA4NjRiNjUzOTQyOGMzYmJlODZjYTc3IiwicHJlc2VudG1lbnRfY3VycmVuY3kiOiJFVVIiLCJ0b3RhbF9saW5lX2l0ZW1zX3ByaWNlX3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjQ1MC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiNDUwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9fSwidG90YWxfZGlzY291bnRzX3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJ0b3RhbF9zaGlwcGluZ19wcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIyMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJzdWJ0b3RhbF9wcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiI0NTAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjQ1MC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sInRvdGFsX3ByaWNlX3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjQ3MC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiNDcwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9fSwidG90YWxfdGF4X3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJsaW5lX2l0ZW1zIjpbeyJpZCI6MTAwNjkyOTA3NTYsInZhcmlhbnRfaWQiOjQxNzMzMzQ3NTg4LCJ0aXRsZSI6Ik5vIHZhcmlhbnRzIiwicXVhbnRpdHkiOjMsInNrdSI6IiIsInZhcmlhbnRfdGl0bGUiOiIiLCJ2ZW5kb3IiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJmdWxmaWxsbWVudF9zZXJ2aWNlIjoibWFudWFsIiwicHJvZHVjdF9pZCI6MTEwNTUxNjkwMjgsInJlcXVpcmVzX3NoaXBwaW5nIjp0cnVlLCJ0YXhhYmxlIjp0cnVlLCJnaWZ0X2NhcmQiOmZhbHNlLCJuYW1lIjoiTm8gdmFyaWFudHMiLCJ2YXJpYW50X2ludmVudG9yeV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9leGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJncmFtcyI6MCwicHJpY2UiOiIxNTAuMDAiLCJ0b3RhbF9kaXNjb3VudCI6IjAuMDAiLCJmdWxmaWxsbWVudF9zdGF0dXMiOiJmdWxmaWxsZWQiLCJwcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIxNTAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjE1MC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sInRvdGFsX2Rpc2NvdW50X3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJkaXNjb3VudF9hbGxvY2F0aW9ucyI6W10sImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9MaW5lSXRlbVwvMTAwNjkyOTA3NTYiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMxMzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHkiOiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9uIjp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIsInppcCI6IjAyLTc3NyJ9fSx7ImlkIjoxMDA2OTI5MDgyMCwidmFyaWFudF9pZCI6NDIwNzc0OTIxMDAsInRpdGxlIjoiUHJvZHVjdCB3aXRoIHNpbmdsZSB2YXJpYW50IiwicXVhbnRpdHkiOjUsInNrdSI6IiIsInZhcmlhbnRfdGl0bGUiOiJNIiwidmVuZG9yIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiZnVsZmlsbG1lbnRfc2VydmljZSI6Im1hbnVhbCIsInByb2R1Y3RfaWQiOjExMTAxNTI1ODI4LCJyZXF1aXJlc19zaGlwcGluZyI6dHJ1ZSwidGF4YWJsZSI6dHJ1ZSwiZ2lmdF9jYXJkIjpmYWxzZSwibmFtZSI6IlByb2R1Y3Qgd2l0aCBzaW5nbGUgdmFyaWFudCAtIE0iLCJ2YXJpYW50X2ludmVudG9yeV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9leGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJncmFtcyI6MCwicHJpY2UiOiIwLjAwIiwidG90YWxfZGlzY291bnQiOiIwLjAwIiwiZnVsZmlsbG1lbnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwicHJpY2Vfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sInRvdGFsX2Rpc2NvdW50X3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJkaXNjb3VudF9hbGxvY2F0aW9ucyI6W10sImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9MaW5lSXRlbVwvMTAwNjkyOTA4MjAiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMxMzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHkiOiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9uIjp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIsInppcCI6IjAyLTc3NyJ9fV0sImZ1bGZpbGxtZW50cyI6W3siaWQiOjQ1NDQ0OTMxODgsIm9yZGVyX2lkIjo1MTgyNDM3MTI0LCJzdGF0dXMiOiJzdWNjZXNzIiwiY3JlYXRlZF9hdCI6IjIwMTctMDctMTZUMTc6NDc6NTkrMDI6MDAiLCJzZXJ2aWNlIjoibWFudWFsIiwidXBkYXRlZF9hdCI6IjIwMTgtMDUtMzFUMTc6NTM6NDcrMDI6MDAiLCJ0cmFja2luZ19jb21wYW55IjpudWxsLCJzaGlwbWVudF9zdGF0dXMiOm51bGwsImxvY2F0aW9uX2lkIjoyNTg4NDE2NCwibGluZV9pdGVtcyI6W3siaWQiOjEwMDY5MjkwODIwLCJ2YXJpYW50X2lkIjo0MjA3NzQ5MjEwMCwidGl0bGUiOiJQcm9kdWN0IHdpdGggc2luZ2xlIHZhcmlhbnQiLCJxdWFudGl0eSI6Miwic2t1IjoiIiwidmFyaWFudF90aXRsZSI6Ik0iLCJ2ZW5kb3IiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJmdWxmaWxsbWVudF9zZXJ2aWNlIjoibWFudWFsIiwicHJvZHVjdF9pZCI6MTExMDE1MjU4MjgsInJlcXVpcmVzX3NoaXBwaW5nIjp0cnVlLCJ0YXhhYmxlIjp0cnVlLCJnaWZ0X2NhcmQiOmZhbHNlLCJuYW1lIjoiUHJvZHVjdCB3aXRoIHNpbmdsZSB2YXJpYW50IC0gTSIsInZhcmlhbnRfaW52ZW50b3J5X21hbmFnZW1lbnQiOm51bGwsInByb3BlcnRpZXMiOltdLCJwcm9kdWN0X2V4aXN0cyI6dHJ1ZSwiZnVsZmlsbGFibGVfcXVhbnRpdHkiOjAsImdyYW1zIjowLCJwcmljZSI6IjAuMDAiLCJ0b3RhbF9kaXNjb3VudCI6IjAuMDAiLCJmdWxmaWxsbWVudF9zdGF0dXMiOiJmdWxmaWxsZWQiLCJwcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9fSwidG90YWxfZGlzY291bnRfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sImRpc2NvdW50X2FsbG9jYXRpb25zIjpbXSwiYWRtaW5fZ3JhcGhxbF9hcGlfaWQiOiJnaWQ6XC9cL3Nob3BpZnlcL0xpbmVJdGVtXC8xMDA2OTI5MDgyMCIsInRheF9saW5lcyI6W10sIm9yaWdpbl9sb2NhdGlvbiI6eyJpZCI6MzEzMjQ5OTA3NiwiY291bnRyeV9jb2RlIjoiSFIiLCJwcm92aW5jZV9jb2RlIjoiIiwibmFtZSI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImFkZHJlc3MxIjoiT3NqZWNrYSA1OCIsImFkZHJlc3MyIjoiIiwiY2l0eSI6IlNwbGl0IiwiemlwIjoiMjEwMDAifSwiZGVzdGluYXRpb25fbG9jYXRpb24iOnsiaWQiOjMxMzI1MDA0MjAsImNvdW50cnlfY29kZSI6IlBMIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJQZXRlciBQYW4iLCJhZGRyZXNzMSI6IlNvbWUgU3RyZWV0IiwiYWRkcmVzczIiOiI1IiwiY2l0eSI6IldhcnN6YXdhIiwiemlwIjoiMDItNzc3In19XSwidHJhY2tpbmdfbnVtYmVyIjpudWxsLCJ0cmFja2luZ19udW1iZXJzIjpbXSwidHJhY2tpbmdfdXJsIjpudWxsLCJ0cmFja2luZ191cmxzIjpbXSwicmVjZWlwdCI6e30sIm5hbWUiOiIjMTAwMS4zIiwiYWRtaW5fZ3JhcGhxbF9hcGlfaWQiOiJnaWQ6XC9cL3Nob3BpZnlcL0Z1bGZpbGxtZW50XC80NTQ0NDkzMTg4In0seyJpZCI6NDQ1MzI2MDU0OCwib3JkZXJfaWQiOjUxODI0MzcxMjQsInN0YXR1cyI6InN1Y2Nlc3MiLCJjcmVhdGVkX2F0IjoiMjAxNy0wNi0xNVQxNzo1NDoyMyswMjowMCIsInNlcnZpY2UiOiJtYW51YWwiLCJ1cGRhdGVkX2F0IjoiMjAxOC0wNS0zMVQxNzowMzowNCswMjowMCIsInRyYWNraW5nX2NvbXBhbnkiOiJESEwgZUNvbW1lcmNlIiwic2hpcG1lbnRfc3RhdHVzIjpudWxsLCJsb2NhdGlvbl9pZCI6MjU4ODQxNjQsImxpbmVfaXRlbXMiOlt7ImlkIjoxMDA2OTI5MDgyMCwidmFyaWFudF9pZCI6NDIwNzc0OTIxMDAsInRpdGxlIjoiUHJvZHVjdCB3aXRoIHNpbmdsZSB2YXJpYW50IiwicXVhbnRpdHkiOjEsInNrdSI6IiIsInZhcmlhbnRfdGl0bGUiOiJNIiwidmVuZG9yIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiZnVsZmlsbG1lbnRfc2VydmljZSI6Im1hbnVhbCIsInByb2R1Y3RfaWQiOjExMTAxNTI1ODI4LCJyZXF1aXJlc19zaGlwcGluZyI6dHJ1ZSwidGF4YWJsZSI6dHJ1ZSwiZ2lmdF9jYXJkIjpmYWxzZSwibmFtZSI6IlByb2R1Y3Qgd2l0aCBzaW5nbGUgdmFyaWFudCAtIE0iLCJ2YXJpYW50X2ludmVudG9yeV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9leGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJncmFtcyI6MCwicHJpY2UiOiIwLjAwIiwidG90YWxfZGlzY291bnQiOiIwLjAwIiwiZnVsZmlsbG1lbnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwicHJpY2Vfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sInRvdGFsX2Rpc2NvdW50X3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJkaXNjb3VudF9hbGxvY2F0aW9ucyI6W10sImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9MaW5lSXRlbVwvMTAwNjkyOTA4MjAiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMxMzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHkiOiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9uIjp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIsInppcCI6IjAyLTc3NyJ9fV0sInRyYWNraW5nX251bWJlciI6IjIxMTIzMTIzMTIzMjEzIiwidHJhY2tpbmdfbnVtYmVycyI6WyIyMTEyMzEyMzEyMzIxMyJdLCJ0cmFja2luZ191cmwiOiJodHRwOlwvXC93ZWJ0cmFjay5kaGxnbG9iYWxtYWlsLmNvbVwvP3RyYWNraW5nbnVtYmVyPTIxMTIzMTIzMTIzMjEzIiwidHJhY2tpbmdfdXJscyI6WyJodHRwOlwvXC93ZWJ0cmFjay5kaGxnbG9iYWxtYWlsLmNvbVwvP3RyYWNraW5nbnVtYmVyPTIxMTIzMTIzMTIzMjEzIl0sInJlY2VpcHQiOnt9LCJuYW1lIjoiIzEwMDEuMiIsImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9GdWxmaWxsbWVudFwvNDQ1MzI2MDU0OCJ9LHsiaWQiOjQ0NTMyNTg3NTYsIm9yZGVyX2lkIjo1MTgyNDM3MTI0LCJzdGF0dXMiOiJzdWNjZXNzIiwiY3JlYXRlZF9hdCI6IjIwMTctMDYtMTVUMTc6NTM6NDQrMDI6MDAiLCJzZXJ2aWNlIjoibWFudWFsIiwidXBkYXRlZF9hdCI6IjIwMTgtMDUtMzFUMTc6MDM6NDQrMDI6MDAiLCJ0cmFja2luZ19jb21wYW55IjoiQ2FuYWRhIFBvc3QiLCJzaGlwbWVudF9zdGF0dXMiOm51bGwsImxvY2F0aW9uX2lkIjoyNTg4NDE2NCwibGluZV9pdGVtcyI6W3siaWQiOjEwMDY5MjkwNzU2LCJ2YXJpYW50X2lkIjo0MTczMzM0NzU4OCwidGl0bGUiOiJObyB2YXJpYW50cyIsInF1YW50aXR5IjozLCJza3UiOiIiLCJ2YXJpYW50X3RpdGxlIjoiIiwidmVuZG9yIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiZnVsZmlsbG1lbnRfc2VydmljZSI6Im1hbnVhbCIsInByb2R1Y3RfaWQiOjExMDU1MTY5MDI4LCJyZXF1aXJlc19zaGlwcGluZyI6dHJ1ZSwidGF4YWJsZSI6dHJ1ZSwiZ2lmdF9jYXJkIjpmYWxzZSwibmFtZSI6Ik5vIHZhcmlhbnRzIiwidmFyaWFudF9pbnZlbnRvcnlfbWFuYWdlbWVudCI6bnVsbCwicHJvcGVydGllcyI6W10sInByb2R1Y3RfZXhpc3RzIjp0cnVlLCJmdWxmaWxsYWJsZV9xdWFudGl0eSI6MCwiZ3JhbXMiOjAsInByaWNlIjoiMTUwLjAwIiwidG90YWxfZGlzY291bnQiOiIwLjAwIiwiZnVsZmlsbG1lbnRfc3RhdHVzIjoiZnVsZmlsbGVkIiwicHJpY2Vfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMTUwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIxNTAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJ0b3RhbF9kaXNjb3VudF9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9fSwiZGlzY291bnRfYWxsb2NhdGlvbnMiOltdLCJhZG1pbl9ncmFwaHFsX2FwaV9pZCI6ImdpZDpcL1wvc2hvcGlmeVwvTGluZUl0ZW1cLzEwMDY5MjkwNzU2IiwidGF4X2xpbmVzIjpbXSwib3JpZ2luX2xvY2F0aW9uIjp7ImlkIjozMTMyNDk5MDc2LCJjb3VudHJ5X2NvZGUiOiJIUiIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiYWRkcmVzczEiOiJPc2plY2thIDU4IiwiYWRkcmVzczIiOiIiLCJjaXR5IjoiU3BsaXQiLCJ6aXAiOiIyMTAwMCJ9LCJkZXN0aW5hdGlvbl9sb2NhdGlvbiI6eyJpZCI6MzEzMjUwMDQyMCwiY291bnRyeV9jb2RlIjoiUEwiLCJwcm92aW5jZV9jb2RlIjoiIiwibmFtZSI6IlBldGVyIFBhbiIsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJhZGRyZXNzMiI6IjUiLCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzcifX0seyJpZCI6MTAwNjkyOTA4MjAsInZhcmlhbnRfaWQiOjQyMDc3NDkyMTAwLCJ0aXRsZSI6IlByb2R1Y3Qgd2l0aCBzaW5nbGUgdmFyaWFudCIsInF1YW50aXR5IjoyLCJza3UiOiIiLCJ2YXJpYW50X3RpdGxlIjoiTSIsInZlbmRvciI6IlNwcmVlIFNob3BpZnkgSW1wb3J0ZXIgVGVzdCBTdG9yZSIsImZ1bGZpbGxtZW50X3NlcnZpY2UiOiJtYW51YWwiLCJwcm9kdWN0X2lkIjoxMTEwMTUyNTgyOCwicmVxdWlyZXNfc2hpcHBpbmciOnRydWUsInRheGFibGUiOnRydWUsImdpZnRfY2FyZCI6ZmFsc2UsIm5hbWUiOiJQcm9kdWN0IHdpdGggc2luZ2xlIHZhcmlhbnQgLSBNIiwidmFyaWFudF9pbnZlbnRvcnlfbWFuYWdlbWVudCI6bnVsbCwicHJvcGVydGllcyI6W10sInByb2R1Y3RfZXhpc3RzIjp0cnVlLCJmdWxmaWxsYWJsZV9xdWFudGl0eSI6MCwiZ3JhbXMiOjAsInByaWNlIjoiMC4wMCIsInRvdGFsX2Rpc2NvdW50IjoiMC4wMCIsImZ1bGZpbGxtZW50X3N0YXR1cyI6ImZ1bGZpbGxlZCIsInByaWNlX3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJ0b3RhbF9kaXNjb3VudF9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9fSwiZGlzY291bnRfYWxsb2NhdGlvbnMiOltdLCJhZG1pbl9ncmFwaHFsX2FwaV9pZCI6ImdpZDpcL1wvc2hvcGlmeVwvTGluZUl0ZW1cLzEwMDY5MjkwODIwIiwidGF4X2xpbmVzIjpbXSwib3JpZ2luX2xvY2F0aW9uIjp7ImlkIjozMTMyNDk5MDc2LCJjb3VudHJ5X2NvZGUiOiJIUiIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiU3ByZWUgU2hvcGlmeSBJbXBvcnRlciBUZXN0IFN0b3JlIiwiYWRkcmVzczEiOiJPc2plY2thIDU4IiwiYWRkcmVzczIiOiIiLCJjaXR5IjoiU3BsaXQiLCJ6aXAiOiIyMTAwMCJ9LCJkZXN0aW5hdGlvbl9sb2NhdGlvbiI6eyJpZCI6MzEzMjUwMDQyMCwiY291bnRyeV9jb2RlIjoiUEwiLCJwcm92aW5jZV9jb2RlIjoiIiwibmFtZSI6IlBldGVyIFBhbiIsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJhZGRyZXNzMiI6IjUiLCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzcifX1dLCJ0cmFja2luZ19udW1iZXIiOiIxMTIzMjEzMTI0MTIzMjEzIiwidHJhY2tpbmdfbnVtYmVycyI6WyIxMTIzMjEzMTI0MTIzMjEzIl0sInRyYWNraW5nX3VybCI6Imh0dHBzOlwvXC93d3cuY2FuYWRhcG9zdC5jYVwvY3BvdG9vbHNcL2FwcHNcL3RyYWNrXC9wZXJzb25hbFwvZmluZEJ5VHJhY2tOdW1iZXI/dHJhY2tpbmdOdW1iZXI9MTEyMzIxMzEyNDEyMzIxMyIsInRyYWNraW5nX3VybHMiOlsiaHR0cHM6XC9cL3d3dy5jYW5hZGFwb3N0LmNhXC9jcG90b29sc1wvYXBwc1wvdHJhY2tcL3BlcnNvbmFsXC9maW5kQnlUcmFja051bWJlcj90cmFja2luZ051bWJlcj0xMTIzMjEzMTI0MTIzMjEzIl0sInJlY2VpcHQiOnt9LCJuYW1lIjoiIzEwMDEuMSIsImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9GdWxmaWxsbWVudFwvNDQ1MzI1ODc1NiJ9XSwicmVmdW5kcyI6W3siaWQiOjIyNTIwNzMwMCwib3JkZXJfaWQiOjUxODI0MzcxMjQsImNyZWF0ZWRfYXQiOiIyMDE3LTEwLTA3VDEzOjU5OjMxKzAyOjAwIiwibm90ZSI6IkJyb2tlbiIsInVzZXJfaWQiOjExOTk3NjAwNCwicHJvY2Vzc2VkX2F0IjoiMjAxNy0xMC0wN1QxMzo1OTozMSswMjowMCIsInJlc3RvY2siOmZhbHNlLCJhZG1pbl9ncmFwaHFsX2FwaV9pZCI6ImdpZDpcL1wvc2hvcGlmeVwvUmVmdW5kXC8yMjUyMDczMDAiLCJyZWZ1bmRfbGluZV9pdGVtcyI6W3siaWQiOjE4NDg1ODQzNiwicXVhbnRpdHkiOjEsImxpbmVfaXRlbV9pZCI6MTAwNjkyOTA3NTYsImxvY2F0aW9uX2lkIjpudWxsLCJyZXN0b2NrX3R5cGUiOiJub19yZXN0b2NrIiwic3VidG90YWwiOjE1MC4wLCJ0b3RhbF90YXgiOjAuMCwic3VidG90YWxfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMTUwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIxNTAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJ0b3RhbF90YXhfc2V0Ijp7InNob3BfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sImxpbmVfaXRlbSI6eyJpZCI6MTAwNjkyOTA3NTYsInZhcmlhbnRfaWQiOjQxNzMzMzQ3NTg4LCJ0aXRsZSI6Ik5vIHZhcmlhbnRzIiwicXVhbnRpdHkiOjMsInNrdSI6IiIsInZhcmlhbnRfdGl0bGUiOiIiLCJ2ZW5kb3IiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJmdWxmaWxsbWVudF9zZXJ2aWNlIjoibWFudWFsIiwicHJvZHVjdF9pZCI6MTEwNTUxNjkwMjgsInJlcXVpcmVzX3NoaXBwaW5nIjp0cnVlLCJ0YXhhYmxlIjp0cnVlLCJnaWZ0X2NhcmQiOmZhbHNlLCJuYW1lIjoiTm8gdmFyaWFudHMiLCJ2YXJpYW50X2ludmVudG9yeV9tYW5hZ2VtZW50IjpudWxsLCJwcm9wZXJ0aWVzIjpbXSwicHJvZHVjdF9leGlzdHMiOnRydWUsImZ1bGZpbGxhYmxlX3F1YW50aXR5IjowLCJncmFtcyI6MCwicHJpY2UiOiIxNTAuMDAiLCJ0b3RhbF9kaXNjb3VudCI6IjAuMDAiLCJmdWxmaWxsbWVudF9zdGF0dXMiOiJmdWxmaWxsZWQiLCJwcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIxNTAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjE1MC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sInRvdGFsX2Rpc2NvdW50X3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn0sInByZXNlbnRtZW50X21vbmV5Ijp7ImFtb3VudCI6IjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJkaXNjb3VudF9hbGxvY2F0aW9ucyI6W10sImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9MaW5lSXRlbVwvMTAwNjkyOTA3NTYiLCJ0YXhfbGluZXMiOltdLCJvcmlnaW5fbG9jYXRpb24iOnsiaWQiOjMxMzI0OTkwNzYsImNvdW50cnlfY29kZSI6IkhSIiwicHJvdmluY2VfY29kZSI6IiIsIm5hbWUiOiJTcHJlZSBTaG9waWZ5IEltcG9ydGVyIFRlc3QgU3RvcmUiLCJhZGRyZXNzMSI6Ik9zamVja2EgNTgiLCJhZGRyZXNzMiI6IiIsImNpdHkiOiJTcGxpdCIsInppcCI6IjIxMDAwIn0sImRlc3RpbmF0aW9uX2xvY2F0aW9uIjp7ImlkIjozMTMyNTAwNDIwLCJjb3VudHJ5X2NvZGUiOiJQTCIsInByb3ZpbmNlX2NvZGUiOiIiLCJuYW1lIjoiUGV0ZXIgUGFuIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsImFkZHJlc3MyIjoiNSIsImNpdHkiOiJXYXJzemF3YSIsInppcCI6IjAyLTc3NyJ9fX1dLCJ0cmFuc2FjdGlvbnMiOlt7ImlkIjo3MjMzMDQwMDY4LCJvcmRlcl9pZCI6NTE4MjQzNzEyNCwia2luZCI6InJlZnVuZCIsImdhdGV3YXkiOiJib2d1cyIsInN0YXR1cyI6InN1Y2Nlc3MiLCJtZXNzYWdlIjoiQm9ndXMgR2F0ZXdheTogRm9yY2VkIHN1Y2Nlc3MiLCJjcmVhdGVkX2F0IjoiMjAxNy0xMC0wN1QxMzo1OTozMSswMjowMCIsInRlc3QiOnRydWUsImF1dGhvcml6YXRpb24iOm51bGwsImxvY2F0aW9uX2lkIjpudWxsLCJ1c2VyX2lkIjpudWxsLCJwYXJlbnRfaWQiOjU3MzI4MjI3ODgsInByb2Nlc3NlZF9hdCI6IjIwMTctMTAtMDdUMTM6NTk6MzErMDI6MDAiLCJkZXZpY2VfaWQiOm51bGwsInJlY2VpcHQiOnsicGFpZF9hbW91bnQiOiIxNTAuMDAifSwiZXJyb3JfY29kZSI6bnVsbCwic291cmNlX25hbWUiOiJ3ZWIiLCJhbW91bnQiOiIxNTAuMDAiLCJjdXJyZW5jeSI6IkVVUiIsImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9PcmRlclRyYW5zYWN0aW9uXC83MjMzMDQwMDY4In1dLCJvcmRlcl9hZGp1c3RtZW50cyI6W119XSwidG90YWxfdGlwX3JlY2VpdmVkIjoiMC4wIiwiYWRtaW5fZ3JhcGhxbF9hcGlfaWQiOiJnaWQ6XC9cL3Nob3BpZnlcL09yZGVyXC81MTgyNDM3MTI0Iiwic2hpcHBpbmdfbGluZXMiOlt7ImlkIjo0MjI1MzI0MDM2LCJ0aXRsZSI6IkludGVybmF0aW9uYWwgU2hpcHBpbmciLCJwcmljZSI6IjIwLjAwIiwiY29kZSI6IkludGVybmF0aW9uYWwgU2hpcHBpbmciLCJzb3VyY2UiOiJzaG9waWZ5IiwicGhvbmUiOm51bGwsInJlcXVlc3RlZF9mdWxmaWxsbWVudF9zZXJ2aWNlX2lkIjpudWxsLCJkZWxpdmVyeV9jYXRlZ29yeSI6bnVsbCwiY2Fycmllcl9pZGVudGlmaWVyIjpudWxsLCJkaXNjb3VudGVkX3ByaWNlIjoiMjAuMDAiLCJwcmljZV9zZXQiOnsic2hvcF9tb25leSI6eyJhbW91bnQiOiIyMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifSwicHJlc2VudG1lbnRfbW9uZXkiOnsiYW1vdW50IjoiMjAuMDAiLCJjdXJyZW5jeV9jb2RlIjoiRVVSIn19LCJkaXNjb3VudGVkX3ByaWNlX3NldCI6eyJzaG9wX21vbmV5Ijp7ImFtb3VudCI6IjIwLjAwIiwiY3VycmVuY3lfY29kZSI6IkVVUiJ9LCJwcmVzZW50bWVudF9tb25leSI6eyJhbW91bnQiOiIyMC4wMCIsImN1cnJlbmN5X2NvZGUiOiJFVVIifX0sImRpc2NvdW50X2FsbG9jYXRpb25zIjpbXSwidGF4X2xpbmVzIjpbXX1dLCJiaWxsaW5nX2FkZHJlc3MiOnsiZmlyc3RfbmFtZSI6IlBldGVyIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsInBob25lIjpudWxsLCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzciLCJwcm92aW5jZSI6bnVsbCwiY291bnRyeSI6IlBvbGFuZCIsImxhc3RfbmFtZSI6IlBhbiIsImFkZHJlc3MyIjoiNSIsImNvbXBhbnkiOm51bGwsImxhdGl0dWRlIjo1Mi4xNjA0MDgsImxvbmdpdHVkZSI6MjEuMDU0NTAyNCwibmFtZSI6IlBldGVyIFBhbiIsImNvdW50cnlfY29kZSI6IlBMIiwicHJvdmluY2VfY29kZSI6bnVsbH0sInNoaXBwaW5nX2FkZHJlc3MiOnsiZmlyc3RfbmFtZSI6IlBldGVyIiwiYWRkcmVzczEiOiJTb21lIFN0cmVldCIsInBob25lIjpudWxsLCJjaXR5IjoiV2Fyc3phd2EiLCJ6aXAiOiIwMi03NzciLCJwcm92aW5jZSI6bnVsbCwiY291bnRyeSI6IlBvbGFuZCIsImxhc3RfbmFtZSI6IlBhbiIsImFkZHJlc3MyIjoiNSIsImNvbXBhbnkiOm51bGwsImxhdGl0dWRlIjo1Mi4xNjA0MDgsImxvbmdpdHVkZSI6MjEuMDU0NTAyNCwibmFtZSI6IlBldGVyIFBhbiIsImNvdW50cnlfY29kZSI6IlBMIiwicHJvdmluY2VfY29kZSI6bnVsbH0sImNsaWVudF9kZXRhaWxzIjp7ImJyb3dzZXJfaXAiOiI5NC43NS45Ni45OCIsImFjY2VwdF9sYW5ndWFnZSI6InBsLVBMLHBsO3E9MC44LGVuLVVTO3E9MC42LGVuO3E9MC40IiwidXNlcl9hZ2VudCI6Ik1vemlsbGFcLzUuMCAoTWFjaW50b3NoOyBJbnRlbCBNYWMgT1MgWCAxMF8xMl80KSBBcHBsZVdlYktpdFwvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lXC81OC4wLjMwMjkuMTEwIFNhZmFyaVwvNTM3LjM2Iiwic2Vzc2lvbl9oYXNoIjpudWxsLCJicm93c2VyX3dpZHRoIjoxNDQwLCJicm93c2VyX2hlaWdodCI6ODI2fSwicGF5bWVudF9kZXRhaWxzIjp7ImNyZWRpdF9jYXJkX2JpbiI6IjEiLCJhdnNfcmVzdWx0X2NvZGUiOm51bGwsImN2dl9yZXN1bHRfY29kZSI6bnVsbCwiY3JlZGl0X2NhcmRfbnVtYmVyIjoi4oCi4oCi4oCi4oCiIOKAouKAouKAouKAoiDigKLigKLigKLigKIgMSIsImNyZWRpdF9jYXJkX2NvbXBhbnkiOiJCb2d1cyJ9LCJjdXN0b21lciI6eyJpZCI6NTcwMTczNjgzNiwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwiYWNjZXB0c19tYXJrZXRpbmciOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAxNy0wNi0xNVQxNzo1MTo0NyswMjowMCIsInVwZGF0ZWRfYXQiOiIyMDE3LTA2LTI1VDEzOjM1OjUxKzAyOjAwIiwiZmlyc3RfbmFtZSI6IlBldGVyIiwibGFzdF9uYW1lIjoiUGFuIiwib3JkZXJzX2NvdW50IjowLCJzdGF0ZSI6ImRpc2FibGVkIiwidG90YWxfc3BlbnQiOiIwLjAwIiwibGFzdF9vcmRlcl9pZCI6bnVsbCwibm90ZSI6bnVsbCwidmVyaWZpZWRfZW1haWwiOnRydWUsIm11bHRpcGFzc19pZGVudGlmaWVyIjpudWxsLCJ0YXhfZXhlbXB0IjpmYWxzZSwicGhvbmUiOm51bGwsInRhZ3MiOiIiLCJsYXN0X29yZGVyX25hbWUiOm51bGwsImN1cnJlbmN5IjoiRVVSIiwiYWNjZXB0c19tYXJrZXRpbmdfdXBkYXRlZF9hdCI6IjIwMTgtMTItMjhUMDQ6MzE6MDkrMDE6MDAiLCJtYXJrZXRpbmdfb3B0X2luX2xldmVsIjpudWxsLCJ0YXhfZXhlbXB0aW9ucyI6W10sImFkbWluX2dyYXBocWxfYXBpX2lkIjoiZ2lkOlwvXC9zaG9waWZ5XC9DdXN0b21lclwvNTcwMTczNjgzNiIsImRlZmF1bHRfYWRkcmVzcyI6eyJpZCI6NTk4NTUwMjIxMiwiY3VzdG9tZXJfaWQiOjU3MDE3MzY4MzYsImZpcnN0X25hbWUiOiJQZXRlciIsImxhc3RfbmFtZSI6IlBhbiIsImNvbXBhbnkiOm51bGwsImFkZHJlc3MxIjoiU29tZSBTdHJlZXQiLCJhZGRyZXNzMiI6IjUiLCJjaXR5IjoiV2Fyc3phd2EiLCJwcm92aW5jZSI6bnVsbCwiY291bnRyeSI6IlBvbGFuZCIsInppcCI6IjAyLTc3NyIsInBob25lIjpudWxsLCJuYW1lIjoiUGV0ZXIgUGFuIiwicHJvdmluY2VfY29kZSI6bnVsbCwiY291bnRyeV9jb2RlIjoiUEwiLCJjb3VudHJ5X25hbWUiOiJQb2xhbmQiLCJkZWZhdWx0Ijp0cnVlfX19fQ==
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:06:14 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones/402009156.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:06:30 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dec8ac61f0ec74c7058d847782b7773e91578416790; expires=Thu, 06-Feb-20
+        17:06:30 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 33a9db87-c0b6-4f2d-aaa4-039a31e5f2de
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin_api&source%5Buuid%5D=33a9db87-c0b6-4f2d-aaa4-039a31e5f2de'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=error_404&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Ferrors&source%5Bsection%5D=admin_api&source%5Buuid%5D=33a9db87-c0b6-4f2d-aaa4-039a31e5f2de
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 551785ca1b65f2a8-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:06:30 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?id=402009156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:06:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d5213f5be6a6fefcd25d733ef3c92d68c1578416799; expires=Thu, 06-Feb-20
+        17:06:39 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 8bbf6a72-6aa4-439d-b651-bce1c5f1ae4e
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=8bbf6a72-6aa4-439d-b651-bce1c5f1ae4e'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=8bbf6a72-6aa4-439d-b651-bce1c5f1ae4e
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55178603afadb821-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:06:39 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?id=402009156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:06:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d707a046da34716c7ede0651da24867ea1578416803; expires=Thu, 06-Feb-20
+        17:06:43 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 29dbcd8a-fa6c-4aec-a72e-ae5890089225
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=29dbcd8a-fa6c-4aec-a72e-ae5890089225'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=29dbcd8a-fa6c-4aec-a72e-ae5890089225
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5517861cd85ccc8f-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:06:43 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?id=402009156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:06:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db477208ba93eed871215409417a7c0181578416815; expires=Thu, 06-Feb-20
+        17:06:55 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - edff809a-cc7e-4909-873d-bb62e0f6eb85
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=edff809a-cc7e-4909-873d-bb62e0f6eb85'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=edff809a-cc7e-4909-873d-bb62e0f6eb85
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5517866909cdf2bc-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:06:55 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:07:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcf86ddc355fad9decaff7b9ff802d0521578416857; expires=Thu, 06-Feb-20
+        17:07:37 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 63e3faa3-ebf2-4e8a-a739-5d7f3d8f1ca1
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=63e3faa3-ebf2-4e8a-a739-5d7f3d8f1ca1'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=63e3faa3-ebf2-4e8a-a739-5d7f3d8f1ca1
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 551787701db9f294-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:07:37 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:07:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d1b82be6937e855a81e41c1d76bfcc0801578416863; expires=Thu, 06-Feb-20
+        17:07:43 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - c3524394-cd48-4833-90d0-4b835e9bc69a
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=c3524394-cd48-4833-90d0-4b835e9bc69a'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=c3524394-cd48-4833-90d0-4b835e9bc69a
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55178792cc4fb887-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:07:43 GMT
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/countries/222347067491.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 07 Jan 2020 17:08:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8a76ba1e3bc51f10fcbf072a2259b38d1578416893; expires=Thu, 06-Feb-20
+        17:08:13 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcountries&source%5Bsection%5D=admin_api&source%5Buuid%5D=9f56e32b-5c87-4057-9cd6-4b17011fd757'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fcountries&source%5Bsection%5D=admin_api&source%5Buuid%5D=9f56e32b-5c87-4057-9cd6-4b17011fd757
+      X-Dc:
+      - gcp-us-east1,gcp-us-central1,gcp-us-central1
+      X-Request-Id:
+      - 9f56e32b-5c87-4057-9cd6-4b17011fd757
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 551788501832b863-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Tue, 07 Jan 2020 17:08:13 GMT
+recorded_with: VCR 5.0.0
