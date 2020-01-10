@@ -2,6 +2,11 @@ require 'spec_helper'
 
 RSpec.feature 'end to end import' do
   include ActiveJob::TestHelper
+  let!(:country) { create(:country,
+                            name: 'Croatia',
+                            iso_name: 'CROATIA',
+                            iso: 'HR',
+                            iso3: 'HRV') }
 
   it 'imports successfully', vcr: { cassette_name: 'integration' } do
     perform_enqueued_jobs do
@@ -31,6 +36,7 @@ RSpec.feature 'end to end import' do
       expect(Spree::CustomerReturn.count).to eq 1
       expect(Spree::Reimbursement.count).to eq 1
       expect(Spree::Refund.count).to eq 1
+      # expect(Spree::Zone.count).to eq 2
     end
   end
 
@@ -68,6 +74,7 @@ RSpec.feature 'end to end import' do
       expect(Spree::CustomerReturn.count).to eq 1
       expect(Spree::Reimbursement.count).to eq 1
       expect(Spree::Refund.count).to eq 1
+      expect(Spree::Zone.count).to eq 2
     end
   end
 end

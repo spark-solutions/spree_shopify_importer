@@ -3,11 +3,12 @@ module SpreeShopifyImporter
     ROOT_FETCHERS = [
       SpreeShopifyImporter::DataFetchers::ShopFetcher,
       SpreeShopifyImporter::DataFetchers::ProductsFetcher,
+      SpreeShopifyImporter::DataFetchers::ShopifyZonesFetcher,
       SpreeShopifyImporter::DataFetchers::UsersFetcher,
       SpreeShopifyImporter::DataFetchers::TaxonsFetcher,
       SpreeShopifyImporter::DataFetchers::OrdersFetcher
     ].freeze
-# TO DO: fetching api_version and setting as shopify_api_version
+
     def initialize(credentials: nil)
       @credentials = credentials
       @credentials ||= {
@@ -36,7 +37,6 @@ module SpreeShopifyImporter
       Spree::Config[:shopify_current_credentials] = @credentials
     end
 
-    # TODO: custom params for fetchers
     def initiate_import!
       ROOT_FETCHERS.each do |fetchers|
         fetchers.new.import!
