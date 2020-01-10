@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://spree-shopify-importer-test-store.myshopify.com/admin/api/2019-10/shipping_zones.json?limit=50
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MGE5NDQ1YjdiMDY3NzE5YTBhZjAyNDYxMDM2NGVlMzQ6ODAwZjk3ZDZlYTFhNzY4MDQ4ODUxY2RkOTlhOTEwMWE=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.0.0 ActiveResource/5.1.0 Ruby/2.6.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 02 Dec 2019 16:31:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=df220017e298619e0d206d8b20cc0e3bf1575304273; expires=Wed, 01-Jan-20
+        16:31:13 GMT; path=/; domain=.myshopify.com; HttpOnly
+      X-Sorting-Hat-Podid:
+      - '48'
+      X-Sorting-Hat-Shopid:
+      - '20513691'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '20513691'
+      X-Shardid:
+      - '48'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '1680429'
+      X-Stats-Apipermissionid:
+      - '52824317'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 5eee9237-baae-460d-8934-fd99d6e3e769
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=5eee9237-baae-460d-8934-fd99d6e3e769'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=index&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fsettings%2Fshipping_zones&source%5Bsection%5D=admin_api&source%5Buuid%5D=5eee9237-baae-460d-8934-fd99d6e3e769
+      X-Dc:
+      - gcp-us-central1,gcp-us-central1
+      Nel:
+      - '{"report_to":"network-errors","max_age":2592000,"failure_fraction":0.01,"success_fraction":0.0001}'
+      Report-To:
+      - '{"group":"network-errors","max_age":2592000,"endpoints":[{"url":"https://monorail-edge.shopifycloud.com/v1/reports/nel/20190325/shopify"}]}'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 53eeb09d5955b827-WAW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"shipping_zones":[{"id":402009156,"name":"Domestic","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833211953","countries":[{"id":516252868,"name":"Croatia","tax":0.25,"code":"HR","tax_name":"VAT","shipping_zone_id":402009156,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151752241,"name":"Standard
+        Shipping","price":"10.00","shipping_zone_id":402009156,"weight_low":0.0,"weight_high":5.0},{"id":69151785009,"name":"Heavy
+        Goods Shipping","price":"20.00","shipping_zone_id":402009156,"weight_low":5.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]},{"id":402009220,"name":"Rest
+        of world","profile_id":"gid:\/\/shopify\/DeliveryProfile\/18869387313","location_group_id":"gid:\/\/shopify\/DeliveryLocationGroup\/18865160241","admin_graphql_api_id":"gid:\/\/shopify\/DeliveryZone\/37833277489","countries":[{"id":516252932,"name":"Rest
+        of World","tax":0.0,"code":"*","tax_name":"Tax","shipping_zone_id":402009220,"provinces":[]}],"weight_based_shipping_rates":[{"id":69151850545,"name":"International
+        Shipping","price":"20.00","shipping_zone_id":402009220,"weight_low":0.0,"weight_high":20.0}],"price_based_shipping_rates":[],"carrier_shipping_rate_providers":[]}]}'
+    http_version: 
+  recorded_at: Mon, 02 Dec 2019 16:31:13 GMT
+recorded_with: VCR 5.0.0

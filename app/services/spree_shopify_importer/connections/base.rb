@@ -8,7 +8,7 @@ module SpreeShopifyImporter
 
         def all
           results = []
-          batch = api_class.find(:all, params: { limit: 2 })
+          batch = api_class.find(:all, params: { limit: 50 })
           loop do
             results += batch
             break unless batch.next_page?
