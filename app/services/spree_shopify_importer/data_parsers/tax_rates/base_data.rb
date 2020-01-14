@@ -2,35 +2,46 @@ module SpreeShopifyImporter
   module DataParsers
     module TaxRates
       class BaseData
-        def initialize(shopify_tax_line, shopify_address)
-          @shopify_tax_line = shopify_tax_line
-          @shopify_address = shopify_address
+        def initialize(spree_zone, shopify_object)
+          @spree_zone = spree_zone
+          @shopify_object = shopify_object
         end
 
         def attributes
           @attributes ||= {
-            name: @shopify_tax_line.title,
-            amount: @shopify_tax_line.rate,
-            zone: zone,
-            tax_category: tax_category
+            name: "Shopify/#{zone_name}/#{profile_name}",
+            amount: amount,
+            zone: @spree_zone,
+            tax_category: tax_category,
+            included_in_price: included_in_price,
+            show_rate_in_label: false
           }
         end
 
         private
 
-        # TODO: missing country code
-        def zone
-          Spree::Zone.find_each do |zone|
-            return zone if zone.members.detect { |member| member.zoneable.try(:iso).eql?(country_code) }
-          end
+        def rest_of_world_zone?
+          @shopify_object.is_a?(ShopifyAPI::ShippingZone)
         end
 
-        def country_code
-          @country_code ||= @shopify_address.country_code
+        def zone_name
+          rest_of_world_zone? ? @shopify_object.countries.first.name : @shopify_object.name
+        end
+
+        def amount
+          rest_of_world_zone? ? @shopify_object.countries.first.tax : @shopify_object.tax
         end
 
         def tax_category
-          Spree::TaxCategory.where(name: I18n.t(:shopify)).first_or_create!
+          Spree::TaxCategory.where('name like ?', "#{profile_name}%").first_or_create!
+        end
+
+        def profile_name
+          @spree_zone.name.split('/').last
+        end
+
+        def included_in_price
+          JSON.parse(SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Shop').data_feed)['taxes_included']
         end
       end
     end

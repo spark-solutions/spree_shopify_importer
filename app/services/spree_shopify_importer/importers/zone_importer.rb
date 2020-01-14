@@ -11,7 +11,7 @@ module SpreeShopifyImporter
         if (spree_object = process_data_feed.spree_object).blank?
           creator.new(@shopify_object, @parent_object, @country).create!
         else
-          updater.new(@shopify_object, @parent_object, @country, spree_object).update!
+          updater.new(@shopify_object, @parent_object, spree_object, @country).update!
         end
       end
 

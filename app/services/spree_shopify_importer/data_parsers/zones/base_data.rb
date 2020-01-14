@@ -18,13 +18,16 @@ module SpreeShopifyImporter
 
         private
 
-        # TODO change profile_id for profile_name, when it will be known
         def spree_zone_name
-          "#{@parent_object.name}/#{@parent_object.profile_id.split('/').last}/#{@shopify_object.name}"
+          "#{@parent_object.name}/#{@shopify_object.name}/#{profile_name}"
         end
 
         def spree_zone_description
-          "shopify shipping to #{@shopify_object.name}"
+          "Shopify shipping to #{@shopify_object.name}"
+        end
+
+        def profile_name
+          Spree::TaxCategory.find_by('name like ?', "%#{@parent_object.profile_id.split('/').last}").name.split('/').first
         end
       end
     end

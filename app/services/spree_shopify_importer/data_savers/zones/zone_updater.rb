@@ -2,9 +2,7 @@ module SpreeShopifyImporter
   module DataSavers
     module Zones
       class ZoneUpdater < ZoneBase
-
-
-        def initialize(shopify_object, parent_object, country = nil, spree_zone)
+        def initialize(shopify_object, parent_object, spree_zone, country = nil)
           @shopify_object = shopify_object
           @parent_object = parent_object
           @country = country
@@ -17,6 +15,7 @@ module SpreeShopifyImporter
             destroy_old_spree_zone_member
             create_spree_zone_member
             update_rest_of_world_zone
+            create_or_update_tax_rate
           end
         end
 

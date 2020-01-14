@@ -12,7 +12,6 @@ module SpreeShopifyImporter
             create_spree_line_items
             create_spree_payments
             create_spree_shipments
-            create_spree_taxes
             create_spree_promotions
             create_spree_addresses
             create_spree_refunds
@@ -86,21 +85,6 @@ module SpreeShopifyImporter
           shopify_order.fulfillments.each do |fulfillment|
             SpreeShopifyImporter::Importers::ShipmentImporter.new(fulfillment, @shopify_data_feed, @spree_order).import!
           end
-        end
-
-        def create_spree_taxes
-          return if billing_address.blank?
-
-          shopify_order.tax_lines.each do |shopify_tax_line|
-            spree_tax_rate = create_tax_rate(shopify_tax_line)
-            SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator.new(shopify_tax_line,
-                                                                          @spree_order,
-                                                                          spree_tax_rate).create!
-          end
-        end
-
-        def create_tax_rate(shopify_tax_line)
-          SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator.new(shopify_tax_line, billing_address).create!
         end
 
         def create_spree_promotions
