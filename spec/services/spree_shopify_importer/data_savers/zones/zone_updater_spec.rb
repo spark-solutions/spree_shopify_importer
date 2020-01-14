@@ -24,7 +24,7 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneUpdater, type: :service do
                parent_id: shipping_zone_data_feed.id)
       end
       let!(:country) { create(:country, iso: 'HR') }
-      let!(:spree_zone) { create(:zone, name: 'Domestic/18869387313/Croatia', kind: 'country') }
+      let!(:spree_zone) { create(:zone, name: 'Domestic/Croatia/GENERAL PROFILE', kind: 'country') }
       let!(:old_spree_zone_member) { create(:zone_member, zoneable: country, zone: spree_zone) }
       let(:parent_object) { shopify_shipping_zone }
       let(:shopify_object) { parent_object.countries.first }
@@ -36,14 +36,21 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneUpdater, type: :service do
         )
       end
 
+      let!(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+      let!(:shop_data_feed) do
+        create(:shopify_data_feed,
+               shopify_object_type: 'ShopifyAPI::Shop',
+               data_feed: "{\"taxes_included\":true}")
+      end
+
       it 'does not create spree zone' do
         expect { subject.update! }.not_to change(Spree::Zone, :count)
       end
 
       it 'updates spree zone' do
-        expect(spree_zone.description).not_to eq("shopify shipping to #{shopify_object.name}")
+        expect(spree_zone.description).not_to eq("Shopify shipping to #{shopify_object.name}")
         subject.update!
-        expect(spree_zone.description).to eq("shopify shipping to #{shopify_object.name}")
+        expect(spree_zone.description).to eq("Shopify shipping to #{shopify_object.name}")
       end
 
       it 'destroys old spree zone member' do

@@ -4,6 +4,7 @@ FactoryBot.define do
     sequence(:id)   { |n| n }
     name            { 'Poland' }
     code            { 'PL' }
+    tax             { 0.25 }
     provinces       { [] }
   end
 end
