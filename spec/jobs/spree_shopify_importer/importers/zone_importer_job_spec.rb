@@ -4,7 +4,7 @@ describe SpreeShopifyImporter::Importers::ZoneImporterJob, type: :job do
   subject { described_class.new }
 
   describe '#perform' do
-    let(:resource) { create(:country) }
+    let(:resource) { build_stubbed(:country) }
     let(:parent_object) { double('ShopifyZone') }
 
     it 'calls a importer service' do

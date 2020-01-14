@@ -36,7 +36,8 @@ RSpec.feature 'end to end import' do
       expect(Spree::CustomerReturn.count).to eq 1
       expect(Spree::Reimbursement.count).to eq 1
       expect(Spree::Refund.count).to eq 1
-      # expect(Spree::Zone.count).to eq 2
+      expect(Spree::Zone.count).to eq 2
+      expect(Spree::TaxRate.count).to eq 2
     end
   end
 
@@ -75,6 +76,7 @@ RSpec.feature 'end to end import' do
       expect(Spree::Reimbursement.count).to eq 1
       expect(Spree::Refund.count).to eq 1
       expect(Spree::Zone.count).to eq 2
+      expect(Spree::TaxRate.count).to eq 2
     end
   end
 end

@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 module RestOfWorldZones
   class UpdateJob < ApplicationJob
-    def perform(spree_member, rest_of_world_country_zone, profile_id)
+    SPREE_STATE = 'Spree::State'
+
+    def perform(spree_member, rest_of_world_country_zone, profile_name)
       @spree_member = spree_member
       @rest_of_world_country_zone = rest_of_world_country_zone
-      @profile_id = profile_id
+      @profile_name = profile_name
       update_rest_of_world_zones
     end
 
@@ -17,7 +21,7 @@ module RestOfWorldZones
 
     def rest_of_world_state_zone
       @rest_of_world_state_zone = Spree::Zone.find_or_create_by!(
-        name: "Rest of World - States/#{@profile_id}",
+        name: "Rest of World - States/#{@profile_name}",
         description: 'shopify shipping to States Rest of World',
         kind: 'state'
       )
@@ -29,7 +33,7 @@ module RestOfWorldZones
         @existed_spree_zone_country_member_for_state.destroy!
       else
         Spree::ZoneMember.find_by(
-          zoneable_type: "Spree::State",
+          zoneable_type: SPREE_STATE,
           zoneable_id: @spree_member.id,
           zone_id: rest_of_world_state_zone.id
         )&.destroy!
@@ -41,7 +45,7 @@ module RestOfWorldZones
         where(country_id: @spree_member.country_id).
         where.not(id: @spree_member.id).each do |state|
           Spree::ZoneMember.create!(
-            zoneable_type: "Spree::State",
+            zoneable_type: SPREE_STATE,
             zoneable_id: state.id,
             zone_id: rest_of_world_state_zone.id
           )

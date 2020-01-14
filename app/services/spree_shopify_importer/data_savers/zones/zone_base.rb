@@ -47,10 +47,17 @@ module SpreeShopifyImporter
           Spree::State.find_by(abbr: abbr, country_id: spree_country_id) || Spree::State.find_by(name: name, country_id: spree_country_id)
         end
 
+        def profile_name
+          @profile_name = attributes['profile_name']
+        end
+
         def update_rest_of_world_zone
-          profile_id = @parent_object.profile_id.split('/').last
-          rest_of_world_country_zone = Spree::Zone.find_by(name: "Rest of World - Countries/#{profile_id}")
-          RestOfWorldZones::UpdateJob.perform_later(@spree_member, rest_of_world_country_zone, profile_id) if rest_of_world_country_zone.present?
+          rest_of_world_country_zone = Spree::Zone.find_by(name: "Rest of World - Countries/#{profile_name}")
+          RestOfWorldZones::UpdateJob.perform_later(@spree_member, rest_of_world_country_zone, @profile_name) if rest_of_world_country_zone.present?
+        end
+
+        def create_or_update_tax_rate
+          SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator.new(@spree_zone, @shopify_object).create!
         end
       end
     end

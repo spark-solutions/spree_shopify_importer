@@ -2,7 +2,6 @@ module SpreeShopifyImporter
   module DataSavers
     module Zones
       class ZoneCreator < ZoneBase
-
         def initialize(shopify_object, parent_object, country = nil)
           @shopify_object = shopify_object
           @parent_object = parent_object
@@ -15,6 +14,7 @@ module SpreeShopifyImporter
             assign_spree_zone_to_data_feed
             create_spree_zone_member
             update_rest_of_world_zone
+            create_or_update_tax_rate
           end
         end
 
@@ -33,7 +33,7 @@ module SpreeShopifyImporter
 
         def parent_feed
           SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: @parent_object.id,
-                                                                shopify_object_type: @parent_object.class.to_s)
+                                                 shopify_object_type: @parent_object.class.to_s)
         end
       end
     end

@@ -1,16 +1,21 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :service do
-  let!(:country) { create(:country, iso: 'US') }
-  let!(:zone) { create(:global_zone) }
-  subject { described_class.new(shopify_tax_line, shopify_address) }
+  let(:shopify_object) { build_stubbed(:shopify_country) }
+  let(:spree_zone) { create(:zone, name: 'Domestic/Poland/GENERAL PROFILE') }
+  let!(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+  let(:calculator) { Spree::Calculator::ShopifyTax.last }
+  let!(:shop_data_feed) do
+    create(:shopify_data_feed,
+           shopify_object_type: 'ShopifyAPI::Shop',
+           data_feed: "{\"taxes_included\":true}")
+  end
+
+  subject { described_class.new(spree_zone, shopify_object) }
 
   before { authenticate_with_shopify }
 
   describe '#create!' do
-    let!(:shopify_address) { create(:shopify_address) }
-    let!(:shopify_tax_line) { create(:shopify_tax_line) }
-
     it 'creates tax rate' do
       expect { subject.create! }.to change(Spree::TaxRate, :count).by(1)
     end
@@ -20,24 +25,32 @@ describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :serv
     end
 
     context 'sets a tax rate attributes' do
-      let(:tax_rate) { subject.create! }
+      before { subject.create! }
+      let(:tax_rate) { Spree::TaxRate.last }
 
       it 'name' do
-        expect(tax_rate.name).to eq shopify_tax_line.title
+        expect(tax_rate.name).to eq "Shopify/#{shopify_object.name}/#{tax_category.name.split('/').first}"
       end
 
       it 'amount' do
-        expect(tax_rate.amount).to eq shopify_tax_line.rate
+        expect(tax_rate.amount).to eq shopify_object.tax
+      end
+
+      it 'included_in_price' do
+        expect(tax_rate.included_in_price).to eq JSON.parse(shop_data_feed.data_feed)['taxes_included']
+      end
+
+      it 'show_rate_in_label' do
+        expect(tax_rate.show_rate_in_label).to eq false
       end
     end
 
     context 'sets a tax rate associations' do
-      let(:tax_rate) { subject.create! }
-      let(:tax_category) { Spree::TaxCategory.last }
-      let(:calculator) { Spree::Calculator::ShopifyTax.last }
+      before { subject.create! }
+      let(:tax_rate) { Spree::TaxRate.last }
 
       it 'zone' do
-        expect(tax_rate.zone).to eq zone
+        expect(tax_rate.zone).to eq spree_zone
       end
 
       it 'tax category' do
