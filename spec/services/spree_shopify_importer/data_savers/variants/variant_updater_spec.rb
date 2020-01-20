@@ -25,7 +25,13 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantUpdater, type:
 
   subject { described_class.new(shopify_data_feed, spree_variant, spree_product) }
 
-  before { spree_product.option_types << option_type }
+  let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
+  before do
+    authenticate_with_shopify
+    expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
+    expect(delivery_profile_importer).to receive(:call)
+    spree_product.option_types << option_type
+  end
 
   describe '#update!' do
     it 'does not create spree variant' do

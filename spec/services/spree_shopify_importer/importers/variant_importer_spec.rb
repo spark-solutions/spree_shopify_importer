@@ -12,11 +12,12 @@ describe SpreeShopifyImporter::Importers::VariantImporter, type: :service do
   subject { described_class.new(resource, parent_feed, spree_product, shopify_image) }
 
   before do
+    authenticate_with_shopify
     allow_any_instance_of(SpreeShopifyImporter::DataParsers::Variants::BaseData)
       .to receive(:option_value_ids).and_return([option_value.id])
   end
 
-  describe '#import!' do
+  describe '#import!', vcr: { cassette_name: 'shopify/base_product' } do
     it 'creates shopify data feeds' do
       expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end

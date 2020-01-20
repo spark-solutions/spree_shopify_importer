@@ -9,7 +9,6 @@ module SpreeShopifyImporter
             add_option_types
             add_tags
           end
-          create_delivery_profiles
           create_spree_variants
           create_spree_images
         end
