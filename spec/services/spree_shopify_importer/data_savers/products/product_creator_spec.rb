@@ -126,7 +126,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
             perform_enqueued_jobs do
               subject.create!
             end
-          end.to change(Spree::Image, :count).by(1)
+          end.to change(Spree::Image, :count).by(2)
         end
 
         it 'assings variants to product' do
@@ -144,7 +144,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
             perform_enqueued_jobs do
               subject.create!
             end
-          end.to change { SpreeShopifyImporter::DataFeed.where(image_scope).reload.count }.by(1)
+          end.to change { SpreeShopifyImporter::DataFeed.where(image_scope).reload.count }.by(2)
         end
       end
 
