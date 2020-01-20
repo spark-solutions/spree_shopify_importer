@@ -1,27 +1,26 @@
 module SpreeShopifyImporter
   module Importers
     class DeliveryProfileImporter
-      def initialize(spree_product, shopify_product)
-        @spree_product = spree_product
-        @shopify_product = shopify_product
+      def initialize(spree_variant, shopify_variant)
+        @spree_variant = spree_variant
+        @shopify_variant = shopify_variant
       end
 
       def call
-        product_variant = shopify_product.variants.first
 
-        return if product_variant.blank?
+        return if @shopify_variant.blank?
 
-        delivery_profile = SpreeShopifyImporter::Connections::DeliveryProfile.new(product_variant.admin_graphql_api_id).call
+        delivery_profile = SpreeShopifyImporter::Connections::DeliveryProfile.new(@shopify_variant.admin_graphql_api_id).call
 
         return if delivery_profile.blank?
 
         tax_category = SpreeShopifyImporter::DataSavers::TaxCategories::TaxCategoryCreator.new(delivery_profile).call
-        spree_product.update!(tax_category: tax_category)
+        @spree_variant.update!(tax_category: tax_category)
       end
 
       private
 
-      attr_reader :spree_product, :shopify_product
+      attr_reader :spree_variant, :shopify_variant
     end
   end
 end
