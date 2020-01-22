@@ -16,7 +16,8 @@ module SpreeShopifyImporter
         return if delivery_profile.blank?
 
         tax_category = SpreeShopifyImporter::DataSavers::TaxCategories::TaxCategoryCreator.new(delivery_profile).call
-        spree_product.update!(tax_category: tax_category)
+        shipping_category = SpreeShopifyImporter::DataSavers::ShippingCategories::ShippingCategoryCreator.new(tax_category).call
+        spree_product.update!(tax_category: tax_category, shipping_category: shipping_category)
       end
 
       private
