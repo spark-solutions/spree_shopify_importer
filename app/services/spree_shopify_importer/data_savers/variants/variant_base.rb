@@ -28,16 +28,12 @@ module SpreeShopifyImporter
                                                                           @spree_variant)
         end
 
-        def create_delivery_profiles
-          SpreeShopifyImporter::Importers::DeliveryProfileImporter.new(@spree_variant, @shopify_variant).call
-        end
-
         def parser
           @parser ||= SpreeShopifyImporter::DataParsers::Variants::BaseData.new(shopify_variant, @spree_product)
         end
 
         def shopify_variant
-          @shopify_variant = ShopifyAPI::Variant.new(data_feed)
+          ShopifyAPI::Variant.new(data_feed)
         end
       end
     end
