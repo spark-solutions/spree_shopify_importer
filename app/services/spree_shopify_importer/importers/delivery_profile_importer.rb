@@ -8,11 +8,7 @@ module SpreeShopifyImporter
 
       def call
 
-<<<<<<< HEAD
         return if product_variant.blank? || product_variant.admin_graphql_api_id.blank?
-=======
-        return if @shopify_variant.blank?
->>>>>>> #168 fix delivery profile import
 
         delivery_profile = SpreeShopifyImporter::Connections::DeliveryProfile.new(@shopify_variant.admin_graphql_api_id).call
 
