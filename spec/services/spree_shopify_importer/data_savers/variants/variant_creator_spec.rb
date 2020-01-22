@@ -24,11 +24,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantCreator, type:
 
   subject { described_class.new(shopify_data_feed, spree_product) }
 
-  let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
   before  do
-    authenticate_with_shopify
-    expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
-    expect(delivery_profile_importer).to receive(:call)
     spree_product.option_types << option_type
   end
 
