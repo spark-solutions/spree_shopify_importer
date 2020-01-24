@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::ShopImporter, type: :service do
-  let(:resource) { "{\"id\":20513691,\"name\":\"Spree Shopify Importer Test Store\" }" }
+  let(:resource) { '{"id":20513691,"name":"Spree Shopify Importer Test Store" }' }
 
   subject { described_class.new(resource) }
 

@@ -41,9 +41,9 @@ module RestOfWorldZones
     end
 
     def create_states_members
-      Spree::State.
-        where(country_id: @spree_member.country_id).
-        where.not(id: @spree_member.id).each do |state|
+      Spree::State
+        .where(country_id: @spree_member.country_id)
+        .where.not(id: @spree_member.id).each do |state|
           Spree::ZoneMember.create!(
             zoneable_type: SPREE_STATE,
             zoneable_id: state.id,

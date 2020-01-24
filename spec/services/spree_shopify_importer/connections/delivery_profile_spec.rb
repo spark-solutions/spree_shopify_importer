@@ -13,7 +13,7 @@ describe SpreeShopifyImporter::Connections::DeliveryProfile, type: :module do
     before do
       expect(ShopifyAPI::GraphQL).to receive(:new).and_return(graphql_client)
       expect(graphql_client).to receive(:query).and_return(graphql_response)
-      expect(graphql_response.data).to receive(:product_variant).and_return(product_variant)
+      expect(graphql_response.data).to receive(:product_variant).and_return(product_variant).twice
     end
 
     it "calls correct query to graphql endpoint" do

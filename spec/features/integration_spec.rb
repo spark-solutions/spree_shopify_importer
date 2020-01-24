@@ -2,13 +2,15 @@ require 'spec_helper'
 
 RSpec.feature 'end to end import' do
   include ActiveJob::TestHelper
-  let!(:country) { create(:country,
-                            name: 'Croatia',
-                            iso_name: 'CROATIA',
-                            iso: 'HR',
-                            iso3: 'HRV') }
+  let!(:country) do
+    create(:country,
+           name: 'Croatia',
+           iso_name: 'CROATIA',
+           iso: 'HR',
+           iso3: 'HRV')
+  end
 
-  it 'imports successfully', vcr: { cassette_name: 'integration' } do
+  it 'imports successfully' do
     perform_enqueued_jobs do
       SpreeShopifyImporter::Invoker.new(
         credentials: {
