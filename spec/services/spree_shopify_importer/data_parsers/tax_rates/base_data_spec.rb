@@ -11,7 +11,7 @@ describe SpreeShopifyImporter::DataParsers::TaxRates::BaseData, type: :service d
     let!(:shop_data_feed) do
       create(:shopify_data_feed,
              shopify_object_type: 'ShopifyAPI::Shop',
-             data_feed: "{\"taxes_included\":true}")
+             data_feed: '{"taxes_included":true}')
     end
     let(:result) do
       {

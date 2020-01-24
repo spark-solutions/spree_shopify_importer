@@ -19,6 +19,9 @@ module SpreeShopifyImporter
 
       def call
         response = ShopifyAPI::GraphQL.new.query(DELIVERY_PROFILE_QUERY, variables: { id: product_variant_id })
+
+        return if response.data.product_variant.nil?
+
         response.data.product_variant.delivery_profile
       end
 

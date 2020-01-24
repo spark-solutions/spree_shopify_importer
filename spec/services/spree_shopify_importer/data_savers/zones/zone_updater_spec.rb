@@ -40,7 +40,7 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneUpdater, type: :service do
       let!(:shop_data_feed) do
         create(:shopify_data_feed,
                shopify_object_type: 'ShopifyAPI::Shop',
-               data_feed: "{\"taxes_included\":true}")
+               data_feed: '{"taxes_included":true}')
       end
 
       it 'does not create spree zone' do

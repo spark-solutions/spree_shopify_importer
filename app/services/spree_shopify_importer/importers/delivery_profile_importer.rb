@@ -9,7 +9,7 @@ module SpreeShopifyImporter
       def call
         product_variant = shopify_product.variants.first
 
-        return if product_variant.blank?
+        return if product_variant.blank? || product_variant.admin_graphql_api_id.blank?
 
         delivery_profile = SpreeShopifyImporter::Connections::DeliveryProfile.new(product_variant.admin_graphql_api_id).call
 

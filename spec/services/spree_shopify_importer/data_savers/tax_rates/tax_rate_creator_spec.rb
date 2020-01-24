@@ -8,7 +8,7 @@ describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :serv
   let!(:shop_data_feed) do
     create(:shopify_data_feed,
            shopify_object_type: 'ShopifyAPI::Shop',
-           data_feed: "{\"taxes_included\":true}")
+           data_feed: '{"taxes_included":true}')
   end
 
   subject { described_class.new(spree_zone, shopify_object) }

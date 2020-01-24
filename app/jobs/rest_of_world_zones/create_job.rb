@@ -15,7 +15,7 @@ module RestOfWorldZones
     private
 
     def existed_spree_zones_by_member_type
-      Spree::Zone.where('name like ?', "%#{@profile_id}%").map(&:members).flatten.group_by{ |m| m.zoneable_type }
+      Spree::Zone.where('name like ?', "%#{@profile_id}%").map(&:members).flatten.group_by(&:zoneable_type)
     end
 
     def profile_id
@@ -48,9 +48,9 @@ module RestOfWorldZones
     end
 
     def create_states_members
-      Spree::State.
-        where(country_id: find_excluded_countries_ids_of_excluded_states).
-        where.not(id: @excluded_states_ids).each do |state|
+      Spree::State
+        .where(country_id: find_excluded_countries_ids_of_excluded_states)
+        .where.not(id: @excluded_states_ids).each do |state|
           find_or_create_spree_zone_member(SPREE_STATE, state.id, @rest_of_world_state_zone.id)
         end
     end
