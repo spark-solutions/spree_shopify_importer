@@ -3,13 +3,12 @@ require 'spec_helper'
 describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
   include ActiveJob::TestHelper
 
-  subject { described_class.new(shopify_object, parent_object) }
+  subject { described_class.new(shopify_object, parent_object, shipping_methods) }
 
   before { authenticate_with_shopify }
 
   describe '#create!' do
     context 'with country shipping_zone data feed', vcr: { cassette_name: 'shopify/base_country_zone' } do
-      authenticate_with_shopify
       let(:shopify_shipping_zone) { ShopifyAPI::ShippingZone.first }
       let!(:shipping_zone_data_feed) do
         create(:shopify_data_feed,
@@ -43,12 +42,13 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
                shopify_object_type: 'ShopifyAPI::Shop',
                data_feed: '{"taxes_included":true}')
       end
+      let(:shipping_methods) { [create(:shipping_method, zones: [])] }
 
       it 'creates spree zone' do
         expect { subject.create! }.to change(Spree::Zone, :count).by(1)
       end
 
-      it 'assigns shopify data feed to spree order' do
+      it 'assigns shopify data feed to spree zone' do
         subject.create!
         expect(zone_data_feed.reload.spree_object).to eq spree_zone
       end
@@ -56,6 +56,16 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
       it 'creates spree zone member' do
         subject.create!
         expect(spree_zone.members.first).to eq spree_zone_member
+      end
+
+      it 'creates or updates tax rate' do
+        subject.create!
+        expect(tax_category.tax_rates.first.zone).to eq spree_zone
+      end
+
+      it 'assigns zone to shipping methods' do
+        subject.create!
+        expect(shipping_methods.first.zones.last).to eq spree_zone
       end
     end
   end

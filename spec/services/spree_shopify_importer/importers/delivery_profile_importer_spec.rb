@@ -6,8 +6,6 @@ describe SpreeShopifyImporter::Importers::DeliveryProfileImporter do
   let(:spree_product) { build_stubbed(:product) }
   let(:shopify_product) { build_stubbed(:shopify_product_single_variant) }
 
-  # before { authenticate_with_shopify }
-
   describe "#call", vcr: { cassette_name: 'shopify/base_delivery_profile' } do
     let(:delivery_profile_connection) { instance_double(SpreeShopifyImporter::Connections::DeliveryProfile) }
     let(:tax_categories_saver) { instance_double(SpreeShopifyImporter::DataSavers::TaxCategories::TaxCategoryCreator) }

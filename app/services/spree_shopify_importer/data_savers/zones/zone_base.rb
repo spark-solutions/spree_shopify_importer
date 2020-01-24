@@ -59,6 +59,12 @@ module SpreeShopifyImporter
         def create_or_update_tax_rate
           SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator.new(@spree_zone, @shopify_object).create!
         end
+
+        def assign_zone_to_shipping_methods
+          @shipping_methods.each do |shipping_method|
+            shipping_method.zones << @spree_zone unless shipping_method.zones.include? @spree_zone
+          end
+        end
       end
     end
   end

@@ -2,10 +2,11 @@ module SpreeShopifyImporter
   module DataSavers
     module Zones
       class ZoneCreator < ZoneBase
-        def initialize(shopify_object, parent_object, country = nil)
+        def initialize(shopify_object, parent_object, shipping_methods, country = nil)
           @shopify_object = shopify_object
           @parent_object = parent_object
           @country = country
+          @shipping_methods = shipping_methods
         end
 
         def create!
@@ -15,6 +16,7 @@ module SpreeShopifyImporter
             create_spree_zone_member
             update_rest_of_world_zone
             create_or_update_tax_rate
+            assign_zone_to_shipping_methods
           end
         end
 
