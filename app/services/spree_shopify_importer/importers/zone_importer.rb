@@ -1,17 +1,18 @@
 module SpreeShopifyImporter
   module Importers
     class ZoneImporter < BaseImporter
-      def initialize(resource, parent_object)
+      def initialize(resource, parent_object, shipping_methods)
         @resource = resource
         @parent_object = ShopifyAPI::ShippingZone.new(JSON.parse(parent_object))
         @country = country
+        @shipping_methods = shipping_methods
       end
 
       def import!
         if (spree_object = process_data_feed.spree_object).blank?
-          creator.new(@shopify_object, @parent_object, @country).create!
+          creator.new(@shopify_object, @parent_object, @shipping_methods, @country).create!
         else
-          updater.new(@shopify_object, @parent_object, spree_object, @country).update!
+          updater.new(@shopify_object, @parent_object, spree_object, @shipping_methods, @country).update!
         end
       end
 

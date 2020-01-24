@@ -41,6 +41,8 @@ RSpec.feature 'end to end import' do
       expect(Spree::Refund.count).to eq 1
       expect(Spree::Zone.count).to eq 2
       expect(Spree::TaxRate.count).to eq 2
+      expect(Spree::ShippingCategory.count).to eq 2
+      expect(Spree::ShippingMethod.count).to eq 4
     end
   end
 
@@ -81,6 +83,8 @@ RSpec.feature 'end to end import' do
       expect(Spree::Refund.count).to eq 1
       expect(Spree::Zone.count).to eq 2
       expect(Spree::TaxRate.count).to eq 2
+      expect(Spree::ShippingCategory.count).to eq 2
+      expect(Spree::ShippingMethod.count).to eq 4
     end
   end
 end

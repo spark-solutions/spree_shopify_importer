@@ -5,11 +5,13 @@ module RestOfWorldZones
     SPREE_STATE = 'Spree::State'
     SPREE_COUNTRY = 'Spree::Country'
 
-    def perform(shopify_shipping_zone)
+    def perform(shopify_shipping_zone, shipping_methods)
       @shopify_shipping_zone = ShopifyAPI::ShippingZone.new(JSON.parse(shopify_shipping_zone))
       @existed_spree_zones_by_member_type = existed_spree_zones_by_member_type
       @profile_name = profile_name
+      @shipping_methods = shipping_methods
       create_rest_of_world_country_zone
+      assign_zone_to_shipping_metohods
     end
 
     private
@@ -95,6 +97,12 @@ module RestOfWorldZones
 
     def create_or_update_tax_rate(spree_zone)
       SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator.new(spree_zone, @shopify_shipping_zone).create!
+    end
+
+    def assign_zone_to_shipping_metohods
+      @shipping_methods.each do |shipping_method|
+        shipping_method.zones << [@rest_of_world_country_zone, @rest_of_world_state_zone].compact
+      end
     end
   end
 end
