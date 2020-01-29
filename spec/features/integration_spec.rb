@@ -10,7 +10,7 @@ RSpec.feature 'end to end import' do
            iso3: 'HRV')
   end
 
-  it 'imports successfully', vcr: { cassette_name: 'integration' } do
+  it 'imports successfully' do
     perform_enqueued_jobs do
       SpreeShopifyImporter::Invoker.new(
         credentials: {
