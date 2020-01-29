@@ -2,6 +2,7 @@ module SpreeShopifyImporter
   class Invoker
     ROOT_FETCHERS = [
       SpreeShopifyImporter::DataFetchers::ShopFetcher,
+      SpreeShopifyImporter::DataFetchers::StockLocationsFetcher,
       SpreeShopifyImporter::DataFetchers::ProductsFetcher,
       SpreeShopifyImporter::DataFetchers::ShopifyZonesFetcher,
       SpreeShopifyImporter::DataFetchers::UsersFetcher,
