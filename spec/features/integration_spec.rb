@@ -21,6 +21,7 @@ RSpec.feature 'end to end import' do
     end
 
     aggregate_failures 'items creation' do
+      expect(Spree::StockLocation.count).to eq 2
       expect(Spree::Product.count).to eq 2
       expect(Spree::Variant.count).to eq 4
       expect(Spree::TaxCategory.count).to eq 1
@@ -63,6 +64,7 @@ RSpec.feature 'end to end import' do
     end
 
     aggregate_failures 'items creation' do
+      expect(Spree::StockLocation.count).to eq 2
       expect(Spree::Product.count).to eq 2
       expect(Spree::Variant.count).to eq 4
       expect(Spree::TaxCategory.count).to eq 1
