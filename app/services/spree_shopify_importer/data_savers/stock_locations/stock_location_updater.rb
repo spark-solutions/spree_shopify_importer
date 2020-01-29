@@ -8,8 +8,14 @@ module SpreeShopifyImporter
         end
 
         def update!
-          @spree_stock_location.attributes = attributes
-          @spree_stock_location.save(validate: false)
+          Spree::StockLocation.transaction do
+            update_spree_stock_location
+            assign_data_to_spree_stock_items
+          end
+        end
+
+        def update_spree_stock_location
+          @spree_stock_location.update(attributes: attributes)
         end
       end
     end

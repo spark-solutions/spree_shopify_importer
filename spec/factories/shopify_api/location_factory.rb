@@ -5,8 +5,8 @@ FactoryBot.define do
     name            { 'Warehouse' }
     address1        { FFaker::Address.street_name }
     address2        { '' }
-    city            { FFaker::Address.city }
-    zip             { FFaker::Address.zip_code }
+    city            { FFaker::AddressCA.city }
+    zip             { FFaker::AddressCA.postal_code }
     phone           { ' ' }
     active          { true }
     country_code    { 'CA' }

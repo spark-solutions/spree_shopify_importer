@@ -77,52 +77,6 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantUpdater, type:
         end
       end
 
-      context 'backorderable' do
-        let(:stock_location) { Spree::StockLocation.find_by(name: I18n.t(:shopify)) }
-        let(:spree_variant_stock_item) { Spree::Variant.last.stock_items.find_by(stock_location: stock_location) }
-
-        before { subject.update! }
-
-        context 'resource in shopify was backorderable' do
-          let(:shopify_variant) { create(:shopify_variant, inventory_policy: 'continue') }
-
-          it 'then it is backroderable' do
-            expect(spree_variant_stock_item.reload).to be_backorderable
-          end
-        end
-
-        context 'resource in shopify was not backorderable' do
-          let(:shopify_variant) { create(:shopify_variant, inventory_policy: 'not_continue') }
-
-          it 'then it is not backroderable' do
-            expect(spree_variant_stock_item).not_to be_backorderable
-          end
-        end
-      end
-
-      context 'inventory quantity' do
-        let(:stock_location) { Spree::StockLocation.find_by(name: I18n.t(:shopify)) }
-        let(:spree_variant_stock_item) { spree_variant.stock_items.find_by(stock_location: stock_location) }
-
-        before { subject.update! }
-
-        context 'when variant is tracking inventory' do
-          let(:shopify_variant) { create(:shopify_variant, inventory_management: 'shopify', inventory_quantity: 5) }
-
-          it 'it sets variant inventory_quantity' do
-            expect(spree_variant_stock_item.count_on_hand).to eq 5
-          end
-        end
-
-        context 'when variant is not tracking inventory' do
-          let(:shopify_variant) { create(:shopify_variant, inventory_management: 'not_shopify', inventory_quantity: 5) }
-
-          it 'it sets variant inventory_quantity' do
-            expect(spree_variant_stock_item.count_on_hand).to eq 0
-          end
-        end
-      end
-
       context 'images', vcr: { cassette_name: 'shopify_import/creators/variant_creator/image' } do
         let(:shopify_image) { create(:shopify_image, src: valid_path) }
         let(:valid_path) do

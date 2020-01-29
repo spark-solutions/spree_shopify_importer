@@ -8,7 +8,7 @@ module SpreeShopifyImporter
 
         def attributes
           @attributes ||= {
-            name: @shopify_location.name,
+            name: stock_location_name,
             address1: @shopify_location.address1,
             address2: @shopify_location.address2,
             city: @shopify_location.city,
@@ -21,6 +21,10 @@ module SpreeShopifyImporter
         end
 
         private
+
+        def stock_location_name
+          "#{@shopify_location.name}/#{@shopify_location.id}"
+        end
 
         def country
           @country = Spree::Country.find_by(iso: @shopify_location.country_code, name: @shopify_location.country_name)
