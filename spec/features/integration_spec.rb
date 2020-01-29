@@ -47,7 +47,7 @@ RSpec.feature 'end to end import' do
     end
   end
 
-  it 'multiple imports successfully', vcr: { cassette_name: 'multiple_integration' } do
+  it 'multiple imports successfully' do
     perform_enqueued_jobs do
       SpreeShopifyImporter::Invoker.new(
         credentials: {

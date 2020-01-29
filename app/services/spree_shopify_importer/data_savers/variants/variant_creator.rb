@@ -14,7 +14,6 @@ module SpreeShopifyImporter
             add_option_values
             @spree_variant.save!
             assign_spree_variant_to_data_feed
-            set_stock_data
           end
           create_spree_image if @shopify_image.present?
         end

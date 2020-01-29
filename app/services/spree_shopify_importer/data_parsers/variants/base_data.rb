@@ -13,7 +13,8 @@ module SpreeShopifyImporter
             price: @shopify_variant.price,
             weight: @shopify_variant.grams,
             position: @shopify_variant.position,
-            product_id: @spree_product.id
+            product_id: @spree_product.id,
+            track_inventory: track_inventory?
           }
         end
 
@@ -30,19 +31,6 @@ module SpreeShopifyImporter
 
         def track_inventory?
           @track_inventory ||= @shopify_variant.inventory_management.eql?('shopify')
-        end
-
-        def backorderable?
-          @backorderable ||= @shopify_variant.inventory_policy.eql?('continue')
-        end
-
-        def inventory_quantity
-          @inventory_quantity ||= @shopify_variant.inventory_quantity
-        end
-
-        def stock_location
-          @stock_location ||=
-            Spree::StockLocation.create_with(default: false, active: false).find_or_create_by(name: I18n.t(:shopify))
         end
       end
     end

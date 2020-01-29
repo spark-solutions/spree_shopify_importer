@@ -12,7 +12,8 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :ser
         price: shopify_variant.price,
         weight: shopify_variant.grams,
         position: shopify_variant.position,
-        product_id: spree_product.id
+        product_id: spree_product.id,
+        track_inventory: shopify_variant.inventory_management.eql?('shopify')
       }
     end
 
@@ -80,47 +81,6 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :ser
 
       it 'returns true' do
         expect(subject).not_to be_track_inventory
-      end
-    end
-  end
-
-  context '#backorderable?' do
-    context 'shopify variant has inventory_policy == continue' do
-      let(:shopify_variant) { create(:shopify_variant, inventory_policy: 'continue') }
-
-      it 'returns true' do
-        expect(subject).to be_backorderable
-      end
-    end
-
-    context 'shopify variant has inventory_policy other than continue' do
-      let(:shopify_variant) { create(:shopify_variant, inventory_policy: 'other') }
-
-      it 'returns true' do
-        expect(subject).not_to be_backorderable
-      end
-    end
-  end
-
-  context '#inventory_quantity' do
-    it 'returns current inventory quantity' do
-      expect(subject.inventory_quantity).to eq 0
-    end
-  end
-
-  context '#stock_location' do
-    let!(:spree_product) { create(:product) }
-
-    it 'creates stock location' do
-      expect { subject.stock_location }.to change(Spree::StockLocation, :count).by(1)
-    end
-    [
-      { attribute: 'name', value: I18n.t(:shopify) },
-      { attribute: 'default', value: false },
-      { attribute: 'active', value: false }
-    ].each do |stock_location_data|
-      it "creates stock stock location with proper #{stock_location_data[:attribute]}" do
-        expect(subject.stock_location.send(stock_location_data[:attribute])).to eq stock_location_data[:value]
       end
     end
   end
