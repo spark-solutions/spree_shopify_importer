@@ -11,11 +11,11 @@ module SpreeShopifyImporter
       g.test_framework :rspec
     end
 
-    def self.activate
-      Dir.glob(File.join(__dir__, '../../app/**/*_decorator*.rb')) do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
-    end
+    # def self.activate
+    #   Dir.glob(File.join(__dir__, '../../app/**/*_decorator*.rb')) do |c|
+    #     Rails.configuration.cache_classes ? require(c) : load(c)
+    #   end
+    # end
 
     config.to_prepare(&method(:activate).to_proc)
   end
