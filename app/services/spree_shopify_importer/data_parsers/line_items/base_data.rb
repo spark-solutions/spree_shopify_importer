@@ -14,7 +14,8 @@ module SpreeShopifyImporter
             quantity: @shopify_line_item.quantity,
             price: @shopify_line_item.price,
             currency: @shopify_order.currency,
-            adjustment_total: - @shopify_line_item.total_discount.to_d
+            adjustment_total: - @shopify_line_item.total_discount.to_d,
+            tax_category: variant.tax_category
           }
         end
 

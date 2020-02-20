@@ -9,11 +9,11 @@ module SpreeShopifyImporter
           Spree::Order.transaction do
             @spree_order = create_spree_order
             assign_spree_order_to_data_feed
+            create_spree_addresses
             create_spree_line_items
             create_spree_payments
             create_spree_shipments
             create_spree_promotions
-            create_spree_addresses
             create_spree_refunds
           end
           @spree_order.update_columns(timestamps)
@@ -35,9 +35,16 @@ module SpreeShopifyImporter
 
         def create_spree_line_items
           shopify_order.line_items.each do |shopify_line_item|
-            SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator.new(shopify_line_item,
-                                                                             shopify_order,
-                                                                             @spree_order).create
+            spree_line_item = SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator.new(shopify_line_item,
+                                                                                               shopify_order,
+                                                                                               @spree_order).create
+            create_spree_tax_adjustments(shopify_line_item, spree_line_item)
+          end
+        end
+
+        def create_spree_tax_adjustments(shopify_line_item, spree_line_item)
+          shopify_line_item.tax_lines.each do |shopify_tax_line|
+            SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator.new(spree_line_item, shopify_tax_line, @spree_order).create!
           end
         end
 
