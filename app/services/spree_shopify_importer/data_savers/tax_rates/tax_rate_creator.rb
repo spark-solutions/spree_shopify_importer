@@ -4,9 +4,9 @@ module SpreeShopifyImporter
       class TaxRateCreator < BaseDataSaver
         delegate :attributes, to: :parser
 
-        def initialize(spree_zone, shopify_object)
+        def initialize(spree_zone, shopify_shipping_zone)
           @spree_zone = spree_zone
-          @shopify_object = shopify_object
+          @shopify_shipping_zone = shopify_shipping_zone
         end
 
         def create!
@@ -25,7 +25,7 @@ module SpreeShopifyImporter
         end
 
         def parser
-          @parser ||= SpreeShopifyImporter::DataParsers::TaxRates::BaseData.new(@spree_zone, @shopify_object)
+          @parser ||= SpreeShopifyImporter::DataParsers::TaxRates::BaseData.new(@spree_zone, @shopify_shipping_zone)
         end
       end
     end
