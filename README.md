@@ -121,6 +121,21 @@ Import services are divided into four main parts. Each of them could be customiz
    
 4. Data Parsers are services which are changing Shopify data to spree data.
 
+## Send reset password links to users
+If your application uses devise as authentication system you can run next worker:
+
+```ruby
+SpreeShopifyImporter::Users::ResetPasswordJob.new.perform(Spree::User.all)
+```
+
+or find users that you need using `where` and then run worker:
+
+```ruby
+users_to_reset = Spree::User.where(id: [1, 2, 3, 4])
+SpreeShopifyImporter::Users::ResetPasswordJob.new.perform(users_to_reset)
+```
+
+It's important to pass `relation` not `array` into worker.
 
 ## Testing
 
