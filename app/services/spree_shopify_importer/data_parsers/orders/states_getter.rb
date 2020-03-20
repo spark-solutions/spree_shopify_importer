@@ -23,9 +23,9 @@ module SpreeShopifyImporter
         def payment_state
           @payment_state ||= case @shopify_order.financial_status
                              when ::Orders::Constants::Payments::Shopify::PENDING,
-                                  ::Orders::Constants::Payments::Shopify::AUTHORIZED
-                               ::Orders::Constants::Payments::Spree::PENDING
-                             when ::Orders::Constants::Payments::Shopify::PARTIALLY_PAID then ::Orders::Constants::Payments::Spree::BALANCE_DUE
+                                  ::Orders::Constants::Payments::Shopify::AUTHORIZED,
+                                  ::Orders::Constants::Payments::Shopify::PARTIALLY_PAID
+                               ::Orders::Constants::Payments::Spree::BALANCE_DUE
                              when ::Orders::Constants::Payments::Shopify::PAID,
                                   ::Orders::Constants::Payments::Shopify::PARTIALLY_REFUNDED,
                                   ::Orders::Constants::Payments::Shopify::REFUNDED
