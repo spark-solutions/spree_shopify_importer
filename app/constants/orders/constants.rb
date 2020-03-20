@@ -4,8 +4,9 @@ module Orders
   module Constants
     module Payments
       module Spree
-        PENDING = 'pending'
         BALANCE_DUE = 'balance_due'
+        FAILED = 'failed'
+        CREDIT_OWED = 'credit_owed'
         PAID = 'paid'
         VOID = 'void'
       end
