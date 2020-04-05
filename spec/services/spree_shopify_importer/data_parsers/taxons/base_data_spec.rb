@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe SpreeShopifyImporter::DataParsers::Taxons::BaseData, type: :service do
-  let(:shopify_custom_collection) { create(:shopify_custom_collection) }
+describe SpreeShopifyImporter::DataParsers::Taxons::BaseData, type: :service do
   subject { described_class.new(shopify_custom_collection) }
+
+  let(:shopify_custom_collection) { build_stubbed(:shopify_custom_collection) }
 
   describe '#attributes' do
     let(:result) do
@@ -19,9 +20,10 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Taxons::BaseData, type: :servi
   end
 
   describe '#product_ids' do
-    let!(:shopify_product) { create(:shopify_product) }
-    let!(:spree_product) { create(:product) }
-    let!(:shopify_data_feed) do
+    let(:shopify_product) { build_stubbed(:shopify_product) }
+    let(:spree_product) { build_stubbed(:product) }
+
+    let(:shopify_data_feed) do
       create(:shopify_data_feed,
              spree_object: spree_product,
              shopify_object_id: shopify_product.id,
@@ -29,7 +31,8 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Taxons::BaseData, type: :servi
     end
 
     before do
-      allow(shopify_custom_collection).to receive(:products).and_return([shopify_product])
+      shopify_data_feed
+      expect(shopify_custom_collection).to receive(:products).and_return([shopify_product])
     end
 
     it 'returns array of products ids' do
@@ -38,12 +41,16 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Taxons::BaseData, type: :servi
   end
 
   describe '#taxonomy' do
-    it 'creates spree taxonomy' do
-      expect { subject.taxonomy }.to change(Spree::Taxonomy, :count).by(1)
+    context 'when taxonomy is not exists' do
+      it 'creates spree taxonomy' do
+        expect { subject.taxonomy }.to change(Spree::Taxonomy, :count).by(1)
+      end
     end
 
-    it 'assigns proper name to taxonomy' do
-      expect(subject.taxonomy.name).to eq I18n.t('shopify_custom_collections')
+    context 'when taxonomy already exists' do
+      it 'assigns proper name to taxonomy' do
+        expect(subject.taxonomy.name).to eq I18n.t('shopify_custom_collections')
+      end
     end
   end
 end

@@ -210,4 +210,107 @@ http_interactions:
         Title"]}],"images":[{"id":26172377540,"product_id":11055169028,"position":1,"created_at":"2017-05-31T06:19:10+02:00","updated_at":"2017-05-31T06:19:10+02:00","alt":null,"width":3584,"height":2270,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-02-21_14.44.34.png?v=1496204350","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/26172377540"}],"image":{"id":26172377540,"product_id":11055169028,"position":1,"created_at":"2017-05-31T06:19:10+02:00","updated_at":"2017-05-31T06:19:10+02:00","alt":null,"width":3584,"height":2270,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/2051\/3691\/products\/Screenshot_2017-02-21_14.44.34.png?v=1496204350","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/26172377540"}}}'
     http_version: 
   recorded_at: Thu, 19 Mar 2020 10:43:14 GMT
+- request:
+    method: get
+    uri: https://spree-products-importer.myshopify.com/admin/api/2019-10/products/11055169028.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic YzgyNzNiNzRhYjk2ZDdjNmFhMjU4Mzk3M2NiYjIxODk6MDBjYWJjNzdjYWM2MDllNjM4MDRkNDA2Yjc1YjlmMWU=
+      Accept:
+      - application/json
+      User-Agent:
+      - ShopifyAPI/8.1.0 ActiveResource/5.1.0 Ruby/2.6.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 05 Apr 2020 21:24:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db2057e42e19ea83d2d5c129038bf87ad1586121887; expires=Tue, 05-May-20
+        21:24:47 GMT; path=/; domain=.myshopify.com; HttpOnly; SameSite=Lax
+      X-Sorting-Hat-Podid:
+      - '98'
+      X-Sorting-Hat-Shopid:
+      - '27653472355'
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Shopid:
+      - '27653472355'
+      X-Shardid:
+      - '98'
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '3154223'
+      X-Stats-Apipermissionid:
+      - '194747596899'
+      X-Shopify-Api-Terms:
+      - By accessing or using the Shopify API you agree to the Shopify API License
+        and Terms of Use at https://www.shopify.com/legal/api-terms
+      Http-X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Shop-Api-Call-Limit:
+      - 1/40
+      X-Shopify-Api-Version:
+      - 2019-10
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Shopify-Stage:
+      - production
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopify.cn
+        https://checkout.shopifycs.com https://js-agent.newrelic.com https://bam.nr-data.net
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        https://widget.intercom.io https://js.intercomcdn.com ''self'' ''unsafe-inline''
+        ''unsafe-eval''; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=bc575eb8-36d5-4c4a-9de5-5462bda6df10'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block; report=/xss-report?source%5Baction%5D=show&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fproducts&source%5Bsection%5D=admin_api&source%5Buuid%5D=bc575eb8-36d5-4c4a-9de5-5462bda6df10
+      X-Dc:
+      - gcp-us-east1,gcp-us-central1,gcp-us-central1
+      X-Request-Id:
+      - bc575eb8-36d5-4c4a-9de5-5462bda6df10
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 57f656831ffff2b8-WAW
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-25=":443"; ma=86400, h3-24=":443"; ma=86400, h3-23=":443";
+        ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":"Not Found"}'
+    http_version: 
+  recorded_at: Sun, 05 Apr 2020 21:24:47 GMT
 recorded_with: VCR 5.0.0

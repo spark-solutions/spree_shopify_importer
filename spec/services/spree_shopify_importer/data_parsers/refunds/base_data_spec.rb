@@ -1,21 +1,24 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataParsers::Refunds::BaseData, type: :service do
-  let(:shopify_refund) { create(:shopify_refund) }
-  let(:shopify_transaction) { create(:shopify_transaction, parent_id: 12_345) }
-  let(:spree_reimbursement) { create(:reimbursement) }
-
   subject { described_class.new(shopify_refund, shopify_transaction, spree_reimbursement) }
+
+  let(:shopify_refund)      { build_stubbed(:shopify_refund) }
+  let(:shopify_transaction) { build_stubbed(:shopify_transaction, parent_id: 12_345) }
+  let(:spree_reimbursement) { build_stubbed(:reimbursement) }
 
   describe '#attributes' do
     let(:payment) { create(:payment) }
+
     let(:reason) { Spree::RefundReason.find_by!(name: I18n.t(:shopify)) }
-    let!(:shopify_data_feed) do
+
+    let(:shopify_data_feed) do
       create(:shopify_data_feed,
              shopify_object_id: shopify_transaction.parent_id,
              shopify_object_type: 'ShopifyAPI::Transaction',
              spree_object: payment)
     end
+
     let(:result) do
       {
         payment: payment,
@@ -24,6 +27,10 @@ describe SpreeShopifyImporter::DataParsers::Refunds::BaseData, type: :service do
         reason: reason,
         reimbursement: spree_reimbursement
       }
+    end
+
+    before do
+      shopify_data_feed
     end
 
     it 'returns hash of refund attributes' do

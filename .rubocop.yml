@@ -2,6 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   DisplayCopNames: true
+  DisabledByDefault: true
   Exclude:
    - 'bin/*'
    - 'db/**/*'
@@ -10,12 +11,13 @@ AllCops:
    - 'gemfiles/*'
 require:
   - rubocop-rails
+  - rubocop-rspec
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/**'
 Metrics/BlockLength:
   Exclude:
-    - config/environments/production.rb
+    - 'config/environments/production.rb'
     - '**/*_spec.rb'
     - 'spec/support/shared_examples/**'
     - '**/factories/**/*'
@@ -60,4 +62,6 @@ Style/SymbolArray:
 Style/DateTime:
   Enabled: false
 Style/Documentation:
+  Enabled: false
+RSpec/LetSetup:
   Enabled: false
