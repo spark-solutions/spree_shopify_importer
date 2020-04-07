@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::Refunds::RefundCreator, type: :service do
+  subject { described_class.new(shopify_refund, shopify_transaction, spree_reimbursement) }
+
   let(:spree_reimbursement) { create(:reimbursement) }
 
-  subject { described_class.new(shopify_refund, shopify_transaction, spree_reimbursement) }
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
@@ -29,26 +30,25 @@ describe SpreeShopifyImporter::DataSavers::Refunds::RefundCreator, type: :servic
       end
 
       context 'sets a refund associations' do
-        let(:spree_refund) { subject.create }
         let(:payment) { create(:payment) }
         let(:reason) { Spree::RefundReason.find_by!(name: I18n.t(:shopify)) }
-        let!(:shopify_data_feed) do
+        let(:shopify_data_feed) do
           create(:shopify_data_feed,
                  shopify_object_id: shopify_transaction.parent_id,
                  shopify_object_type: 'ShopifyAPI::Transaction',
                  spree_object: payment)
         end
 
-        it 'payment' do
+        before do
+          shopify_data_feed
+        end
+
+        it 'sets correct associations' do
+          spree_refund = subject.create
+
           expect(spree_refund.payment).to eq payment
-        end
-
-        it 'reason' do
           expect(spree_refund.reason).to eq reason
-        end
-
-        it 'reimbursement' do
-          expect(spree_refund.reimbursement).to eq spree_reimbursement
+          expect(spree_refund.reimbursement_id).to eq spree_reimbursement.id
         end
       end
 

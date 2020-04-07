@@ -193,11 +193,15 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
           end
 
           context 'with case insensitive' do
-            let!(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
-            let!(:option_type2_values) do
+            let(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
+            let(:option_type2_values) do
               shopify_product.options.last.values.map do |value|
                 create(:option_value, option_type: option_type2, name: value)
               end
+            end
+
+            before do
+              option_type2_values
             end
 
             it 'creates option values' do

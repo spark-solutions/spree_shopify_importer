@@ -19,11 +19,18 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
     end
 
     context 'with existing data feed' do
-      let!(:shopify_data_feed) do
+      let(:shopify_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_address.id,
                shopify_object_type: 'ShopifyAPI::Address',
-               data_feed: resource, spree_object: nil)
+               data_feed: resource,
+               spree_object: spree_object)
+      end
+
+      let(:spree_object) { nil }
+
+      before do
+        shopify_data_feed
       end
 
       it 'does not create shopify data feeds' do
@@ -35,13 +42,7 @@ describe SpreeShopifyImporter::Importers::AddressImporter, type: :service do
       end
 
       context 'and address' do
-        let!(:shopify_data_feed) do
-          create(:shopify_data_feed,
-                 shopify_object_id: shopify_address.id,
-                 shopify_object_type: 'ShopifyAPI::Address',
-                 data_feed: resource,
-                 spree_object: create(:address))
-        end
+        let(:spree_object) { create(:address) }
 
         it 'does not create shopify data feeds' do
           expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)

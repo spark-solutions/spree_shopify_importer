@@ -34,17 +34,21 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonUpdater, type: :service 
 
     context 'associations' do
       context 'products' do
-        let!(:spree_product) { create(:product) }
-        let!(:product_data_feed) do
+        let(:spree_product) { create(:product) }
+        let(:product_data_feed) do
           create(:shopify_data_feed,
                  shopify_object_type: 'ShopifyAPI::Product',
                  shopify_object_id: '11055169028',
                  spree_object: spree_product)
         end
 
-        before { subject.update! }
+        before do
+          product_data_feed
+        end
 
         it 'assigns products to spree_taxon' do
+          subject.update!
+
           expect(spree_taxon.products).to contain_exactly(spree_product)
         end
       end

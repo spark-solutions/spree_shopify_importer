@@ -10,19 +10,22 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
   describe '#create!' do
     context 'with country shipping_zone data feed', vcr: { cassette_name: 'shopify/base_country_zone' } do
       let(:shopify_shipping_zone) { ShopifyAPI::ShippingZone.first }
-      let!(:shipping_zone_data_feed) do
+
+      let(:shipping_zone_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_shipping_zone.id,
                shopify_object_type: shopify_shipping_zone.class.name,
                data_feed: shopify_shipping_zone.to_json)
       end
-      let!(:zone_data_feed) do
+
+      let(:zone_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_shipping_zone.countries.first.id,
                shopify_object_type: shopify_shipping_zone.countries.first.class.name,
                parent_id: shipping_zone_data_feed.id)
       end
-      let!(:country) { create(:country, iso: 'HR') }
+
+      let(:country) { create(:country, iso: 'HR') }
       let(:parent_object) { shopify_shipping_zone }
       let(:shopify_object) { parent_object.countries.first }
       let(:spree_zone) do
@@ -36,35 +39,32 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
           zone_id: spree_zone.id
         )
       end
-      let!(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
-      let!(:shop_data_feed) do
+
+      let(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+      let(:shop_data_feed) do
         create(:shopify_data_feed,
                shopify_object_type: 'ShopifyAPI::Shop',
                data_feed: '{"taxes_included":true}')
       end
       let(:shipping_methods) { [create(:shipping_method, zones: [])] }
 
+      before do
+        tax_category
+        shop_data_feed
+        zone_data_feed
+        country
+      end
+
       it 'creates spree zone' do
         expect { subject.create! }.to change(Spree::Zone, :count).by(1)
       end
 
-      it 'assigns shopify data feed to spree zone' do
+      it 'assigns correct associations' do
         subject.create!
+
         expect(zone_data_feed.reload.spree_object).to eq spree_zone
-      end
-
-      it 'creates spree zone member' do
-        subject.create!
         expect(spree_zone.members.first).to eq spree_zone_member
-      end
-
-      it 'creates or updates tax rate' do
-        subject.create!
         expect(tax_category.tax_rates.first.zone).to eq spree_zone
-      end
-
-      it 'assigns zone to shipping methods' do
-        subject.create!
         expect(shipping_methods.first.zones.last).to eq spree_zone
       end
     end

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::OptionValues::OptionValueCreator, type: :service do
   subject { described_class.new(shopify_value, spree_option_type) }
+
   let(:shopify_value) { 'Amethyst' }
   let(:spree_option_type) { create(:option_type) }
 
@@ -31,7 +32,11 @@ describe SpreeShopifyImporter::DataSavers::OptionValues::OptionValueCreator, typ
     end
 
     context 'if already created' do
-      let!(:spree_option_value) { create(:option_value, name: shopify_value, option_type: spree_option_type) }
+      let(:spree_option_value) { create(:option_value, name: shopify_value, option_type: spree_option_type) }
+
+      before do
+        spree_option_value
+      end
 
       it 'does not create option value' do
         expect { subject.create! }.not_to change(Spree::OptionValue, :count)
