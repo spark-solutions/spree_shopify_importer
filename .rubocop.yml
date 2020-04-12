@@ -12,6 +12,7 @@ AllCops:
 require:
   - rubocop-rails
   - rubocop-rspec
+  - ./lib/rubocop/rspec/let_bang
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/**'
@@ -63,5 +64,5 @@ Style/DateTime:
   Enabled: false
 Style/Documentation:
   Enabled: false
-RSpec/LetSetup:
-  Enabled: false
+RSpec/LetBang:
+  Enabled: true

@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataParsers::Promotions::BaseData, type: :service do
-  let!(:shopify_discount_code) { create(:shopify_discount_code) }
   subject { described_class.new(shopify_discount_code) }
+
+  let(:shopify_discount_code) { build_stubbed(:shopify_discount_code) }
 
   describe '#attributes' do
     let(:result) do

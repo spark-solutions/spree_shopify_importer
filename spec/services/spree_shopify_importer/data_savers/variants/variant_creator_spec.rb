@@ -3,32 +3,31 @@ require 'spec_helper'
 RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantCreator, type: :service do
   include ActiveJob::TestHelper
 
+  subject { described_class.new(shopify_data_feed, spree_product) }
+
   let(:spree_product) { create(:product) }
-  let(:shopify_variant) { create(:shopify_variant, sku: '1234') }
-  let(:option_type) { create(:option_type) }
   let(:shopify_data_feed) do
     create(:shopify_data_feed,
            shopify_object_type: 'ShopifyAPI::Variant',
            shopify_object_id: shopify_variant.id,
            data_feed: shopify_variant.to_json)
   end
-  let!(:f_option_value) do
-    create(:option_value, name: shopify_variant.option1.strip.downcase, option_type: option_type)
-  end
-  let!(:s_option_value) do
-    create(:option_value, name: shopify_variant.option2.strip.downcase, option_type: option_type)
-  end
-  let!(:t_option_value) do
-    create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type)
-  end
 
-  subject { described_class.new(shopify_data_feed, spree_product) }
+  describe '#create!' do
+    let(:shopify_variant) { create(:shopify_variant, sku: '1234') }
+    let(:option_type) { create(:option_type) }
 
-  before  do
-    spree_product.option_types << option_type
-  end
+    let(:f_option_value) { create(:option_value, name: shopify_variant.option1.strip.downcase, option_type: option_type) }
+    let(:s_option_value) { create(:option_value, name: shopify_variant.option2.strip.downcase, option_type: option_type) }
+    let(:t_option_value) { create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type) }
 
-  describe '#create!!' do
+    before do
+      f_option_value
+      s_option_value
+      t_option_value
+      spree_product.option_types << option_type
+    end
+
     it 'creates spree variant' do
       expect { subject.create! }.to change(Spree::Variant, :count).by(1)
     end
@@ -53,17 +52,11 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantCreator, type:
     context 'base variant attributes' do
       let(:spree_variant) { Spree::Variant.last }
 
-      before { subject.create! }
-
       it 'saves variant sku' do
+        subject.create!
+
         expect(spree_variant.sku).to eq shopify_variant.sku
-      end
-
-      it 'saves variant price' do
         expect(spree_variant.price).to eq shopify_variant.price
-      end
-
-      it 'saves variant weight' do
         expect(spree_variant.weight).to eq shopify_variant.grams
       end
     end

@@ -11,8 +11,8 @@ module SpreeShopifyImporter
           Spree.user_class.transaction do
             update_spree_user
             generate_api_key
-            create_spree_addresses
           end
+          create_spree_addresses
         end
 
         private

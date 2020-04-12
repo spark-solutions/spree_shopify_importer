@@ -1,13 +1,17 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::ShippingMethods::ShippingMethodCreator, type: :service do
+  subject { described_class.new(shopify_rate, delivery_profile_id) }
+
   let(:shopify_rate) { shopify_shipping_zone.weight_based_shipping_rates.first }
   let(:delivery_profile_id) { shopify_shipping_zone.profile_id.split('/').last }
-  let!(:shipping_category) { create(:shipping_category, name: 'GENERAL PROFILE/18869387313') }
-  let!(:calculator) { create(:shipping_calculator) }
-  before { authenticate_with_shopify }
+  let(:shipping_category) { create(:shipping_category, name: 'GENERAL PROFILE/18869387313') }
+  let(:calculator) { create(:shipping_calculator) }
 
-  subject { described_class.new(shopify_rate, delivery_profile_id) }
+  before do
+    shipping_category
+    authenticate_with_shopify
+  end
 
   describe '#call', vcr: { cassette_name: 'shopify/base_country_zone' } do
     let(:shopify_shipping_zone) { ShopifyAPI::ShippingZone.first }
@@ -19,13 +23,17 @@ describe SpreeShopifyImporter::DataSavers::ShippingMethods::ShippingMethodCreato
     end
 
     context 'with existed shipping method' do
-      let!(:shipping_method) do
+      let(:shipping_method) do
         create(:shipping_method,
                name: 'Standard Shipping',
                display_on: 'both',
                admin_name: 'GENERAL PROFILE',
                shipping_categories: [shipping_category],
                calculator: calculator)
+      end
+
+      before do
+        shipping_method
       end
 
       it 'does not create shipping category' do

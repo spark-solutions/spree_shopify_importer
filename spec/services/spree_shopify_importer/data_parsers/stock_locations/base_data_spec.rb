@@ -2,14 +2,15 @@ require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataParsers::StockLocations::BaseData, type: :service do
   subject { described_class.new(shopify_location) }
+
   before do
     expect(Spree::Country).to receive(:find_by).with(iso: 'CA', name: 'Canada').and_return(country)
     expect(Spree::State).to receive(:find_by).with(country_id: country.id, abbr: 'AB').and_return(state)
   end
 
   let(:shopify_location) { build_stubbed(:shopify_location) }
-  let!(:country) { build_stubbed(:country, iso: 'CA', name: 'Canada') }
-  let!(:state) { build_stubbed(:state, country: country, abbr: 'AB') }
+  let(:country) { build_stubbed(:country, iso: 'CA', name: 'Canada') }
+  let(:state) { build_stubbed(:state, country: country, abbr: 'AB') }
 
   describe '#attributes' do
     let(:result) do

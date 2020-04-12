@@ -2,12 +2,18 @@ require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataParsers::Zones::BaseData do
   subject { described_class.new(shopify_object, parent_object, spree_zone_kind) }
-  let(:parent_object) { build_stubbed(:shopify_shipping_zone) }
+
   let(:shopify_object) { build_stubbed(:shopify_country) }
-  let!(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+  let(:parent_object) { build_stubbed(:shopify_shipping_zone) }
   let(:spree_zone_kind) { 'country' }
 
   describe '#attributes' do
+    let(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+
+    before do
+      tax_category
+    end
+
     context 'with sample shopify_shipping_zone' do
       let(:zone_attributes) do
         {

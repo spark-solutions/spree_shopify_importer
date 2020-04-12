@@ -23,7 +23,9 @@ module SpreeShopifyImporter
         end
 
         def create_spree_addresses
-          return if (addresses = shopify_customer.try(:addresses)).blank?
+          addresses = shopify_customer.try(:addresses)
+
+          return if addresses.blank?
 
           addresses.each do |address|
             SpreeShopifyImporter::Importers::AddressImporterJob.perform_later(address.to_json, @spree_user)

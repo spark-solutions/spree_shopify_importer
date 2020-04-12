@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataParsers::CustomerReturns::BaseData, type: :service do
-  let!(:shopify_refund) { create(:shopify_refund) }
   subject { described_class.new(shopify_refund) }
+
+  let(:shopify_refund) { create(:shopify_refund) }
 
   describe '#number' do
     it 'returns customer return number' do

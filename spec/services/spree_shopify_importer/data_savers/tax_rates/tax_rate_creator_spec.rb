@@ -1,21 +1,25 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :service do
-  let(:shopify_object) { build_stubbed(:shopify_country) }
-  let(:spree_zone) { create(:zone, name: 'Domestic/Poland/GENERAL PROFILE') }
-  let!(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
-  let(:calculator) { Spree::Calculator::ShopifyTax.last }
-  let!(:shop_data_feed) do
-    create(:shopify_data_feed,
-           shopify_object_type: 'ShopifyAPI::Shop',
-           data_feed: '{"taxes_included":true}')
-  end
-
   subject { described_class.new(spree_zone, shopify_object) }
 
-  before { authenticate_with_shopify }
+  let(:spree_zone) { create(:zone, name: 'Domestic/Poland/GENERAL PROFILE') }
+  let(:shopify_object) { build_stubbed(:shopify_country) }
 
   describe '#create!' do
+    let(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+    let(:calculator) { Spree::Calculator::ShopifyTax.last }
+    let(:shop_data_feed) do
+      create(:shopify_data_feed,
+             shopify_object_type: 'ShopifyAPI::Shop',
+             data_feed: '{"taxes_included":true}')
+    end
+
+    before do
+      shop_data_feed
+      tax_category
+    end
+
     it 'creates tax rate' do
       expect { subject.create! }.to change(Spree::TaxRate, :count).by(1)
     end

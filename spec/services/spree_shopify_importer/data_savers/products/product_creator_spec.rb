@@ -161,7 +161,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
         end
 
         context 'with case insensitive option values' do
-          let!(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+          let(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+
+          before do
+            option_type1
+          end
 
           it 'creates option types' do
             expect { subject.create! }.to change(Spree::OptionType, :count).by(1)
