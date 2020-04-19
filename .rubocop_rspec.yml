@@ -1,0 +1,51 @@
+require:
+  - rubocop-rspec
+  - ./lib/rubocop/rspec/let_bang
+
+RSpec/EmptyExampleGroup:
+  Enabled: true
+
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: true
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
+
+RSpec/EmptyLineAfterHook:
+  Enabled: true
+
+RSpec/EmptyLineAfterSubject:
+  Enabled: true
+
+RSpec/HookArgument:
+  Enabled: true
+  EnforcedStyle: implicit
+
+RSpec/HooksBeforeExamples:
+  Enabled: true
+
+RSpec/ImplicitExpect:
+  Enabled: true
+  EnforcedStyle: is_expected
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/LetBeforeExamples:
+  Enabled: true
+
+RSpec/MissingExampleGroupArgument:
+  Enabled: true
+
+RSpec/ReceiveCounts:
+  Enabled: true
+
+FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
+FactoryBot/CreateList:
+  Enabled: true
+  EnforcedStyle: create_list
+
+RSpec/LetBang:
+  Enabled: true

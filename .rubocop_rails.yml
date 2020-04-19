@@ -1,0 +1,100 @@
+require:
+  - rubocop-rails
+
+Rails/ActiveRecordAliases:
+  Enabled: true
+
+Rails/ActiveSupportAliases:
+  Enabled: true
+
+Rails/ApplicationJob:
+  Enabled: true
+
+Rails/ApplicationRecord:
+  Enabled: true
+
+Rails/Blank:
+  Enabled: true
+  # Convert usages of `nil? || empty?` to `blank?`
+  NilOrEmpty: true
+  # Convert usages of `!present?` to `blank?`
+  NotPresent: true
+  # Convert usages of `unless present?` to `if blank?`
+  UnlessPresent: true
+
+Rails/CreateTableWithTimestamps:
+  Enabled: true
+  Include:
+    - db/migrate/*.rb
+  Exclude: []
+
+Rails/Date:
+  Enabled: true
+  EnforcedStyle: flexible
+
+Rails/Delegate:
+  Enabled: true
+  EnforceForPrefixed: true
+
+Rails/DelegateAllowBlank:
+  Enabled: true
+
+Rails/DynamicFindBy:
+  Enabled: true
+  Whitelist:
+    - find_by_sql
+
+Rails/EnumUniqueness:
+  Enabled: true
+  Include:
+    - app/models/**/*.rb
+
+Rails/EnvironmentComparison:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: true
+  EnforcedStyle: arguments
+
+Rails/FindBy:
+  Enabled: true
+
+Rails/InverseOf:
+  Enabled: true
+  Include:
+    - app/models/**/*.rb
+
+Rails/PluralizationGrammar:
+  Enabled: true
+
+Rails/Presence:
+  Enabled: true
+
+Rails/Present:
+  Enabled: true
+  NotNilAndNotEmpty: true
+  NotBlank: true
+  UnlessBlank: true
+
+Rails/RelativeDateConstant:
+  Enabled: true
+  AutoCorrect: false
+
+Rails/ReversibleMigration:
+  Enabled: true
+  Include:
+    - db/migrate/*.rb
+  Exclude: []
+
+Rails/SafeNavigation:
+  Enabled: true
+  ConvertTry: false
+
+Rails/TimeZone:
+  Enabled: true
+  EnforcedStyle: flexible
+
+Rails/Validation:
+  Enabled: true
+  Include:
+    - app/models/**/*.rb

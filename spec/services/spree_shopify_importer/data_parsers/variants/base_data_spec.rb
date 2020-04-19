@@ -4,7 +4,7 @@ describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :service d
   subject { described_class.new(shopify_variant, spree_product) }
 
   let(:shopify_variant) { build_stubbed(:shopify_variant) }
-  let(:spree_product)   { build_stubbed(:product) }
+  let(:spree_product) { build_stubbed(:product) }
 
   context '#attributes' do
     let(:result) do

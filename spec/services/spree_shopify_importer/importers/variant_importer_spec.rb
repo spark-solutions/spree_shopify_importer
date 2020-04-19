@@ -21,7 +21,7 @@ describe SpreeShopifyImporter::Importers::VariantImporter, type: :service do
 
     before do
       expect_any_instance_of(SpreeShopifyImporter::DataParsers::Variants::BaseData)
-          .to receive(:option_value_ids).and_return([option_value.id])
+        .to receive(:option_value_ids).and_return([option_value.id])
     end
 
     it 'creates shopify data feeds' do

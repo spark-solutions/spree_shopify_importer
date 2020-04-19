@@ -20,7 +20,7 @@ module RSpec
   #     expect(Product.count).to eq(1)
   #   end
   class LetBang < RuboCop::Cop::RSpec::Cop
-    MSG = 'Do not use `let!`.'
+    MSG = "Do not use `let!`."
 
     def_node_search :let_bang, <<-PATTERN
       (block $(send nil? :let! (sym $_)) args ...)

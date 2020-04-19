@@ -47,5 +47,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+  s.add_development_dependency "standard", "~> 0.2.0"
 end
 # rubocop:enable Metrics/BlockLength
