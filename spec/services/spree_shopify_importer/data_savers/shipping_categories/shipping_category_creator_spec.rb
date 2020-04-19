@@ -12,6 +12,7 @@ describe SpreeShopifyImporter::DataSavers::ShippingCategories::ShippingCategoryC
 
     context "sets attribute" do
       before { subject.call }
+
       let(:shipping_category) { Spree::ShippingCategory.last }
 
       it "name" do

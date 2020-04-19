@@ -17,7 +17,7 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Zones::BaseData do
     context "with sample shopify_shipping_zone" do
       let(:zone_attributes) do
         {
-          name: "#{parent_object.name}/#{shopify_object.name}/#{tax_category.name.split('/').first}",
+          name: "#{parent_object.name}/#{shopify_object.name}/#{tax_category.name.split("/").first}",
           kind: spree_zone_kind,
           description: "Shopify shipping to #{shopify_object.name}"
         }

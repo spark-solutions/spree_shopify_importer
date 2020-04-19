@@ -1,11 +1,13 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Reimbursements::ReimbursementCreator, type: :service do
+  subject { described_class.new(shopify_refund, spree_customer_return, spree_order) }
+
   let(:spree_customer_return) { create(:customer_return) }
   let(:spree_order) { create(:order) }
 
-  subject { described_class.new(shopify_refund, spree_customer_return, spree_order) }
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create" do

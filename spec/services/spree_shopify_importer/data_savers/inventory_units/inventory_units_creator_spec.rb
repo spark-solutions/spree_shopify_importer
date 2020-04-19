@@ -4,6 +4,7 @@ describe SpreeShopifyImporter::DataSavers::InventoryUnits::InventoryUnitsCreator
   subject { described_class.new(shopify_line_item, spree_shipment) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create!", vcr: { cassette_name: "shopify/base_order" } do

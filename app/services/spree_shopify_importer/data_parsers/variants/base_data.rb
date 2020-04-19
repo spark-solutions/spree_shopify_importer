@@ -19,14 +19,14 @@ module SpreeShopifyImporter
         end
 
         def option_value_ids
-          @option_value_ids ||= %w[option1 option2 option3].map do |option_name|
+          @option_value_ids ||= %w[option1 option2 option3].map { |option_name|
             next unless (option_value = @shopify_variant.send(option_name))
 
             Spree::OptionValue.find_by!(
               option_type_id: @spree_product.option_type_ids,
               name: option_value.strip.downcase
             ).id
-          end.uniq
+          }.uniq
         end
 
         def track_inventory?

@@ -2,7 +2,9 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Shipments::ShipmentCreator, type: :service do
   subject { described_class.new(shopify_data_feed, parent_data_feed, spree_order) }
+
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create!", vcr: { cassette_name: "shopify/base_order" } do

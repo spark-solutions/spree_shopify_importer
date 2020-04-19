@@ -1,9 +1,12 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::ReturnAuthorizations::ReturnAuthorizationCreator, type: :service do
-  let(:spree_order) { create(:order) }
   subject { described_class.new(shopify_data_feed, spree_order) }
+
+  let(:spree_order) { create(:order) }
+
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create" do

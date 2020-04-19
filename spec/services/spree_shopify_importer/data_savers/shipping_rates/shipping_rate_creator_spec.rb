@@ -9,6 +9,7 @@ describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, t
     spree_shipment
     authenticate_with_shopify
   end
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#save!", vcr: { cassette_name: "shopify/base_order" } do
@@ -35,6 +36,7 @@ describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, t
 
     context "sets a associations" do
       let(:shipping_method) { Spree::ShippingMethod.last }
+
       before { subject.create! }
 
       it "shipment" do

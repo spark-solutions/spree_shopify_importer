@@ -30,10 +30,11 @@ describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :serv
 
     context "sets a tax rate attributes" do
       before { subject.create! }
+
       let(:tax_rate) { Spree::TaxRate.last }
 
       it "name" do
-        expect(tax_rate.name).to eq "Shopify/#{shopify_object.name}/#{tax_category.name.split('/').first}"
+        expect(tax_rate.name).to eq "Shopify/#{shopify_object.name}/#{tax_category.name.split("/").first}"
       end
 
       it "amount" do
@@ -51,6 +52,7 @@ describe SpreeShopifyImporter::DataSavers::TaxRates::TaxRateCreator, type: :serv
 
     context "sets a tax rate associations" do
       before { subject.create! }
+
       let(:tax_rate) { Spree::TaxRate.last }
 
       it "zone" do

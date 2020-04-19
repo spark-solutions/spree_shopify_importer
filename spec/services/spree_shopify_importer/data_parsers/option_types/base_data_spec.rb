@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::OptionTypes::BaseData, type: :service do
   subject { described_class.new(option_type) }
+
   let(:option_type) { create(:shopify_base_option) }
 
   describe "#name" do

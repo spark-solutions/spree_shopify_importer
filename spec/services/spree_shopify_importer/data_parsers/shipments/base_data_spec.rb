@@ -1,8 +1,9 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Shipments::BaseData, type: :service do
-  let(:shopify_fulfillment) { create(:shopify_fulfillment) }
   subject { described_class.new(shopify_fulfillment) }
+
+  let(:shopify_fulfillment) { create(:shopify_fulfillment) }
 
   describe "#number" do
     it "creates number with fulfillment id" do

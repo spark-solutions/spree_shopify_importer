@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationCreator, type: :service do
   subject { described_class.new(stock_location_data_feed) }
+
   before { authenticate_with_shopify }
 
   let(:spree_stock_location) { create(:stock_location) }
@@ -45,6 +46,7 @@ describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationCreator,
       let(:stock_location_data_feed) do
         create(:shopify_data_feed, shopify_object_type: "ShopifyAPI::Location", spree_object: nil, data_feed: shopify_location.to_json)
       end
+
       it "assigns shopify data feed to spree stock location" do
         expect(Spree::StockLocation).to receive(:create!).with(attributes).and_return(spree_stock_location)
         expect(shopify_location).to receive(:inventory_levels).and_return([])

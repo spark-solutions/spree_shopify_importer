@@ -2,6 +2,7 @@ require "spec_helper"
 
 RSpec.describe SpreeShopifyImporter::DataParsers::Users::BaseData do
   subject { described_class.new(shopify_customer) }
+
   let(:shopify_customer) { create(:shopify_customer) }
 
   describe "#attributes" do

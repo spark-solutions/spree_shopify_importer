@@ -6,11 +6,13 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
   subject { described_class.new(product_data_feed, spree_product) }
 
   let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
+
   before do
     authenticate_with_shopify
     expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
     expect(delivery_profile_importer).to receive(:call)
   end
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#update!" do
@@ -74,11 +76,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         end
 
         it "creates spree variant" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Variant, :count).by(1)
+          }.to change(Spree::Variant, :count).by(1)
         end
 
         it "assings variants to product" do
@@ -92,20 +94,20 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         it "creates data feeds" do
           variant_scope = { shopify_object_type: "ShopifyAPI::Variant" }
 
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change { SpreeShopifyImporter::DataFeed.where(variant_scope).reload.count }.by(1)
+          }.to change { SpreeShopifyImporter::DataFeed.where(variant_scope).reload.count }.by(1)
         end
 
         context "with variant image", vcr: { cassette_name: "shopify/product_with_variant_image" } do
           it "creates spree image" do
-            expect do
+            expect {
               perform_enqueued_jobs do
                 subject.update!
               end
-            end.to change { Spree::Image.count }.by(2)
+            }.to change { Spree::Image.count }.by(2)
           end
         end
       end
@@ -116,11 +118,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         end
 
         it "creates spree variant" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Image, :count).by(2)
+          }.to change(Spree::Image, :count).by(2)
         end
 
         it "assings variants to product" do
@@ -134,11 +136,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         it "creates data feeds" do
           image_scope = { shopify_object_type: "ShopifyAPI::Image" }
 
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change { SpreeShopifyImporter::DataFeed.where(image_scope).reload.count }.by(2)
+          }.to change { SpreeShopifyImporter::DataFeed.where(image_scope).reload.count }.by(2)
         end
       end
 
@@ -149,11 +151,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         let(:option_types_names) { shopify_product.options.map(&:name).map(&:downcase) }
 
         it "creates variants" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Variant, :count).by(2)
+          }.to change(Spree::Variant, :count).by(2)
         end
 
         it "creates option types" do

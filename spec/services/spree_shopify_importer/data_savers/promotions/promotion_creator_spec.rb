@@ -1,9 +1,10 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Promotions::PromotionCreator, type: :service do
+  subject { described_class.new(spree_order, shopify_discount_code) }
+
   let(:spree_order) { create(:order) }
   let(:shopify_discount_code) { create(:shopify_discount_code) }
-  subject { described_class.new(spree_order, shopify_discount_code) }
 
   describe "#create!!" do
     it "creates promotion" do

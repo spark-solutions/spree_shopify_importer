@@ -1,12 +1,14 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :service do
+  subject { described_class.new(shopify_refund_line_item, shopify_refund, return_authorization, inventory_unit) }
+
   let(:shopify_refund) { create(:shopify_refund) }
   let(:inventory_unit) { create(:inventory_unit) }
   let(:return_authorization) { create(:return_authorization) }
 
-  subject { described_class.new(shopify_refund_line_item, shopify_refund, return_authorization, inventory_unit) }
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#attributes", vcr: { cassette_name: "shopify/base_refund" } do

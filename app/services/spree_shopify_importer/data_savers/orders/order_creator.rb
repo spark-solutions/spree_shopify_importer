@@ -198,9 +198,9 @@ module SpreeShopifyImporter
         end
 
         def refund_amount
-          refund_transactions = shopify_order.transactions.select do |t|
+          refund_transactions = shopify_order.transactions.select { |t|
             t.kind.eql?("refund") && t.status == "success"
-          end
+          }
 
           refund_transactions.sum do |t|
             t.amount.to_d

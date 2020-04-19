@@ -1,8 +1,9 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Images::BaseData, type: :service do
-  let(:shopify_image) { create(:shopify_image, src: "https://spreecommerce.org/img/spree-logo.png") }
   subject { described_class.new(shopify_image) }
+
+  let(:shopify_image) { create(:shopify_image, src: "https://spreecommerce.org/img/spree-logo.png") }
 
   describe "#attribtues" do
     let(:result) do

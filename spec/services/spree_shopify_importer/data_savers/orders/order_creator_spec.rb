@@ -4,6 +4,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
   subject { described_class.new(order_data_feed) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#save!" do
