@@ -2,7 +2,9 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::CustomerReturns::CustomerReturnCreator, type: :service do
   subject { described_class.new(shopify_refund) }
+
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create" do

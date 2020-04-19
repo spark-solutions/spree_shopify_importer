@@ -4,6 +4,7 @@ describe SpreeShopifyImporter::Importers::UserImporter, type: :service do
   subject { described_class.new(resource) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#import!", vcr: { cassette_name: "shopify_import/importers/user_importer/import" } do

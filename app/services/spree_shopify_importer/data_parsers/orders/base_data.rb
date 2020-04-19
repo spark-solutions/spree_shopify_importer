@@ -79,9 +79,9 @@ module SpreeShopifyImporter
         end
 
         def payment_total
-          transactions = @shopify_order.transactions.select do |t|
+          transactions = @shopify_order.transactions.select { |t|
             %w[sale capture].include?(t.kind)
-          end
+          }
 
           transactions.select { |t| t.status == "success" }.sum { |t| t.amount.to_d }
         end

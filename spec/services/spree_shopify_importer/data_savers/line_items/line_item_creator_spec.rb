@@ -6,6 +6,7 @@ describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :se
   let(:spree_order) { create(:order) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#create", vcr: { cassette_name: "shopify/base_order" } do

@@ -1,8 +1,9 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Payments::BaseData, type: :service do
-  let(:shopify_transaction) { create(:shopify_transaction) }
   subject { described_class.new(shopify_transaction) }
+
+  let(:shopify_transaction) { create(:shopify_transaction) }
 
   describe "#payment_number" do
     it "creates number with transaction id" do

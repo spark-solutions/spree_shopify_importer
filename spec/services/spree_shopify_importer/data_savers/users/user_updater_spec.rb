@@ -32,11 +32,11 @@ describe SpreeShopifyImporter::DataSavers::Users::UserUpdater, type: :service do
         end
 
         it "creates spree address" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Address, :count).by(2)
+          }.to change(Spree::Address, :count).by(2)
         end
       end
     end

@@ -10,6 +10,7 @@ describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :se
     parent_feed
     authenticate_with_shopify
   end
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#import!" do

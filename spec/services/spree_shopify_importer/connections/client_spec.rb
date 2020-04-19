@@ -26,10 +26,10 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
           let(:invalid_api_key_credentials) { credentials.merge(api_key: "invalid_key") }
 
           it "raises ForbiddenAccess error" do
-            expect do
+            expect {
               client.get_connection(invalid_api_key_credentials)
               ShopifyAPI::Shop.current
-            end.to raise_error(ActiveResource::ForbiddenAccess)
+            }.to raise_error(ActiveResource::ForbiddenAccess)
           end
         end
 
@@ -37,10 +37,10 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
           let(:invalid_password_credentials) { credentials.merge(password: "invalid_password") }
 
           it "raises UnauthorizedAccess error" do
-            expect do
+            expect {
               client.get_connection(invalid_password_credentials)
               ShopifyAPI::Shop.current
-            end.to raise_error(ActiveResource::UnauthorizedAccess)
+            }.to raise_error(ActiveResource::UnauthorizedAccess)
           end
         end
 
@@ -48,10 +48,10 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
           let(:invalid_shop_domain_credentials) { credentials.merge(shop_domain: "example.myshopify.com") }
 
           it "raises UnauthorizedAccess error" do
-            expect do
+            expect {
               client.get_connection(invalid_shop_domain_credentials)
               ShopifyAPI::Shop.current
-            end.to raise_error(ActiveResource::UnauthorizedAccess)
+            }.to raise_error(ActiveResource::UnauthorizedAccess)
           end
         end
       end

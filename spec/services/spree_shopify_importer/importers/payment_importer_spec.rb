@@ -8,6 +8,7 @@ describe SpreeShopifyImporter::Importers::PaymentImporter, type: :service do
   let(:spree_order) { create(:order) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#import!", vcr: { cassette_name: "shopify/base_order" } do

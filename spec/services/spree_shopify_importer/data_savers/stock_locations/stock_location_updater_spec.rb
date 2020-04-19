@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationUpdater, type: :service do
   subject { described_class.new(stock_location_data_feed, spree_stock_location) }
+
   before do
     authenticate_with_shopify
     expect(ShopifyAPI::Location).to receive(:new).with(data_feed).and_return(shopify_location)

@@ -15,7 +15,7 @@ module SpreeShopifyImporter
         attr_reader :delivery_profile
 
         def tax_category_name
-          "#{delivery_profile.name.upcase}/#{delivery_profile.id.split('/').last}"
+          "#{delivery_profile.name.upcase}/#{delivery_profile.id.split("/").last}"
         end
       end
     end

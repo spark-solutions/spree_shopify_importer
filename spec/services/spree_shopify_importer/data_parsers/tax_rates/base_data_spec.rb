@@ -15,7 +15,7 @@ describe SpreeShopifyImporter::DataParsers::TaxRates::BaseData, type: :service d
     end
     let(:result) do
       {
-        name: "Shopify/#{shopify_object.name}/#{tax_category.name.split('/').first}",
+        name: "Shopify/#{shopify_object.name}/#{tax_category.name.split("/").first}",
         amount: shopify_object.tax,
         zone: spree_zone,
         tax_category: tax_category,

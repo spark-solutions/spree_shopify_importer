@@ -6,33 +6,34 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
   subject { described_class.new(resource) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "#import!", vcr: { cassette_name: "shopify/base_product" } do
     let(:resource) { ShopifyAPI::Product.find(11_101_525_828).to_json }
 
     it "creates shopify data feeds" do
-      expect do
+      expect {
         perform_enqueued_jobs do
           subject.import!
         end
-      end.to change(SpreeShopifyImporter::DataFeed, :count).by(4)
+      }.to change(SpreeShopifyImporter::DataFeed, :count).by(4)
     end
 
     it "creates spree products" do
-      expect do
+      expect {
         perform_enqueued_jobs do
           subject.import!
         end
-      end.to change(Spree::Product, :count).by(1)
+      }.to change(Spree::Product, :count).by(1)
     end
 
     it "creates spree variants" do
-      expect do
+      expect {
         perform_enqueued_jobs do
           subject.import!
         end
-      end.to change(Spree::Variant, :count).by(2)
+      }.to change(Spree::Variant, :count).by(2)
     end
 
     context "with existing" do
@@ -51,54 +52,54 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
         end
 
         it "creates shopify data feeds" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.import!
             end
-          end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
+          }.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
         end
 
         it "creates spree products" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.import!
             end
-          end.to change(Spree::Product, :count).by(1)
+          }.to change(Spree::Product, :count).by(1)
         end
 
         it "creates spree variants" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.import!
             end
-          end.to change(Spree::Variant, :count).by(2)
+          }.to change(Spree::Variant, :count).by(2)
         end
 
         context "and product" do
           let(:spree_object) { create(:product) }
 
           it "creates only variant shopify data feeds" do
-            expect do
+            expect {
               perform_enqueued_jobs do
                 subject.import!
               end
-            end.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
+            }.to change(SpreeShopifyImporter::DataFeed, :count).by(3)
           end
 
           it "does not create spree products" do
-            expect do
+            expect {
               perform_enqueued_jobs do
                 subject.import!
               end
-            end.not_to change(Spree::Product, :count)
+            }.not_to change(Spree::Product, :count)
           end
 
           it "creates spree variants" do
-            expect do
+            expect {
               perform_enqueued_jobs do
                 subject.import!
               end
-            end.to change(Spree::Variant, :count).by(1)
+            }.to change(Spree::Variant, :count).by(1)
           end
         end
       end

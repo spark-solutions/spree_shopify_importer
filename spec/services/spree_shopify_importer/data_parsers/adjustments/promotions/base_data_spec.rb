@@ -1,10 +1,11 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Adjustments::Promotions::BaseData, type: :service do
+  subject { described_class.new(spree_order, spree_promotion, shopify_discount_code) }
+
   let(:spree_order) { create(:order) }
   let(:spree_promotion) { create(:promotion) }
   let(:shopify_discount_code) { create(:shopify_discount_code) }
-  subject { described_class.new(spree_order, spree_promotion, shopify_discount_code) }
 
   describe "#attributes" do
     let(:action) { Spree::Promotion::Actions::CreateAdjustment.last }

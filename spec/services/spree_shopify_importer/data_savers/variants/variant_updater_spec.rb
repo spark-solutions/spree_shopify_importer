@@ -83,11 +83,11 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantUpdater, type:
         subject { described_class.new(shopify_data_feed, spree_variant, spree_product, shopify_image.to_json) }
 
         it "creates spree image" do
-          expect do
+          expect {
             perform_enqueued_jobs do
               subject.update!
             end
-          end.to change(Spree::Image, :count).by(1)
+          }.to change(Spree::Image, :count).by(1)
         end
       end
     end

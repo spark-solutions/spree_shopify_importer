@@ -15,6 +15,7 @@ describe SpreeShopifyImporter::DataFeeds::Update, type: :service do
 
     describe "with parent" do
       let(:parent) { create(:shopify_data_feed) }
+
       subject { described_class.new(shopify_data_feed, shopify_object, parent) }
 
       it "sets parent to data feed" do

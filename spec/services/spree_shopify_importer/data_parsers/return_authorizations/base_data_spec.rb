@@ -1,9 +1,10 @@
 require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::ReturnAuthorizations::BaseData, type: :service do
+  subject { described_class.new(shopify_refund, spree_order) }
+
   let(:shopify_refund) { create(:shopify_refund) }
   let(:spree_order) { create(:order) }
-  subject { described_class.new(shopify_refund, spree_order) }
 
   describe "#number" do
     it "returns return authorization number with prefix" do

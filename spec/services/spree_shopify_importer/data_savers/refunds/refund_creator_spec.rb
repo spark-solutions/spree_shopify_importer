@@ -6,6 +6,7 @@ describe SpreeShopifyImporter::DataSavers::Refunds::RefundCreator, type: :servic
   let(:spree_reimbursement) { create(:reimbursement) }
 
   before { authenticate_with_shopify }
+
   after { ShopifyAPI::Base.clear_session }
 
   describe "create" do

@@ -29,7 +29,7 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
       let(:parent_object) { shopify_shipping_zone }
       let(:shopify_object) { parent_object.countries.first }
       let(:spree_zone) do
-        Spree::Zone.find_by!(name: "#{parent_object.name}/#{shopify_object.name}/#{tax_category.name.split('/').first}")
+        Spree::Zone.find_by!(name: "#{parent_object.name}/#{shopify_object.name}/#{tax_category.name.split("/").first}")
       end
 
       let(:spree_zone_member) do

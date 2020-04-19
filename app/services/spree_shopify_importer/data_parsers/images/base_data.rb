@@ -16,7 +16,7 @@ module SpreeShopifyImporter
         end
 
         def attachment
-          @attachment ||= open(@shopify_image.src)
+          @attachment ||= URI.open(@shopify_image.src)
         end
 
         def timestamps

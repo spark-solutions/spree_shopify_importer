@@ -47,9 +47,9 @@ describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :service d
 
     context "when product has't got option types" do
       it "raises record not found" do
-        expect do
+        expect {
           subject.option_value_ids
-        end.to raise_error(ActiveRecord::RecordNotFound).with_message("Couldn't find Spree::OptionValue")
+        }.to raise_error(ActiveRecord::RecordNotFound).with_message("Couldn't find Spree::OptionValue")
       end
     end
 
@@ -57,9 +57,9 @@ describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :service d
       before { spree_product.option_types << option_type }
 
       it "raises record not found" do
-        expect do
+        expect {
           subject.option_value_ids
-        end.to raise_error(ActiveRecord::RecordNotFound).with_message("Couldn't find Spree::OptionValue")
+        }.to raise_error(ActiveRecord::RecordNotFound).with_message("Couldn't find Spree::OptionValue")
       end
     end
   end
