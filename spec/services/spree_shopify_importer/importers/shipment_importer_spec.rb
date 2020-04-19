@@ -6,7 +6,7 @@ RSpec.describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service
 
   subject { described_class.new(fulfillment, parent_feed, spree_order) }
 
-  before  do
+  before do
     authenticate_with_shopify
     parent_feed
     spree_order

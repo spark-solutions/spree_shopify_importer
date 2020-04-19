@@ -5,8 +5,8 @@ describe SpreeShopifyImporter::Importers::ProductImporter, type: :service do
 
   subject { described_class.new(resource) }
 
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#import!", vcr: { cassette_name: "shopify/base_product" } do
     let(:resource) { ShopifyAPI::Product.find(11_101_525_828).to_json }

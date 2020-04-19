@@ -3,8 +3,8 @@ require "spec_helper"
 describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
   subject { described_class.new(resource) }
 
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#import!", vcr: { cassette_name: "shopify_import/importers/taxon_importer/import" } do
     let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(:first) }

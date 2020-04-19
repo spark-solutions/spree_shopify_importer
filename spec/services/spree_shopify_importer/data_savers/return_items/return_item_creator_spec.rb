@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::ReturnItems::ReturnItemCreator, type: :service do
   subject { described_class.new(shopify_refund_line_item, shopify_refund, return_authorization, inventory_unit) }
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#create" do
     let(:return_authorization) { create(:return_authorization) }

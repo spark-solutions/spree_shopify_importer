@@ -6,8 +6,8 @@ describe SpreeShopifyImporter::DataSavers::ReturnItems::ReturnItemsCreator, type
   let(:spree_return_authorization) { create(:return_authorization) }
   let(:spree_order) { create(:order_with_line_items) }
 
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#create" do
     let(:variant) do

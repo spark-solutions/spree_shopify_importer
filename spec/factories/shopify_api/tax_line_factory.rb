@@ -3,6 +3,6 @@ FactoryBot.define do
     skip_create
     title { "VAT" }
     price { 8.84 }
-    rate  { 0.22 }
+    rate { 0.22 }
   end
 end

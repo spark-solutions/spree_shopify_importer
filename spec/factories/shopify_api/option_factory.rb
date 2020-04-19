@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :shopify_base_option, class: ShopifyAPI::Option do
     skip_create
-    sequence(:id)         { |n| n }
+    sequence(:id) { |n| n }
     sequence(:product_id) { |n| n }
-    sequence(:name)       { |n| "Option ##{n}" }
+    sequence(:name) { |n| "Option ##{n}" }
     sequence(:position, 1)
 
     transient do

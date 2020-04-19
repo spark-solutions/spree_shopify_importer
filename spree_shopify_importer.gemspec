@@ -5,17 +5,17 @@ require "spree_shopify_importer/version"
 
 # rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = "spree_shopify_importer"
-  s.version     = SpreeShopifyImporter::VERSION
-  s.summary     = "Import your old Shopify store into spree"
+  s.platform = Gem::Platform::RUBY
+  s.name = "spree_shopify_importer"
+  s.version = SpreeShopifyImporter::VERSION
+  s.summary = "Import your old Shopify store into spree"
   s.description = "Import Shopify store to spree for easier migration."
   s.required_ruby_version = ">= 2.2.7"
 
-  s.authors   = ["Viktor Fonic", "Peter Rybarczyk"]
-  s.email     = %w[viktor.fonic@gmail.com argonuspiotr@gmail.com]
-  s.homepage  = "https://github.com/spark-solutions/spree_shopify_importer"
-  s.license   = "BSD-3-Clause"
+  s.authors = ["Viktor Fonic", "Peter Rybarczyk"]
+  s.email = %w[viktor.fonic@gmail.com argonuspiotr@gmail.com]
+  s.homepage = "https://github.com/spark-solutions/spree_shopify_importer"
+  s.license = "BSD-3-Clause"
 
   s.require_path = "lib"
   s.requirements << "none"

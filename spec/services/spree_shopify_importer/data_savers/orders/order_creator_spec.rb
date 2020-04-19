@@ -3,8 +3,8 @@ require "spec_helper"
 RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :service do
   subject { described_class.new(order_data_feed) }
 
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#save!" do
     let(:user) { create(:user, email: "example@example.com") }
