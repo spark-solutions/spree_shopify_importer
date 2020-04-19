@@ -6,67 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 101
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_savers/orders/order_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/products/product_base.rb'
-    - 'app/services/spree_shopify_importer/data_savers/refunds/refund_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/refunds/refunds_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/reimbursements/reimbursement_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/return_authorizations/return_authorization_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/return_items/return_items_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/shipments/shipment_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/shipping_rates/shipping_rate_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/variants/variant_base.rb'
-    - 'lib/generators/spree_shopify_importer/install/install_generator.rb'
-    - 'spec/features/integration_spec.rb'
-    - 'spec/services/spree_shopify_importer/connections/client_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/inventory_units/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/line_items/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/orders/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/refunds/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/stock_items/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/tax_rates/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_parsers/taxons/base_data_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/addresses/address_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/addresses/address_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/images/image_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/images/image_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/inventory_units/inventory_units_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/line_items/line_item_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/orders/order_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/payments/payment_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/products/product_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/products/product_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/refunds/refund_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/refunds/refunds_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/return_authorizations/return_authorization_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/return_items/return_items_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/shipments/shipment_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/shipping_methods/shipping_method_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/stock_locations/stock_location_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/tax_rates/tax_rate_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/taxons/taxon_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/taxons/taxon_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/variants/variant_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/variants/variant_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/zones/zone_creator_spec.rb'
-    - 'spec/services/spree_shopify_importer/data_savers/zones/zone_updater_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/address_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/image_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/order_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/payment_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/product_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/return_authorization_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/shop_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/taxon_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/user_importer_spec.rb'
-    - 'spec/services/spree_shopify_importer/importers/variant_importer_spec.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
