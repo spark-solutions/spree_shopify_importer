@@ -24,7 +24,7 @@ RSpec.describe SpreeShopifyImporter::DataFeed, type: :model do
     it { is_expected.to belong_to(:parent).class_name("SpreeShopifyImporter::DataFeed").optional }
     it "to have many children data feeds" do
       is_expected.to have_many(:children).class_name("SpreeShopifyImporter::DataFeed").with_foreign_key(:parent_id)
-                                         .dependent(:destroy)
+        .dependent(:destroy)
     end
   end
 end

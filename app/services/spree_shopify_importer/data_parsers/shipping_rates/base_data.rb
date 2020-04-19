@@ -35,8 +35,8 @@ module SpreeShopifyImporter
 
         def find_or_create_shipping_method
           method = Spree::ShippingMethod
-                   .create_with(shipping_method_attributes)
-                   .find_or_initialize_by(name: shipping_method_code, display_on: :back_end)
+            .create_with(shipping_method_attributes)
+            .find_or_initialize_by(name: shipping_method_code, display_on: :back_end)
           method.save(validate: false)
           method
         end

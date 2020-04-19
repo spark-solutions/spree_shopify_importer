@@ -45,14 +45,14 @@ RSpec.describe SpreeShopifyImporter::Connections::Client, type: :model do
         end
 
         context "invalid shop_domain", vcr: { cassette_name: "client/invalid_shop_domain" } do
-        let(:invalid_shop_domain_credentials) { credentials.merge(shop_domain: "example.myshopify.com") }
+          let(:invalid_shop_domain_credentials) { credentials.merge(shop_domain: "example.myshopify.com") }
 
-        it "raises UnauthorizedAccess error" do
-           expect do
-             client.get_connection(invalid_shop_domain_credentials)
-             ShopifyAPI::Shop.current
-           end.to raise_error(ActiveResource::UnauthorizedAccess)
-        end
+          it "raises UnauthorizedAccess error" do
+            expect do
+              client.get_connection(invalid_shop_domain_credentials)
+              ShopifyAPI::Shop.current
+            end.to raise_error(ActiveResource::UnauthorizedAccess)
+          end
         end
       end
     end

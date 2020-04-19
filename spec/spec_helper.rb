@@ -32,7 +32,7 @@ RSpec.configure do |config|
     expectations.syntax = :expect
   end
 
-  config.before :each do
+  config.before do
     Rails.cache.clear
   end
 
@@ -41,4 +41,4 @@ RSpec.configure do |config|
   end
 end
 
-Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].sort.each { |f| require f }

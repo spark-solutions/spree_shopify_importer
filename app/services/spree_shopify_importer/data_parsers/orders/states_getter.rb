@@ -33,7 +33,7 @@ module SpreeShopifyImporter
                              when ::Orders::Constants::Payments::Shopify::VOIDED then ::Orders::Constants::Payments::Spree::VOID
                              else
                                raise NotImplementedError
-                             end
+          end
         end
 
         def shipment_state
@@ -43,7 +43,7 @@ module SpreeShopifyImporter
                               when ::Orders::Constants::Shipments::Shopify::PARTIAL then ::Orders::Constants::Shipments::Spree::PARTIAL
                               else
                                 raise NotImplementedError
-                              end
+          end
         end
 
         private

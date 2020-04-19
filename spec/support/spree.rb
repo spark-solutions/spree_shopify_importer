@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::Flash
 
-  config.before :each do
+  config.before do
     reset_spree_preferences do |spree_config|
       spree_config.default_country_id = FactoryBot.create(:country).id
     end

@@ -24,9 +24,9 @@ module SpreeShopifyImporter
 
         def create_shipping_method
           Spree::ShippingMethod.create!(shipping_method_attributes.merge(
-                                          shipping_categories: [@shipping_category],
-                                          calculator: calculator
-                                        ))
+            shipping_categories: [@shipping_category],
+            calculator: calculator
+          ))
         end
 
         def calculators_ids

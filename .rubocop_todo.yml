@@ -6,67 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'spec/services/spree_shopify_importer/data_savers/taxons/taxon_creator_spec.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-Layout/EndAlignment:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_parsers/orders/states_getter.rb'
-    - 'app/services/spree_shopify_importer/data_parsers/shipments/base_data.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: consistent, consistent_relative_to_receiver, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
-Layout/FirstArgumentIndentation:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_savers/images/image_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/shipping_methods/shipping_method_creator.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'spec/services/spree_shopify_importer/connections/client_spec.rb'
-
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_parsers/refunds/base_data.rb'
-    - 'app/services/spree_shopify_importer/data_parsers/shipping_rates/base_data.rb'
-    - 'app/services/spree_shopify_importer/data_parsers/taxons/base_data.rb'
-    - 'app/services/spree_shopify_importer/data_savers/tax_rates/tax_rate_creator.rb'
-    - 'spec/models/spree_shopify_importer/data_feed_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'spec/factories/shopify_api/variant_factory.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Lint/NonDeterministicRequireOrder:
-  Exclude:
-    - 'lib/spree_shopify_importer/engine.rb'
-    - 'spec/spec_helper.rb'
-
 # Offense count: 19
 # Cop supports --auto-correct.
 RSpec/EmptyLineAfterFinalLet:
@@ -160,22 +99,6 @@ RSpec/EmptyLineAfterSubject:
     - 'spec/services/spree_shopify_importer/importers/taxon_importer_spec.rb'
     - 'spec/services/spree_shopify_importer/importers/user_importer_spec.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: implicit, each, example
-RSpec/HookArgument:
-  Exclude:
-    - 'spec/spec_helper.rb'
-    - 'spec/support/spree.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Rails/ActiveRecordAliases:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_savers/customer_returns/customer_return_creator.rb'
-    - 'app/services/spree_shopify_importer/data_savers/return_authorizations/return_authorization_creator.rb'
-
 # Offense count: 1
 Security/Open:
   Exclude:
@@ -198,14 +121,6 @@ Standard/SemanticBlocks:
     - 'spec/services/spree_shopify_importer/data_savers/variants/variant_updater_spec.rb'
     - 'spec/services/spree_shopify_importer/importers/product_importer_spec.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
-# SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'app/services/spree_shopify_importer/data_savers/orders/order_creator.rb'
-
 # Offense count: 9
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
@@ -219,11 +134,3 @@ Style/StringLiteralsInInterpolation:
     - 'spec/services/spree_shopify_importer/data_parsers/zones/base_data_spec.rb'
     - 'spec/services/spree_shopify_importer/data_savers/tax_rates/tax_rate_creator_spec.rb'
     - 'spec/services/spree_shopify_importer/data_savers/zones/zone_creator_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Exclude:
-    - 'app/services/spree_shopify_importer/invoker.rb'

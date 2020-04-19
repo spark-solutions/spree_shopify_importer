@@ -12,9 +12,9 @@ module SpreeShopifyImporter
         def create!
           Spree::TaxRate.transaction do
             Spree::TaxRate.create_with(calculator: calculator)
-                          .where(name: attributes[:name])
-                          .first_or_create!(attributes)
-                          .update!(attributes)
+              .where(name: attributes[:name])
+              .first_or_create!(attributes)
+              .update!(attributes)
           end
         end
 

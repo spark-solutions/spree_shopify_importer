@@ -41,7 +41,7 @@ module SpreeShopifyImporter
                               when "cancelled", "error", "failure" then :canceled
                               else
                                 raise NotImplementedError
-                              end
+          end
         end
 
         def shipped_at
