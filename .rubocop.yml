@@ -23,3 +23,7 @@ AllCops:
    - 'spec/dummy/**/*'
    - 'gemfiles/*'
    - 'lib/generators/**/*'
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_first_argument
