@@ -27,3 +27,6 @@ AllCops:
 Layout/ArgumentAlignment:
   Enabled: true
   EnforcedStyle: with_first_argument
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
