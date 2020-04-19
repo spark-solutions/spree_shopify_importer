@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::InventoryUnits::BaseData, type: :service do
   subject { described_class.new(shopify_line_item, spree_shipment) }
@@ -11,7 +11,7 @@ describe SpreeShopifyImporter::DataParsers::InventoryUnits::BaseData, type: :ser
   let(:shopify_data_feed) do
     create(:shopify_data_feed,
            spree_object: spree_variant,
-           shopify_object_type: 'ShopifyAPI::Variant',
+           shopify_object_type: "ShopifyAPI::Variant",
            shopify_object_id: shopify_line_item.variant_id)
   end
 
@@ -20,8 +20,8 @@ describe SpreeShopifyImporter::DataParsers::InventoryUnits::BaseData, type: :ser
     spree_line_item
   end
 
-  describe '#attributes' do
-    context 'when shipment is in on_hand state' do
+  describe "#attributes" do
+    context "when shipment is in on_hand state" do
       let(:result) do
         {
           order: spree_shipment.order,
@@ -31,22 +31,22 @@ describe SpreeShopifyImporter::DataParsers::InventoryUnits::BaseData, type: :ser
         }
       end
 
-      it 'returns hash of inventory unit attributes' do
+      it "returns hash of inventory unit attributes" do
         expect(subject.attributes).to eq result
       end
     end
 
-    context 'when shipment is shipped' do
+    context "when shipment is shipped" do
       let(:spree_shipment) { create(:shipment, state: :shipped) }
 
-      it 'returns hash od inventory unit attributes' do
+      it "returns hash od inventory unit attributes" do
         expect(subject.attributes[:state]).to eq :shipped
       end
     end
   end
 
-  describe '#line_item' do
-    it 'returns line item' do
+  describe "#line_item" do
+    it "returns line item" do
       expect(subject.line_item).to eq spree_line_item
     end
   end

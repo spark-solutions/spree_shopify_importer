@@ -1,16 +1,16 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::OptionValues::BaseData, type: :service do
   subject { described_class.new(value) }
-  let(:value) { 'Amethyst' }
+  let(:value) { "Amethyst" }
 
-  describe '#name' do
-    it 'return value name' do
+  describe "#name" do
+    it "return value name" do
       expect(subject.name).to eq value.downcase
     end
   end
 
-  describe '#attribtues' do
+  describe "#attribtues" do
     let(:result) do
       {
         name: value.downcase,
@@ -18,7 +18,7 @@ describe SpreeShopifyImporter::DataParsers::OptionValues::BaseData, type: :servi
       }
     end
 
-    it 'return hash of value attributes' do
+    it "return hash of value attributes" do
       expect(subject.attributes).to eq result
     end
   end

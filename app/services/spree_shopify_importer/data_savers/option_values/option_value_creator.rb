@@ -12,7 +12,7 @@ module SpreeShopifyImporter
         def create!
           Spree::OptionValue
             .where(option_type: @spree_option_type)
-            .where('lower(name) = ?', name)
+            .where("lower(name) = ?", name)
             .first_or_create!(attributes)
         end
 

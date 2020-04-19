@@ -2,8 +2,8 @@
 
 module RestOfWorldZones
   class CreateJob < ApplicationJob
-    SPREE_STATE = 'Spree::State'
-    SPREE_COUNTRY = 'Spree::Country'
+    SPREE_STATE = "Spree::State"
+    SPREE_COUNTRY = "Spree::Country"
 
     def perform(shopify_shipping_zone, shipping_methods)
       @shopify_shipping_zone = ShopifyAPI::ShippingZone.new(JSON.parse(shopify_shipping_zone))
@@ -17,22 +17,22 @@ module RestOfWorldZones
     private
 
     def existed_spree_zones_by_member_type
-      Spree::Zone.where('name like ?', "%#{@profile_id}%").map(&:members).flatten.group_by(&:zoneable_type)
+      Spree::Zone.where("name like ?", "%#{@profile_id}%").map(&:members).flatten.group_by(&:zoneable_type)
     end
 
     def profile_id
-      @shopify_shipping_zone.profile_id.split('/').last
+      @shopify_shipping_zone.profile_id.split("/").last
     end
 
     def profile_name
-      Spree::TaxCategory.find_by('name like ?', "%#{profile_id}").name.split('/').first
+      Spree::TaxCategory.find_by("name like ?", "%#{profile_id}").name.split("/").first
     end
 
     def create_rest_of_world_country_zone
       @rest_of_world_country_zone = find_or_create_spree_zone(
         "Rest of World - Countries/#{@profile_name}",
-        'Shopify shipping to Countries Rest of World',
-        'country'
+        "Shopify shipping to Countries Rest of World",
+        "country"
       )
       create_rest_of_world_state_zone if @existed_spree_zones_by_member_type.key?(SPREE_STATE)
       create_country_members
@@ -42,8 +42,8 @@ module RestOfWorldZones
     def create_rest_of_world_state_zone
       @rest_of_world_state_zone = find_or_create_spree_zone(
         "Rest of World - States/#{@profile_name}",
-        'Shopify shipping to States Rest of World',
-        'state'
+        "Shopify shipping to States Rest of World",
+        "state"
       )
       create_states_members
       create_or_update_tax_rate(@rest_of_world_state_zone)

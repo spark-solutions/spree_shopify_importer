@@ -1,11 +1,11 @@
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 
 # Configure Rails Environment
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
 begin
-  require File.expand_path('dummy/config/environment', __dir__)
+  require File.expand_path("dummy/config/environment", __dir__)
 rescue LoadError
   puts %(
     Could not load dummy application.
@@ -14,9 +14,9 @@ rescue LoadError
   abort
 end
 
-require 'pry'
-require 'ffaker'
-require 'rspec/rails'
+require "pry"
+require "ffaker"
+require "rspec/rails"
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -41,4 +41,4 @@ RSpec.configure do |config|
   end
 end
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }

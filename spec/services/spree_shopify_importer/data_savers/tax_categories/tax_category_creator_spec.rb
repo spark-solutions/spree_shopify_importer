@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::TaxCategories::TaxCategoryCreator, type: :service do
   subject { described_class.new(delivery_profile) }

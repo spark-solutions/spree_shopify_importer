@@ -41,7 +41,7 @@ module SpreeShopifyImporter
         end
 
         def preferred_reimbursement_type
-          Spree::ReimbursementType.create_with(active: 'false').find_or_create_by(name: I18n.t(:shopify))
+          Spree::ReimbursementType.create_with(active: "false").find_or_create_by(name: I18n.t(:shopify))
         end
       end
     end

@@ -32,7 +32,7 @@ module SpreeShopifyImporter
         private
 
         def find_variant(variant_id)
-          SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
+          SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: "ShopifyAPI::Variant",
                                                  shopify_object_id: variant_id).try(:spree_object)
         end
 
@@ -42,7 +42,7 @@ module SpreeShopifyImporter
           SpreeShopifyImporter::Importers::ProductImporterJob.perform_later(shopify_product.to_json)
 
           variant_id = @shopify_line_item.variant_id
-          raise VariantNotFound, I18n.t('errors.line_items.no_variant_found', variant_id: variant_id)
+          raise VariantNotFound, I18n.t("errors.line_items.no_variant_found", variant_id: variant_id)
         end
       end
     end

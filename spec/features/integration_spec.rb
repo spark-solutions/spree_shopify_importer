@@ -1,36 +1,36 @@
-require 'spec_helper'
+require "spec_helper"
 
-feature 'end to end import' do
+feature "end to end import" do
   include ActiveJob::TestHelper
 
   subject do
     SpreeShopifyImporter::Invoker.new(
       credentials: {
-        api_key: '0a9445b7b067719a0af024610364ee34', password: '800f97d6ea1a768048851cdd99a9101a',
-        shop_domain: 'spree-shopify-importer-test-store.myshopify.com', api_version: '2019-10'
+        api_key: "0a9445b7b067719a0af024610364ee34", password: "800f97d6ea1a768048851cdd99a9101a",
+        shop_domain: "spree-shopify-importer-test-store.myshopify.com", api_version: "2019-10"
       }
     )
   end
 
   let(:country) do
     create(:country,
-           name: 'Croatia',
-           iso_name: 'CROATIA',
-           iso: 'HR',
-           iso3: 'HRV')
+           name: "Croatia",
+           iso_name: "CROATIA",
+           iso: "HR",
+           iso3: "HRV")
   end
 
-  describe 'import!' do
+  describe "import!" do
     before do
       country
     end
 
-    it 'imports successfully' do
+    it "imports successfully" do
       perform_enqueued_jobs do
         subject.import!
       end
 
-      aggregate_failures 'items creation' do
+      aggregate_failures "items creation" do
         expect(Spree::StockLocation.count).to eq 2
         expect(Spree::Product.count).to eq 2
         expect(Spree::Variant.count).to eq 4
@@ -57,13 +57,13 @@ feature 'end to end import' do
       end
     end
 
-    it 'multiple imports successfully' do
+    it "multiple imports successfully" do
       perform_enqueued_jobs do
         subject.import!
         subject.import!
       end
 
-      aggregate_failures 'items creation' do
+      aggregate_failures "items creation" do
         expect(Spree::StockLocation.count).to eq 2
         expect(Spree::Product.count).to eq 2
         expect(Spree::Variant.count).to eq 4

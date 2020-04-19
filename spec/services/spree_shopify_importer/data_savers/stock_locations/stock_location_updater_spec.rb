@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationUpdater, type: :service do
   subject { described_class.new(stock_location_data_feed, spree_stock_location) }
@@ -10,9 +10,9 @@ describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationUpdater,
   end
 
   let(:stock_location_data_feed) do
-    create(:shopify_data_feed, shopify_object_type: 'ShopifyAPI::Location', spree_object: spree_stock_location, data_feed: shopify_location.to_json)
+    create(:shopify_data_feed, shopify_object_type: "ShopifyAPI::Location", spree_object: spree_stock_location, data_feed: shopify_location.to_json)
   end
-  let(:spree_stock_location) { create(:stock_location, name: 'Shopify') }
+  let(:spree_stock_location) { create(:stock_location, name: "Shopify") }
   let(:shopify_location) { build_stubbed(:shopify_location) }
   let(:attributes) do
     {
@@ -27,19 +27,19 @@ describe SpreeShopifyImporter::DataSavers::StockLocations::StockLocationUpdater,
       active: shopify_location.active
     }
   end
-  let(:country) { build_stubbed(:country, iso: 'CA', name: 'Canada') }
+  let(:country) { build_stubbed(:country, iso: "CA", name: "Canada") }
   let(:state) { build_stubbed(:state) }
 
   let(:stock_location_parser) { instance_double(SpreeShopifyImporter::DataParsers::StockLocations::BaseData, attributes: attributes) }
   let(:data_feed) { JSON.parse(stock_location_data_feed.data_feed) }
 
-  describe '#update!' do
-    it 'does not create spree stock_location' do
+  describe "#update!" do
+    it "does not create spree stock_location" do
       expect { subject.update! }.not_to change(Spree::StockLocation, :count)
     end
 
-    it 'updates spree stock location' do
-      expect(stock_location_data_feed.reload.spree_object.name).to eq 'Shopify'
+    it "updates spree stock location" do
+      expect(stock_location_data_feed.reload.spree_object.name).to eq "Shopify"
       subject.update!
       expect(stock_location_data_feed.reload.spree_object.name).to eq attributes[:name]
     end

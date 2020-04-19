@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service do
   let(:parent_feed) { create(:shopify_data_feed, data_feed: shopify_order.to_json) }
@@ -14,15 +14,15 @@ RSpec.describe SpreeShopifyImporter::Importers::ShipmentImporter, type: :service
 
   after { ShopifyAPI::Base.clear_session }
 
-  describe '#import!', vcr: { cassette_name: 'shopify/importers/shipment_importer/import' } do
+  describe "#import!", vcr: { cassette_name: "shopify/importers/shipment_importer/import" } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:fulfillment) { shopify_order.fulfillments.first }
 
-    it 'creates shopify data feeds' do
+    it "creates shopify data feeds" do
       expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
-    it 'creates spree shipment' do
+    it "creates spree shipment" do
       expect { subject.import! }.to change(Spree::Shipment, :count).by(1)
     end
   end

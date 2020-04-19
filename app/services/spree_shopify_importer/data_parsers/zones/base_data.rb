@@ -27,7 +27,7 @@ module SpreeShopifyImporter
         end
 
         def profile_name
-          Spree::TaxCategory.find_by('name like ?', "%#{@parent_object.profile_id.split('/').last}").name.split('/').first
+          Spree::TaxCategory.find_by("name like ?", "%#{@parent_object.profile_id.split('/').last}").name.split("/").first
         end
       end
     end

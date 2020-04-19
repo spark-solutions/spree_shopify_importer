@@ -14,11 +14,11 @@ module SpreeShopifyImporter
       private
 
       def resources
-        raise NotImplementedError, I18n.t('errors.not_implemented.resources')
+        raise NotImplementedError, I18n.t("errors.not_implemented.resources")
       end
 
       def job
-        raise NotImplementedError, I18n.t('errors.not_implemented.job')
+        raise NotImplementedError, I18n.t("errors.not_implemented.job")
       end
     end
   end

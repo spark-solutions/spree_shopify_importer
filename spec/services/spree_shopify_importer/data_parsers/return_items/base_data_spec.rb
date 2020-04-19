@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :service do
   let(:shopify_refund) { create(:shopify_refund) }
@@ -9,7 +9,7 @@ describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :servic
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
-  describe '#attributes', vcr: { cassette_name: 'shopify/base_refund' } do
+  describe "#attributes", vcr: { cassette_name: "shopify/base_refund" } do
     let(:shopify_refund) { ShopifyAPI::Refund.find(225_207_300, params: { order_id: 5_182_437_124 }) }
     let(:shopify_refund_line_item) { shopify_refund.refund_line_items.first }
     let(:reimbursement_type) { Spree::ReimbursementType.find_by!(name: I18n.t(:shopify)) }
@@ -27,13 +27,13 @@ describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :servic
       }
     end
 
-    it 'returns hash of return item attributes' do
+    it "returns hash of return item attributes" do
       expect(subject.attributes).to eq result
     end
   end
 
-  describe '#timestamps' do
-    let(:shopify_refund_line_item) { double('ShopifyAPI::Refund::RefundLineItem') }
+  describe "#timestamps" do
+    let(:shopify_refund_line_item) { double("ShopifyAPI::Refund::RefundLineItem") }
 
     let(:result) do
       {
@@ -42,7 +42,7 @@ describe SpreeShopifyImporter::DataParsers::ReturnItems::BaseData, type: :servic
       }
     end
 
-    it 'returns hash of return item timestamps' do
+    it "returns hash of return item timestamps" do
       expect(subject.timestamps).to eq result
     end
   end

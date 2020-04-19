@@ -30,7 +30,7 @@ module SpreeShopifyImporter
         end
 
         def track_inventory?
-          @track_inventory ||= @shopify_variant.inventory_management.eql?('shopify')
+          @track_inventory ||= @shopify_variant.inventory_management.eql?("shopify")
         end
       end
     end

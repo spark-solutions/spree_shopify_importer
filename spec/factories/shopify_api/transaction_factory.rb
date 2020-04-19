@@ -6,13 +6,13 @@ FactoryBot.define do
     authorization { nil }
     created_at    { Time.current }
     device_id     { nil }
-    gateway       { 'Bank Deposit' }
-    source_name   { 'web' }
-    kind          { 'sale' }
+    gateway       { "Bank Deposit" }
+    source_name   { "web" }
+    kind          { "sale" }
     order         { create(:shopify_order) }
-    receipt       { 'testcase' }
-    status        { 'success' }
-    currency      { 'USD' }
+    receipt       { "testcase" }
+    status        { "success" }
+    currency      { "USD" }
     user_id       { order.customer.id }
   end
 end

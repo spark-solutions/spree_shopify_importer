@@ -33,15 +33,15 @@ module SpreeShopifyImporter
         end
 
         def tax_category
-          Spree::TaxCategory.where('name like ?', "#{profile_name}%").first_or_create!
+          Spree::TaxCategory.where("name like ?", "#{profile_name}%").first_or_create!
         end
 
         def profile_name
-          @spree_zone.name.split('/').last
+          @spree_zone.name.split("/").last
         end
 
         def included_in_price
-          JSON.parse(SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Shop').data_feed)['taxes_included']
+          JSON.parse(SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: "ShopifyAPI::Shop").data_feed)["taxes_included"]
         end
       end
     end

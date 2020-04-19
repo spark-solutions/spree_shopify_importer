@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Addresses::AddressUpdater, type: :service do
   subject { described_class.new(shopify_data_feed, spree_address) }
@@ -6,12 +6,12 @@ describe SpreeShopifyImporter::DataSavers::Addresses::AddressUpdater, type: :ser
   let(:shopify_data_feed) do
     build_stubbed(:shopify_data_feed,
                   shopify_object_id: shopify_address.id,
-                  shopify_object_type: 'ShopifyAPI::Address',
+                  shopify_object_type: "ShopifyAPI::Address",
                   data_feed: shopify_address.to_json)
   end
   let(:spree_address) { create(:address) }
 
-  describe '#update!' do
+  describe "#update!" do
     let(:shopify_address) { build_stubbed(:shopify_address) }
     let(:parser) { instance_double(SpreeShopifyImporter::DataParsers::Addresses::BaseData) }
     let(:state) { build_stubbed(:state) }
@@ -37,7 +37,7 @@ describe SpreeShopifyImporter::DataSavers::Addresses::AddressUpdater, type: :ser
       expect(parser).to receive(:attributes).and_return(attributes)
     end
 
-    it 'sets correct attributes' do
+    it "sets correct attributes" do
       subject.update!
 
       expect(spree_address.firstname).to eq shopify_address.first_name

@@ -10,7 +10,7 @@ FactoryBot.define do
       options_count { 1 }
     end
     factory :shopify_single_option do
-      values { ['Default Option'] }
+      values { ["Default Option"] }
     end
 
     factory :shopify_multiple_option do

@@ -22,7 +22,7 @@ module SpreeShopifyImporter
         private
 
         def create_spree_order
-          @user = data_feed['customer'] ? user : fake_shopify_customer
+          @user = data_feed["customer"] ? user : fake_shopify_customer
           order = Spree::Order.new(user: @user)
           order.assign_attributes(attributes)
           order.save!
@@ -30,7 +30,7 @@ module SpreeShopifyImporter
         end
 
         def fake_shopify_customer
-          Spree::User.where(email: 'shopify@shopify.com').first_or_create!(password: 'password')
+          Spree::User.where(email: "shopify@shopify.com").first_or_create!(password: "password")
         end
 
         def create_spree_line_items
@@ -49,7 +49,7 @@ module SpreeShopifyImporter
         end
 
         def create_spree_payments
-          transactions = shopify_order.transactions.reject { |t| t.kind.eql?('refund') }
+          transactions = shopify_order.transactions.reject { |t| t.kind.eql?("refund") }
 
           # TODO: to verify
           if children_transactions?(transactions)
@@ -64,7 +64,7 @@ module SpreeShopifyImporter
         end
 
         def check_transaction_is_not_duplicate?(ids, t)
-          (!t.kind.eql?('authorization') && ids.include?(t.parent_id))
+          (!t.kind.eql?("authorization") && ids.include?(t.parent_id))
         end
 
         def children_transactions?(transactions)
@@ -74,7 +74,7 @@ module SpreeShopifyImporter
         def check_transactions_kinds?(transactions)
           kinds = transactions.map(&:kind)
 
-          kinds.include?('authorization') && kinds.include?('capture')
+          kinds.include?("authorization") && kinds.include?("capture")
         end
 
         def check_transactions_parents?(transactions)
@@ -199,7 +199,7 @@ module SpreeShopifyImporter
 
         def refund_amount
           refund_transactions = shopify_order.transactions.select do |t|
-            t.kind.eql?('refund') && t.status == 'success'
+            t.kind.eql?("refund") && t.status == "success"
           end
 
           refund_transactions.sum do |t|
@@ -208,7 +208,7 @@ module SpreeShopifyImporter
         end
 
         def billing_address
-          if data_feed['billing_address']
+          if data_feed["billing_address"]
             @billing_address ||= shopify_order.try(:billing_address)
           else
             @billing_address ||= shopify_order.try(:shipping_address)

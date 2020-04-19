@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Addresses::BaseData, type: :service do
   let(:spree_user) { create(:user) }
@@ -6,7 +6,7 @@ describe SpreeShopifyImporter::DataParsers::Addresses::BaseData, type: :service 
 
   subject { described_class.new(shopify_address) }
 
-  describe '#address_attributes' do
+  describe "#address_attributes" do
     let(:state) { Spree::State.find_by!(abbr: shopify_address.province_code) }
     let(:country) { Spree::Country.find_by!(iso: shopify_address.country_code) }
     let(:result) do
@@ -24,22 +24,22 @@ describe SpreeShopifyImporter::DataParsers::Addresses::BaseData, type: :service 
       }
     end
 
-    it 'returns hash of address attributes' do
+    it "returns hash of address attributes" do
       expect(subject.attributes).to eq result
     end
 
-    context 'when there is no country' do
-      let(:shopify_address) { create(:shopify_address, country_code: 'NONEXISTING') }
+    context "when there is no country" do
+      let(:shopify_address) { create(:shopify_address, country_code: "NONEXISTING") }
 
-      it 'creates a country' do
+      it "creates a country" do
         expect { subject.attributes }.to change(Spree::Country, :count).by(1)
       end
     end
 
-    context 'when there is no state' do
-      let(:shopify_address) { create(:shopify_address, province_code: 'NONEXISTING') }
+    context "when there is no state" do
+      let(:shopify_address) { create(:shopify_address, province_code: "NONEXISTING") }
 
-      it 'creates a country' do
+      it "creates a country" do
         expect { subject.attributes }.to change(Spree::State, :count).by(1)
       end
     end

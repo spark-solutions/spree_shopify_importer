@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 authenticate_with_shopify
 

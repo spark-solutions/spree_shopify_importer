@@ -1,9 +1,9 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Adjustments::Tax::BaseData, type: :service do
   subject { described_class.new(spree_line_item, shopify_tax_line, spree_order) }
 
-  describe '#attributes' do
+  describe "#attributes" do
     let(:spree_order) { create(:order_with_line_items) }
     let(:spree_line_item) { spree_order.line_items.first }
     let(:shopify_tax_line) { create(:shopify_tax_line) }
@@ -23,7 +23,7 @@ describe SpreeShopifyImporter::DataParsers::Adjustments::Tax::BaseData, type: :s
       spree_tax_rate
     end
 
-    it 'returns hash of tax adjustment attributes' do
+    it "returns hash of tax adjustment attributes" do
       expect(subject.attributes).to eq result
     end
   end
