@@ -1,12 +1,6 @@
 require:
   - rubocop-rails
 
-Rails/ActionFilter:
-  Enabled: true
-  EnforcedStyle: action
-  Include:
-    - app/controllers/**/*.rb
-
 Rails/ActiveRecordAliases:
   Enabled: true
 
@@ -19,11 +13,6 @@ Rails/ApplicationJob:
 Rails/ApplicationRecord:
   Enabled: true
 
-Rails/AssertNot:
-  Enabled: true
-  Include:
-    - '**/test/**/*'
-
 Rails/Blank:
   Enabled: true
   # Convert usages of `nil? || empty?` to `blank?`
@@ -33,16 +22,11 @@ Rails/Blank:
   # Convert usages of `unless present?` to `if blank?`
   UnlessPresent: true
 
-Rails/BulkChangeTable:
-  Enabled: true
-  Database: null
-  Include:
-    - db/migrate/*.rb
-
 Rails/CreateTableWithTimestamps:
   Enabled: true
   Include:
     - db/migrate/*.rb
+  Exclude: []
 
 Rails/Date:
   Enabled: true
@@ -68,70 +52,17 @@ Rails/EnumUniqueness:
 Rails/EnvironmentComparison:
   Enabled: true
 
-Rails/Exit:
-  Enabled: true
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - lib/**/*.rb
-  Exclude:
-    - lib/**/*.rake
-
 Rails/FilePath:
   Enabled: true
   EnforcedStyle: arguments
 
 Rails/FindBy:
   Enabled: true
-  Include:
-    - app/models/**/*.rb
-
-Rails/FindEach:
-  Enabled: true
-  Include:
-    - app/models/**/*.rb
-
-Rails/HasAndBelongsToMany:
-  Enabled: true
-  Include:
-    - app/models/**/*.rb
-
-Rails/HttpPositionalArguments:
-  Enabled: true
-  Include:
-    - 'spec/**/*'
-    - 'test/**/*'
-
-Rails/HttpStatus:
-  Enabled: true
-  EnforcedStyle: symbolic
 
 Rails/InverseOf:
   Enabled: true
   Include:
     - app/models/**/*.rb
-
-Rails/LexicallyScopedActionFilter:
-  Enabled: true
-  Safe: false
-  Include:
-    - app/controllers/**/*.rb
-
-Rails/NotNullColumn:
-  Enabled: true
-  Include:
-    - db/migrate/*.rb
-
-Rails/Output:
-  Enabled: true
-  Include:
-    - app/**/*.rb
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
-
-Rails/OutputSafety:
-  Enabled: true
 
 Rails/PluralizationGrammar:
   Enabled: true
@@ -145,49 +76,23 @@ Rails/Present:
   NotBlank: true
   UnlessBlank: true
 
-Rails/ReadWriteAttribute:
-  Enabled: true
-  Include:
-    - app/models/**/*.rb
-
-Rails/RedundantReceiverInWithOptions:
-  Enabled: true
-
-Rails/RefuteMethods:
-  Enabled: true
-  Include:
-    - '**/test/**/*'
-
 Rails/RelativeDateConstant:
   Enabled: true
   AutoCorrect: false
-
-Rails/RequestReferer:
-  Enabled: true
-  EnforcedStyle: referer
 
 Rails/ReversibleMigration:
   Enabled: true
   Include:
     - db/migrate/*.rb
+  Exclude: []
 
 Rails/SafeNavigation:
   Enabled: true
   ConvertTry: false
 
-Rails/ScopeArgs:
-  Enabled: true
-  Include:
-    - app/models/**/*.rb
-
 Rails/TimeZone:
   Enabled: true
   EnforcedStyle: flexible
-
-Rails/UniqBeforePluck:
-  Enabled: true
-  EnforcedStyle: conservative
-  AutoCorrect: false
 
 Rails/Validation:
   Enabled: true

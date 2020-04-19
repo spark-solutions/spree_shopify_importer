@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SpreeShopifyImporter::DataParsers::Refunds::BaseData, type: :service do
   subject { described_class.new(shopify_refund, shopify_transaction, spree_reimbursement) }
 
-  let(:shopify_refund)      { build_stubbed(:shopify_refund) }
+  let(:shopify_refund) { build_stubbed(:shopify_refund) }
   let(:shopify_transaction) { build_stubbed(:shopify_transaction, parent_id: 12_345) }
   let(:spree_reimbursement) { build_stubbed(:reimbursement) }
 

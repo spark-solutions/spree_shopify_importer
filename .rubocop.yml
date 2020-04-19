@@ -10,7 +10,6 @@ inherit_mode:
 require:
   - rubocop-performance
   - standard/cop/semantic_blocks
-  - ./lib/rubocop/rspec/let_bang
 
 inherit_gem:
   standard: config/base.yml
@@ -24,6 +23,3 @@ AllCops:
    - 'spec/dummy/**/*'
    - 'gemfiles/*'
    - 'lib/generators/**/*'
-
-RSpec/LetBang:
-  Enabled: true

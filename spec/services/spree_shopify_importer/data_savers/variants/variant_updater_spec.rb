@@ -63,7 +63,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Variants::VariantUpdater, type:
         end
 
         context 'resource in shopify was not tracking inventory' do
-          let(:inventory_management) { 'not_shopify'  }
+          let(:inventory_management) { 'not_shopify' }
 
           it 'then it is not tracking inventory' do
             subject.update!
