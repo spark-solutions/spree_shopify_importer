@@ -17,7 +17,7 @@ module SpreeShopifyImporter
         password: Spree::Config[:shopify_password],
         shop_domain: Spree::Config[:shopify_shop_domain],
         token: Spree::Config[:shopify_token],
-        api_version: Spree::Config[:shopify_api_version],
+        api_version: Spree::Config[:shopify_api_version]
       }
     end
 

@@ -27,9 +27,9 @@ module SpreeShopifyImporter
 
         def payment
           @payment ||= SpreeShopifyImporter::DataFeed
-                       .find_by(shopify_object_id: @shopify_transaction.parent_id,
-                                shopify_object_type: "ShopifyAPI::Transaction")
-                       .try(:spree_object)
+            .find_by(shopify_object_id: @shopify_transaction.parent_id,
+                     shopify_object_type: "ShopifyAPI::Transaction")
+            .try(:spree_object)
         end
 
         def transaction_id

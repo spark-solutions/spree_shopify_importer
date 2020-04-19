@@ -28,11 +28,11 @@ module SpreeShopifyImporter
         def create_customer_return
           Spree::CustomerReturn.transaction do
             @customer_return = Spree::CustomerReturn.find_or_initialize_by(number: number)
-            update_attributes
+            update_customer_return_attributes
           end
         end
 
-        def update_attributes
+        def update_customer_return_attributes
           @customer_return.assign_attributes(attributes)
           @customer_return.save(validate: false)
         end

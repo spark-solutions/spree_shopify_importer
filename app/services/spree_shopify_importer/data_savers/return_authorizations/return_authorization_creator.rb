@@ -11,7 +11,7 @@ module SpreeShopifyImporter
 
         def create
           @spree_return_authorization = @spree_order.return_authorizations.find_or_initialize_by(number: number)
-          update_attributes
+          update_return_authorization_attributes
           assign_spree_order_to_data_feed
           update_timestamps
           @spree_return_authorization
@@ -19,7 +19,7 @@ module SpreeShopifyImporter
 
         private
 
-        def update_attributes
+        def update_return_authorization_attributes
           @spree_return_authorization.assign_attributes(attributes)
           @spree_return_authorization.save(validate: false)
         end

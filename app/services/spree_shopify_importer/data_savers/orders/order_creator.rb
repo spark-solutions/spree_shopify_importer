@@ -208,10 +208,10 @@ module SpreeShopifyImporter
         end
 
         def billing_address
-          if data_feed["billing_address"]
-            @billing_address ||= shopify_order.try(:billing_address)
+          @billing_address ||= if data_feed["billing_address"]
+            shopify_order.try(:billing_address)
           else
-            @billing_address ||= shopify_order.try(:shipping_address)
+            shopify_order.try(:shipping_address)
           end
         end
 
