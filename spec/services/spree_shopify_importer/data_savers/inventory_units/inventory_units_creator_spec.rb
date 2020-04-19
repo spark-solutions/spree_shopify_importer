@@ -3,8 +3,8 @@ require "spec_helper"
 describe SpreeShopifyImporter::DataSavers::InventoryUnits::InventoryUnitsCreator, type: :service do
   subject { described_class.new(shopify_line_item, spree_shipment) }
 
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#create!", vcr: { cassette_name: "shopify/base_order" } do
     let(:spree_shipment) { create(:shipment) }

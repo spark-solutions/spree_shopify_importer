@@ -6,12 +6,12 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
   subject { described_class.new(product_data_feed, spree_product) }
 
   let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
-  before  do
+  before do
     authenticate_with_shopify
     expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
     expect(delivery_profile_importer).to receive(:call)
   end
-  after   { ShopifyAPI::Base.clear_session }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#update!" do
     context "with base product data feed", vcr: { cassette_name: "shopify/base_product" } do

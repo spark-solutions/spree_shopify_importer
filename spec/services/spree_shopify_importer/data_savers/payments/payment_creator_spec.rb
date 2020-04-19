@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Payments::PaymentCreator, type: :service do
   subject { described_class.new(shopify_data_feed, spree_order) }
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe "#create!", vcr: { cassette_name: "shopify/base_order" } do
     let(:spree_order) { create(:order) }
