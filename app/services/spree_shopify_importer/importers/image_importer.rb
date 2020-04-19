@@ -1,8 +1,8 @@
 module SpreeShopifyImporter
   module Importers
     class ImageImporter < BaseImporter
-      def initialize(resourece, parent_feed, spree_viewable)
-        @resource = resourece
+      def initialize(resource, parent_feed, spree_viewable)
+        @resource = resource
         @parent_feed = parent_feed
         @spree_viewable = spree_viewable
       end
@@ -13,7 +13,7 @@ module SpreeShopifyImporter
         if (spree_object = data_feed.spree_object).blank?
           creator.new(data_feed, @spree_viewable).create!
         else
-          updater.new(data_feed, spree_object, @spree_viewable).update!
+          updater.new(data_feed, spree_object).update!
         end
       end
 

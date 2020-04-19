@@ -31,10 +31,6 @@ module SpreeShopifyImporter
         def shipping_category
           Spree::ShippingCategory.find_or_create_by!(name: I18n.t(:shopify))
         end
-
-        def option_values(values)
-          values.map(&:strip)
-        end
       end
     end
   end

@@ -15,11 +15,15 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
 
   describe '#update!' do
     context 'with base product data feed', vcr: { cassette_name: 'shopify/base_product' } do
-      let!(:spree_product) { create(:product) }
+      let(:spree_product) { create(:product) }
       let(:shopify_product) { ShopifyAPI::Product.find(11_101_525_828) }
       let(:product_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_product.id, data_feed: shopify_product.to_json)
+      end
+
+      before do
+        spree_product
       end
 
       it 'does not create spree product' do
@@ -162,7 +166,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
         end
 
         context 'with case insensitive option values' do
-          let!(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+          let(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+
+          before do
+            option_type1
+          end
 
           it 'creates option types' do
             expect { subject.update! }.to change(Spree::OptionType, :count).by(1)
@@ -193,11 +201,15 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductUpdater, type: :serv
           end
 
           context 'with case insensitive' do
-            let!(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
-            let!(:option_type2_values) do
+            let(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
+            let(:option_type2_values) do
               shopify_product.options.last.values.map do |value|
                 create(:option_value, option_type: option_type2, name: value)
               end
+            end
+
+            before do
+              option_type2_values
             end
 
             it 'creates option values' do

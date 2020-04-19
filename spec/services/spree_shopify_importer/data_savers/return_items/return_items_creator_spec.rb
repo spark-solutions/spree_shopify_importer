@@ -1,19 +1,24 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::ReturnItems::ReturnItemsCreator, type: :service do
+  subject { described_class.new(shopify_refund_line_item, shopify_refund, spree_return_authorization, spree_order) }
+
   let(:spree_return_authorization) { create(:return_authorization) }
   let(:spree_order) { create(:order_with_line_items) }
 
-  subject { described_class.new(shopify_refund_line_item, shopify_refund, spree_return_authorization, spree_order) }
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#create' do
-    let!(:variant) do
+    let(:variant) do
       create(:shopify_data_feed,
              shopify_object_id: shopify_refund_line_item.line_item.variant_id,
              shopify_object_type: 'ShopifyAPI::Variant',
              spree_object: spree_order.line_items.first.variant)
+    end
+
+    before do
+      variant
     end
 
     context 'with base refund data', vcr: { cassette_name: 'shopify/base_refund' } do
@@ -23,12 +28,6 @@ describe SpreeShopifyImporter::DataSavers::ReturnItems::ReturnItemsCreator, type
 
       it 'creates return items' do
         expect { subject.create }.to change(Spree::ReturnItem, :count).by(1)
-      end
-
-      context 'with missing inventory units' do
-        it 'creates inventory units'
-        it 'creates dummy shipments'
-        it 'creates return items'
       end
     end
   end

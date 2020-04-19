@@ -2,11 +2,12 @@ require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataParsers::Products::BaseData, type: :service do
   subject { described_class.new(shopify_product) }
-  let!(:shipping_category) { create(:shipping_category, name: I18n.t(:shopify)) }
+
   let(:shopify_product) { create(:shopify_product) }
 
   describe '#attributes' do
     context 'with sample product' do
+      let(:shipping_category) { build_stubbed(:shipping_category, name: I18n.t(:shopify)) }
       let(:product_attributes) do
         {
           name: shopify_product.title,
@@ -19,6 +20,10 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Products::BaseData, type: :ser
         }
       end
 
+      before do
+        expect(Spree::ShippingCategory).to receive(:find_or_create_by!).with(name: 'Shopify').and_return(shipping_category)
+      end
+
       it 'prepares hash of attributes' do
         expect(subject.attributes).to eq product_attributes
       end
@@ -26,10 +31,8 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Products::BaseData, type: :ser
   end
 
   describe '#tags' do
-    let(:product_tags) { shopify_product.tags }
-
     it 'prepares list tags' do
-      expect(subject.tags).to eq product_tags
+      expect(subject.tags).to eq shopify_product.tags
     end
   end
 

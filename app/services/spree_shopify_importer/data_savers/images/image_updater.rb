@@ -2,10 +2,9 @@ module SpreeShopifyImporter
   module DataSavers
     module Images
       class ImageUpdater < ImageBase
-        def initialize(shopify_data_feed, spree_image, spree_object)
+        def initialize(shopify_data_feed, spree_image)
           super(shopify_data_feed)
           @spree_image = spree_image
-          @spree_object = spree_object # can be product or variant
         end
 
         def update!

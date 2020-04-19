@@ -30,7 +30,7 @@ module SpreeShopifyImporter
         end
 
         def create_spree_zone
-          Spree::Zone.create(attributes)
+          Spree::Zone.create!(attributes)
         end
 
         def parent_feed

@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::Images::ImageUpdater, type: :service do
-  subject { described_class.new(shopify_data_feed, spree_image, spree_object) }
+  subject { described_class.new(shopify_data_feed, spree_image) }
+
   let(:spree_image) { create(:image) }
   let(:shopify_data_feed) do
     create(:shopify_data_feed,
@@ -17,16 +18,6 @@ describe SpreeShopifyImporter::DataSavers::Images::ImageUpdater, type: :service 
                    'products/Screenshot_2017-03-03_14.45.16_29b97e8b-f008-460f-8733-b33d551d7140.png?v=1496631699')
     end
 
-    context 'with spree product' do
-      let!(:spree_object) { create(:product) }
-
-      it_behaves_like 'updates spree image'
-    end
-
-    context 'with spree variant' do
-      let!(:spree_object) { create(:variant) }
-
-      it_behaves_like 'updates spree image'
-    end
+    it_behaves_like 'updates spree image'
   end
 end

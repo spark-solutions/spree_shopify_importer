@@ -5,20 +5,22 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
 
   subject { described_class.new(product_data_feed) }
 
-  let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
-  before  do
-    authenticate_with_shopify
-    expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
-    expect(delivery_profile_importer).to receive(:call)
-  end
-  after   { ShopifyAPI::Base.clear_session }
+  before { authenticate_with_shopify }
+  after { ShopifyAPI::Base.clear_session }
 
   describe '#create!' do
     context 'with base product data feed', vcr: { cassette_name: 'shopify/base_product' } do
       let(:shopify_product) { ShopifyAPI::Product.find(11_101_525_828) }
       let(:product_data_feed) do
         create(:shopify_data_feed,
-               shopify_object_id: shopify_product.id, data_feed: shopify_product.to_json)
+               shopify_object_id: shopify_product.id,
+               data_feed: shopify_product.to_json)
+      end
+      let(:delivery_profile_importer) { instance_double(SpreeShopifyImporter::Importers::DeliveryProfileImporter) }
+
+      before do
+        expect(SpreeShopifyImporter::Importers::DeliveryProfileImporter).to receive(:new).and_return(delivery_profile_importer)
+        expect(delivery_profile_importer).to receive(:call)
       end
 
       it 'create spree product' do
@@ -27,6 +29,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
 
       it 'assigns shopify data feed to product' do
         subject.create!
+
         expect(product_data_feed.reload.spree_object).to eq Spree::Product.find_by!(name: shopify_product.title)
       end
 
@@ -34,29 +37,14 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
         let(:spree_product) { Spree::Product.find_by!(slug: shopify_product.handle) }
         let(:shipping_category) { Spree::ShippingCategory.find_by!(name: I18n.t(:shopify)) }
 
-        before { subject.create! }
+        it 'assigns correct product attributes' do
+          subject.create!
 
-        it 'description' do
           expect(spree_product.description).to eq shopify_product.body_html
-        end
-
-        it 'available_on' do
           expect(spree_product.available_on).to eq shopify_product.published_at
-        end
-
-        it 'slug' do
           expect(spree_product.slug).to eq shopify_product.handle
-        end
-
-        it 'created_at' do
           expect(spree_product.created_at).to eq shopify_product.created_at
-        end
-
-        it 'price' do
           expect(spree_product.price).to eq shopify_product.variants.first.price.to_d
-        end
-
-        it 'shipping_category' do
           expect(spree_product.shipping_category).to eq shipping_category
         end
       end
@@ -129,7 +117,7 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
           end.to change(Spree::Image, :count).by(2)
         end
 
-        it 'assings variants to product' do
+        it 'assigns variants to product' do
           perform_enqueued_jobs do
             subject.create!
           end
@@ -173,7 +161,11 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
         end
 
         context 'with case insensitive option values' do
-          let!(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+          let(:option_type1) { create(:option_type, name: shopify_product.options.first.name) }
+
+          before do
+            option_type1
+          end
 
           it 'creates option types' do
             expect { subject.create! }.to change(Spree::OptionType, :count).by(1)
@@ -203,11 +195,15 @@ describe SpreeShopifyImporter::DataSavers::Products::ProductCreator, type: :serv
           end
 
           context 'with case insensitive' do
-            let!(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
-            let!(:option_type2_values) do
+            let(:option_type2) { create(:option_type, name: shopify_product.options.last.name) }
+            let(:option_type2_values) do
               shopify_product.options.last.values.map do |value|
                 create(:option_value, option_type: option_type2, name: value)
               end
+            end
+
+            before do
+              option_type2_values
             end
 
             it 'creates option values' do

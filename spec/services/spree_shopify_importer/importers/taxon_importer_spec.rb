@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
   subject { described_class.new(resource) }
+
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
@@ -23,11 +24,17 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
     end
 
     context 'with existing data feed' do
-      let!(:shopify_data_feed) do
+      let(:shopify_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_custom_collection.id,
                shopify_object_type: 'ShopifyAPI::CustomCollection',
-               data_feed: resource, spree_object: nil)
+               data_feed: resource,
+               spree_object: spree_object)
+      end
+      let(:spree_object) { nil }
+
+      before do
+        shopify_data_feed
       end
 
       it 'does not create shopify data feeds' do
@@ -44,12 +51,7 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
       end
 
       context 'and taxon' do
-        let!(:shopify_data_feed) do
-          create(:shopify_data_feed,
-                 shopify_object_id: shopify_custom_collection.id,
-                 shopify_object_type: 'ShopifyAPI::CustomCollection',
-                 data_feed: resource, spree_object: spree_taxon)
-        end
+        let(:spree_object) { spree_taxon }
         let(:spree_taxon) { create(:taxon, taxonomy: spree_taxonomy, parent: spree_taxonomy.root) }
         let(:spree_taxonomy) { create(:taxonomy, name: I18n.t('shopify_custom_collections')) }
 

@@ -3,6 +3,7 @@ module SpreeShopifyImporter
     class UserImporter < BaseImporter
       def import!
         data_feed = process_data_feed
+
         return if shopify_object.email.blank?
 
         if (spree_object = data_feed.spree_object).blank?

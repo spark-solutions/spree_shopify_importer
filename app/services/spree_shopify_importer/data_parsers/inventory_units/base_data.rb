@@ -34,10 +34,9 @@ module SpreeShopifyImporter
         end
 
         def inventory_unit_state
-          case @spree_shipment.state.to_sym
-          when :shipped then :shipped
-          else :on_hand
-          end
+          return :shipped if @spree_shipment.state.to_sym == :shipped
+
+          :on_hand
         end
 
         def shopify_variant_id

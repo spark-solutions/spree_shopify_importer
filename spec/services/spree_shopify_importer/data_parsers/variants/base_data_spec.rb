@@ -1,9 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :service do
-  let(:spree_product) { create(:product) }
-  let(:shopify_variant) { create(:shopify_variant) }
+describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :service do
   subject { described_class.new(shopify_variant, spree_product) }
+
+  let(:shopify_variant) { build_stubbed(:shopify_variant) }
+  let(:spree_product)   { build_stubbed(:product) }
 
   context '#attributes' do
     let(:result) do
@@ -24,20 +25,20 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :ser
 
   context '#option_value_ids' do
     let(:option_type) { create(:option_type) }
-    let!(:f_option_value) do
-      create(:option_value, name: shopify_variant.option1.strip.downcase, option_type: option_type)
-    end
-    let!(:s_option_value) do
-      create(:option_value, name: shopify_variant.option2.strip.downcase, option_type: option_type)
-    end
-    let(:result) { [f_option_value.id, s_option_value.id, t_option_value.id] }
 
     context 'with valid product associations' do
-      let!(:t_option_value) do
-        create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type)
-      end
+      let(:f_option_value) { create(:option_value, name: shopify_variant.option1.strip.downcase, option_type: option_type) }
+      let(:s_option_value) { create(:option_value, name: shopify_variant.option2.strip.downcase, option_type: option_type) }
+      let(:t_option_value) { create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type) }
 
-      before { spree_product.option_types << option_type }
+      let(:result) { [f_option_value.id, s_option_value.id, t_option_value.id] }
+
+      before do
+        f_option_value
+        s_option_value
+        t_option_value
+        spree_product.option_types << option_type
+      end
 
       it 'returns option value ids' do
         expect(subject.option_value_ids).to match_array(result)
@@ -45,10 +46,6 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :ser
     end
 
     context "when product has't got option types" do
-      let!(:t_option_value) do
-        create(:option_value, name: shopify_variant.option3.strip.downcase, option_type: option_type)
-      end
-
       it 'raises record not found' do
         expect do
           subject.option_value_ids
@@ -67,21 +64,17 @@ RSpec.describe SpreeShopifyImporter::DataParsers::Variants::BaseData, type: :ser
     end
   end
 
-  context '#track_inventory?' do
-    context 'shopify variant has inventory_management == shopify' do
-      let(:shopify_variant) { create(:shopify_variant, inventory_management: 'shopify') }
+  describe '#track_inventory?' do
+    context 'when shopify variant has inventory_management shopify' do
+      let(:shopify_variant) { build_stubbed(:shopify_variant, inventory_management: 'shopify') }
 
-      it 'returns true' do
-        expect(subject).to be_track_inventory
-      end
+      it { expect(subject).to be_track_inventory }
     end
 
-    context 'shopify variant has inventory_management other than shopify' do
-      let(:shopify_variant) { create(:shopify_variant, inventory_management: 'global') }
+    context 'when shopify variant has inventory_management other than shopify' do
+      let(:shopify_variant) { build_stubbed(:shopify_variant, inventory_management: 'global') }
 
-      it 'returns true' do
-        expect(subject).not_to be_track_inventory
-      end
+      it { expect(subject).not_to be_track_inventory }
     end
   end
 end

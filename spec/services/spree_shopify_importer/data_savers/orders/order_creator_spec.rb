@@ -2,21 +2,26 @@ require 'spec_helper'
 
 RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :service do
   subject { described_class.new(order_data_feed) }
+
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#save!' do
-    let!(:user) { create(:user, email: 'example@example.com') }
-    let!(:user_data_feed) do
+    let(:user) { create(:user, email: 'example@example.com') }
+    let(:user_data_feed) do
       create(:shopify_data_feed,
              spree_object: user,
              shopify_object_id: shopify_order.customer.id,
              shopify_object_type: 'ShopifyAPI::Customer')
     end
 
+    before do
+      user_data_feed
+    end
+
     context 'with base shopify order data', vcr: { cassette_name: 'shopify/base_order' } do
       let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
-      let!(:order_data_feed) do
+      let(:order_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_order.id, data_feed: shopify_order.to_json)
       end
@@ -48,7 +53,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
       end
 
       context 'with not existing user' do
-        let!(:user_data_feed) do
+        let(:user_data_feed) do
           create(:shopify_data_feed,
                  spree_object: nil,
                  shopify_object_id: shopify_order.customer.id,
@@ -66,61 +71,28 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
       end
 
       context 'sets order attributes' do
-        before { subject.save! }
+        it 'sets correct order attributes' do
+          subject.save!
 
-        it 'number' do
           expect(spree_order.number).to eq '1001'
-        end
-
-        it 'email' do
           expect(spree_order.email).to eq 'example@example.com'
-        end
-
-        it 'channel' do
           expect(spree_order.channel).to eq I18n.t(:shopify)
-        end
-
-        it 'currency' do
           expect(spree_order.currency).to eq 'EUR'
-        end
-
-        it 'confirmation_delivered' do
           expect(spree_order.confirmation_delivered).to be_truthy
-        end
-
-        it 'last_ip_address' do
           expect(spree_order.last_ip_address).to be_nil
-        end
-
-        it 'item_count' do
           expect(spree_order.item_count).to eq 8
         end
       end
 
       context 'sets order totals' do
-        before { subject.save! }
+        it 'sets correct order totals' do
+          subject.save!
 
-        it 'total' do
           expect(spree_order.total).to eq 470.0.to_d
-        end
-
-        it 'item total' do
           expect(spree_order.item_total).to eq 450.0.to_d
-        end
-
-        it 'additional tax total' do
           expect(spree_order.additional_tax_total).to eq 0
-        end
-
-        it 'promo total' do
           expect(spree_order.promo_total).to eq 0
-        end
-
-        it 'payment total' do
           expect(spree_order.payment_total).to eq 470.0.to_d
-        end
-
-        it 'shipment total' do
           expect(spree_order.shipment_total).to eq 20.0.to_d
         end
       end
@@ -255,7 +227,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
 
     context 'with missing data', vcr: { cassette_name: 'shopify/order_with_missing_data' } do
       let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
-      let!(:order_data_feed) do
+      let(:order_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_order.id, data_feed: shopify_order.to_json)
       end
@@ -264,6 +236,7 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
       context 'missing line items variant data' do
         it 'raises variant not found error, do not create objects and enqueue product import' do
           expect { subject.save! }.to raise_error(SpreeShopifyImporter::DataParsers::LineItems::VariantNotFound)
+
           expect(Spree::Order.count).to eq 0
           expect(Spree::LineItem.count).to eq 0
           expect(SpreeShopifyImporter::Importers::ProductImporterJob).to have_been_enqueued
@@ -271,10 +244,11 @@ RSpec.describe SpreeShopifyImporter::DataSavers::Orders::OrderCreator, type: :se
       end
 
       context 'missing user data' do
-        let!(:user_data_feed) { nil }
+        let(:user_data_feed) { nil }
 
         it 'raises variant not found error, do not create objects and enqueue product import' do
           expect { subject.save! }.to raise_error(SpreeShopifyImporter::DataParsers::Orders::UserNotFound)
+
           expect(Spree::Order.count).to eq 0
           expect(SpreeShopifyImporter::Importers::UserImporterJob).to have_been_enqueued
         end

@@ -10,7 +10,11 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonUpdater, type: :service 
     let(:shopify_data_feed) { create(:shopify_data_feed, data_feed: shopify_custom_collection.to_json) }
     let(:taxonomy) { create(:taxonomy, name: I18n.t('shopify_custom_collections')) }
 
-    let!(:spree_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
+    let(:spree_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxonomy.root) }
+
+    before do
+      spree_taxon
+    end
 
     it 'does not create spree taxon' do
       expect { subject.update! }.not_to change { Spree::Taxon.where.not(parent: nil).reload.count }
@@ -34,17 +38,21 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonUpdater, type: :service 
 
     context 'associations' do
       context 'products' do
-        let!(:spree_product) { create(:product) }
-        let!(:product_data_feed) do
+        let(:spree_product) { create(:product) }
+        let(:product_data_feed) do
           create(:shopify_data_feed,
                  shopify_object_type: 'ShopifyAPI::Product',
                  shopify_object_id: '11055169028',
                  spree_object: spree_product)
         end
 
-        before { subject.update! }
+        before do
+          product_data_feed
+        end
 
         it 'assigns products to spree_taxon' do
+          subject.update!
+
           expect(spree_taxon.products).to contain_exactly(spree_product)
         end
       end

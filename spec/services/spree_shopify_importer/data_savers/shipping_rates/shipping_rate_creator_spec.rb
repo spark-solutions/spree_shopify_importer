@@ -1,15 +1,20 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, type: :service do
-  let(:shopify_order)         { ShopifyAPI::Order.find(5_182_437_124) }
-  let(:shopify_shipping_line) { shopify_order.shipping_lines.first }
-  let!(:spree_shipment)       { create(:shipment) }
-
   subject { described_class.new(shopify_shipping_line, shopify_order, spree_shipment) }
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+
+  let(:spree_shipment) { create(:shipment) }
+
+  before do
+    spree_shipment
+    authenticate_with_shopify
+  end
+  after { ShopifyAPI::Base.clear_session }
 
   describe '#save!', vcr: { cassette_name: 'shopify/base_order' } do
+    let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
+    let(:shopify_shipping_line) { shopify_order.shipping_lines.first }
+
     let(:shipping_rate) { Spree::ShippingRate.last }
 
     it 'creates shipping rate' do

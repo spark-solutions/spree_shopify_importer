@@ -17,8 +17,6 @@ Gem::Specification.new do |s|
   s.homepage  = 'https://github.com/spark-solutions/spree_shopify_importer'
   s.license   = 'BSD-3-Clause'
 
-  # s.files       = `git ls-files`.split("\n")
-  # s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
@@ -33,23 +31,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
   s.add_development_dependency 'codeclimate-test-reporter'
-  s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_bot', '~> 4.7'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'guard'
-  s.add_development_dependency 'guard-bundler'
-  s.add_development_dependency 'guard-rspec'
-  s.add_development_dependency 'guard-rubocop'
   s.add_development_dependency 'rubocop-rails'
-  s.add_development_dependency 'guard-spring'
   s.add_development_dependency 'mysql2'
   s.add_development_dependency 'pg'
   s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
+  s.add_development_dependency 'rspec-rails', '~> 4.0.0'
   s.add_development_dependency 'rubocop-rspec'
-  s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'spring-commands-rspec'

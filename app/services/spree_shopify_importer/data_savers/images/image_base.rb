@@ -19,11 +19,7 @@ module SpreeShopifyImporter
         end
 
         def attributes_with_attachement
-          if Spree.version.to_f < 4.0
-            attributes.merge(attachment: attachment)
-          else
-            attributes.merge(attachment_content_type: attachment)
-          end
+          attributes.merge(attachment_content_type: attachment)
         end
 
         def shopify_image

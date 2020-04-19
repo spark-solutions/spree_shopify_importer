@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::Delegator, type: :service do
   subject { described_class.new(target) }
-  let!(:target) { spy('Object') }
+
+  let(:target) { spy('Object') }
   let(:helper) { SpreeShopifyImporter::RescueApiLimit }
 
   describe '#method_missing' do

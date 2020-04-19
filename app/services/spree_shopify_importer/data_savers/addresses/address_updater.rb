@@ -8,9 +8,7 @@ module SpreeShopifyImporter
         end
 
         def update!
-          Spree::Address.transaction do
-            update_spree_address
-          end
+          update_spree_address
 
           @spree_address
         end

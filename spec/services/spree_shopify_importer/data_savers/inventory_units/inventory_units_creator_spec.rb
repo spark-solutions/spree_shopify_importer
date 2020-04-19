@@ -2,17 +2,19 @@ require 'spec_helper'
 
 describe SpreeShopifyImporter::DataSavers::InventoryUnits::InventoryUnitsCreator, type: :service do
   subject { described_class.new(shopify_line_item, spree_shipment) }
+
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
   describe '#create!', vcr: { cassette_name: 'shopify/base_order' } do
-    let!(:spree_shipment) { create(:shipment) }
-    let!(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
-    let!(:shopify_line_item) { shopify_order.line_items.first }
-    let!(:spree_variant) { create(:variant) }
-    let!(:spree_line_item) { create(:line_item, order: spree_shipment.order, variant: spree_variant) }
+    let(:spree_shipment) { create(:shipment) }
+    let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
+    let(:shopify_line_item) { shopify_order.line_items.first }
+    let(:spree_variant) { create(:variant) }
+    let(:spree_line_item) { create(:line_item, order: spree_shipment.order, variant: spree_variant) }
 
     before do
+      spree_line_item
       create(:shopify_data_feed,
              spree_object: spree_variant,
              shopify_object_type: 'ShopifyAPI::Variant',

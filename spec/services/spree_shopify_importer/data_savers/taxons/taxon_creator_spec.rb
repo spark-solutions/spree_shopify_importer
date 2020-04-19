@@ -25,38 +25,32 @@ describe SpreeShopifyImporter::DataSavers::Taxons::TaxonCreator, type: :service 
     end
 
     context 'taxon attributes' do
+      it 'assigns correct taxon attributes' do
+        subject.create!
 
-      before { subject.create! }
-
-      it 'name' do
         expect(spree_taxon.name).to eq shopify_custom_collection.title
-      end
-
-      it 'permalink' do
-
         expect(spree_taxon.permalink).to eq "shopify-custom-collections/#{shopify_custom_collection.handle}"
-      end
-
-      it 'description' do
         expect(spree_taxon.description).to eq shopify_custom_collection.body_html
       end
     end
 
     context 'associations' do
-      context 'products' do
-        let!(:spree_product) { create(:product) }
-        let!(:product_data_feed) do
-          create(:shopify_data_feed,
-                 shopify_object_type: 'ShopifyAPI::Product',
-                 shopify_object_id: '11055169028',
-                 spree_object: spree_product)
-        end
+      let(:spree_product) { create(:product) }
+      let(:product_data_feed) do
+        create(:shopify_data_feed,
+               shopify_object_type: 'ShopifyAPI::Product',
+               shopify_object_id: '11055169028',
+               spree_object: spree_product)
+      end
 
-        before { subject.create! }
+      before do
+        product_data_feed
+      end
 
-        it 'assigns products to spree_taxon' do
-          expect(spree_taxon.products).to contain_exactly(spree_product)
-        end
+      it 'assigns products to spree_taxon' do
+        subject.create!
+
+        expect(spree_taxon.products).to contain_exactly(spree_product)
       end
     end
   end

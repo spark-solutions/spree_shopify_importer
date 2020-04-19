@@ -1,11 +1,16 @@
 require 'spec_helper'
 
 describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :service do
-  let!(:parent_feed) { create(:shopify_data_feed) }
-  let!(:spree_order) { create(:order) }
   subject { described_class.new(shopify_refund, parent_feed, spree_order) }
-  before  { authenticate_with_shopify }
-  after   { ShopifyAPI::Base.clear_session }
+
+  let(:parent_feed) { create(:shopify_data_feed) }
+  let(:spree_order) { create(:order) }
+
+  before do
+    parent_feed
+    authenticate_with_shopify
+  end
+  after { ShopifyAPI::Base.clear_session }
 
   describe '#import!' do
     context 'with basic return authorization data', vcr: { cassette_name: 'shopify/order_with_refund' } do
@@ -20,11 +25,15 @@ describe SpreeShopifyImporter::Importers::ReturnAuthorizationImporter, type: :se
       end
 
       context 'with existing data feed' do
-        let!(:shopify_data_feed) do
+        let(:shopify_data_feed) do
           create(:shopify_data_feed,
                  shopify_object_id: shopify_refund.id,
                  shopify_object_type: 'ShopifyAPI::Refund',
                  data_feed: shopify_refund.to_json)
+        end
+
+        before do
+          shopify_data_feed
         end
 
         it 'does not create shopify data feeds' do

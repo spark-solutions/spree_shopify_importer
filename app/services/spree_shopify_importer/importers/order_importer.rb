@@ -19,7 +19,9 @@ module SpreeShopifyImporter
       end
 
       def clear_order_data(data_feed)
-        return if (order = data_feed.spree_object).blank?
+        order = data_feed.spree_object
+
+        return if order.blank?
 
         order.bill_address.delete
         order.ship_address.delete

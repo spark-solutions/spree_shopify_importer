@@ -87,7 +87,7 @@ module SpreeShopifyImporter
         end
 
         def shipment_total
-          @shopify_order.shipping_lines.sum { |sl| sl.price.to_d }
+          @shopify_order.shipping_lines.sum { |shipping_line| shipping_line.price.to_d }
         end
 
         def states_getter
