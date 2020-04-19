@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, type: :service do
   subject { described_class.new(shopify_shipping_line, shopify_order, spree_shipment) }
@@ -11,37 +11,37 @@ describe SpreeShopifyImporter::DataSavers::ShippingRates::ShippingRateCreator, t
   end
   after { ShopifyAPI::Base.clear_session }
 
-  describe '#save!', vcr: { cassette_name: 'shopify/base_order' } do
+  describe "#save!", vcr: { cassette_name: "shopify/base_order" } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:shopify_shipping_line) { shopify_order.shipping_lines.first }
 
     let(:shipping_rate) { Spree::ShippingRate.last }
 
-    it 'creates shipping rate' do
+    it "creates shipping rate" do
       expect { subject.create! }.to change(Spree::ShippingRate, :count).by(1)
     end
 
-    context 'sets a attributes' do
+    context "sets a attributes" do
       before { subject.create! }
 
-      it 'selected' do
+      it "selected" do
         expect(shipping_rate).to be_selected
       end
 
-      it 'cost' do
+      it "cost" do
         expect(shipping_rate.cost).to eq 20.0.to_d
       end
     end
 
-    context 'sets a associations' do
+    context "sets a associations" do
       let(:shipping_method) { Spree::ShippingMethod.last }
       before { subject.create! }
 
-      it 'shipment' do
+      it "shipment" do
         expect(shipping_rate.shipment).to eq spree_shipment
       end
 
-      it 'shipping method' do
+      it "shipping method" do
         expect(shipping_rate.shipping_method).to eq shipping_method
       end
     end

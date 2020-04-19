@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Adjustments::Promotions::BaseData, type: :service do
   let(:spree_order) { create(:order) }
@@ -6,7 +6,7 @@ describe SpreeShopifyImporter::DataParsers::Adjustments::Promotions::BaseData, t
   let(:shopify_discount_code) { create(:shopify_discount_code) }
   subject { described_class.new(spree_order, spree_promotion, shopify_discount_code) }
 
-  describe '#attributes' do
+  describe "#attributes" do
     let(:action) { Spree::Promotion::Actions::CreateAdjustment.last }
     let(:result) do
       {
@@ -19,16 +19,16 @@ describe SpreeShopifyImporter::DataParsers::Adjustments::Promotions::BaseData, t
       }
     end
 
-    it 'creates spree promotion action' do
+    it "creates spree promotion action" do
       expect { subject.attributes }.to change(Spree::Promotion::Actions::CreateAdjustment, :count).by(1)
     end
 
-    it 'returns hash of spree adjustment attributes' do
+    it "returns hash of spree adjustment attributes" do
       expect(subject.attributes).to eq result
     end
   end
 
-  describe '#timestamps' do
+  describe "#timestamps" do
     let(:result) do
       {
         created_at: spree_order.created_at,
@@ -36,7 +36,7 @@ describe SpreeShopifyImporter::DataParsers::Adjustments::Promotions::BaseData, t
       }
     end
 
-    it 'returns hash of spree adjustment timestamps' do
+    it "returns hash of spree adjustment timestamps" do
       expect(subject.timestamps).to eq result
     end
   end

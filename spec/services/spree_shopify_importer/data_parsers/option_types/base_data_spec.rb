@@ -1,16 +1,16 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::OptionTypes::BaseData, type: :service do
   subject { described_class.new(option_type) }
   let(:option_type) { create(:shopify_base_option) }
 
-  describe '#name' do
-    it 'returns option type name' do
+  describe "#name" do
+    it "returns option type name" do
       expect(subject.name).to eq option_type.name.downcase
     end
   end
 
-  describe '#attributes' do
+  describe "#attributes" do
     let(:result) do
       {
         name: option_type.name.downcase,
@@ -18,15 +18,15 @@ describe SpreeShopifyImporter::DataParsers::OptionTypes::BaseData, type: :servic
       }
     end
 
-    it 'return hash of option type attributes' do
+    it "return hash of option type attributes" do
       expect(subject.attributes).to eq result
     end
   end
 
-  describe '#shopify_values' do
-    let(:option_type) { create(:shopify_base_option, values: ['Amethyst', 'Opal', nil]) }
+  describe "#shopify_values" do
+    let(:option_type) { create(:shopify_base_option, values: ["Amethyst", "Opal", nil]) }
 
-    it 'return array of values' do
+    it "return array of values" do
       expect(subject.shopify_values).to eq %w[Amethyst Opal]
     end
   end

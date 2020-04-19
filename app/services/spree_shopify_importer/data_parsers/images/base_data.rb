@@ -1,4 +1,4 @@
-require 'curb'
+require "curb"
 
 module SpreeShopifyImporter
   module DataParsers
@@ -27,7 +27,7 @@ module SpreeShopifyImporter
         end
 
         def name
-          @name ||= URI.parse(uri).to_s.split('?v=').first.split('/')[-1].gsub(pattern, '_')
+          @name ||= URI.parse(uri).to_s.split("?v=").first.split("/")[-1].gsub(pattern, "_")
         end
 
         def valid_path?
@@ -37,7 +37,7 @@ module SpreeShopifyImporter
         private
 
         def content_is_image?
-          Curl::Easy.http_head(URI.parse(uri).to_s).content_type.starts_with?('image')
+          Curl::Easy.http_head(URI.parse(uri).to_s).content_type.starts_with?("image")
         end
 
         def uri

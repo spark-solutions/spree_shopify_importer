@@ -39,15 +39,15 @@ module SpreeShopifyImporter
       end
 
       def creator
-        raise NotImplementedError, I18n.t('errors.not_implemented.creator')
+        raise NotImplementedError, I18n.t("errors.not_implemented.creator")
       end
 
       def updater
-        raise NotImplementedError, I18n.t('errors.not_implemented.updater')
+        raise NotImplementedError, I18n.t("errors.not_implemented.updater")
       end
 
       def shopify_class
-        raise NotImplementedError, I18n.t('errors.not_implemented.shopify_class')
+        raise NotImplementedError, I18n.t("errors.not_implemented.shopify_class")
       end
     end
   end

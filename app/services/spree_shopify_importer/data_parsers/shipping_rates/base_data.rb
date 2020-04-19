@@ -46,7 +46,7 @@ module SpreeShopifyImporter
         end
 
         def shipping_method_code
-          @shipping_method_code ||= @shopify_shipping_line.try(:code) || I18n.t('shopify')
+          @shipping_method_code ||= @shopify_shipping_line.try(:code) || I18n.t("shopify")
         end
 
         def shipping_cost

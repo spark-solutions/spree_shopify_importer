@@ -4,7 +4,7 @@ module SpreeShopifyImporter
   module DataParsers
     module StockItems
       class BaseData
-        CONTINUE = 'continue'
+        CONTINUE = "continue"
 
         def initialize(spree_stock_location, inventory_level)
           @spree_stock_location = spree_stock_location
@@ -19,7 +19,7 @@ module SpreeShopifyImporter
         end
 
         def backorderable?
-          JSON.parse(variant_data_feed.data_feed)['inventory_policy'] == CONTINUE
+          JSON.parse(variant_data_feed.data_feed)["inventory_policy"] == CONTINUE
         end
 
         def count_on_hand
@@ -30,8 +30,8 @@ module SpreeShopifyImporter
 
         def variant_data_feed
           SpreeShopifyImporter::DataFeed
-            .where(shopify_object_type: 'ShopifyAPI::Variant')
-            .where('data_feed like ?', "%inventory_item_id\":#{@inventory_level.inventory_item_id}%").first
+            .where(shopify_object_type: "ShopifyAPI::Variant")
+            .where("data_feed like ?", "%inventory_item_id\":#{@inventory_level.inventory_item_id}%").first
         end
 
         def variant

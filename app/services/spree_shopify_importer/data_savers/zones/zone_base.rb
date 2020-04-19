@@ -5,8 +5,8 @@ module SpreeShopifyImporter
     module Zones
       class ZoneBase < BaseDataSaver
         delegate :attributes, to: :parser
-        COUNTRY = 'country'
-        STATE = 'state'
+        COUNTRY = "country"
+        STATE = "state"
 
         def parser
           @parser ||= SpreeShopifyImporter::DataParsers::Zones::BaseData.new(
@@ -48,7 +48,7 @@ module SpreeShopifyImporter
         end
 
         def profile_name
-          @profile_name = attributes['profile_name']
+          @profile_name = attributes["profile_name"]
         end
 
         def update_rest_of_world_zone

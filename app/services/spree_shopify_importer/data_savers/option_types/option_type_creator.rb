@@ -21,7 +21,7 @@ module SpreeShopifyImporter
         private
 
         def find_or_create_option_type
-          Spree::OptionType.where('lower(name) = ?', name).first_or_create!(attributes)
+          Spree::OptionType.where("lower(name) = ?", name).first_or_create!(attributes)
         end
 
         def parser

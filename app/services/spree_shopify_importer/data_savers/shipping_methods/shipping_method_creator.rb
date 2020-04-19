@@ -40,18 +40,18 @@ module SpreeShopifyImporter
         end
 
         def calculator_attributes
-          { type: 'Spree::Calculator::Shipping::FlatRate',
-            calculable_type: 'Spree::ShippingMethod' }
+          { type: "Spree::Calculator::Shipping::FlatRate",
+            calculable_type: "Spree::ShippingMethod" }
         end
 
         def shipping_method_attributes
           { name: @shopify_rate.name,
-            admin_name: shipping_category.name.split('/').first,
-            display_on: 'both' }
+            admin_name: shipping_category.name.split("/").first,
+            display_on: "both" }
         end
 
         def shipping_category
-          @shipping_category = Spree::ShippingCategory.where('name like ?', "%#{@delivery_profile_id}%").first_or_create!
+          @shipping_category = Spree::ShippingCategory.where("name like ?", "%#{@delivery_profile_id}%").first_or_create!
         end
       end
     end

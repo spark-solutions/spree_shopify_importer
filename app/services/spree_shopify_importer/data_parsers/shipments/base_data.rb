@@ -36,9 +36,9 @@ module SpreeShopifyImporter
 
         def shipment_state
           @shipment_state ||= case @shopify_fulfillment.status
-                              when 'pending' then :pending
-                              when 'success' then :shipped
-                              when 'cancelled', 'error', 'failure' then :canceled
+                              when "pending" then :pending
+                              when "success" then :shipped
+                              when "cancelled", "error", "failure" then :canceled
                               else
                                 raise NotImplementedError
                               end

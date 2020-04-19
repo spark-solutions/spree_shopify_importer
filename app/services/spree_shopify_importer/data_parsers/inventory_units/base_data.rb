@@ -29,7 +29,7 @@ module SpreeShopifyImporter
         end
 
         def variant
-          @variant ||= SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: 'ShopifyAPI::Variant',
+          @variant ||= SpreeShopifyImporter::DataFeed.find_by(shopify_object_type: "ShopifyAPI::Variant",
                                                               shopify_object_id: shopify_variant_id).try(:spree_object)
         end
 

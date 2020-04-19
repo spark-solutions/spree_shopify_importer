@@ -5,7 +5,7 @@ FactoryBot.define do
     email         { FFaker::Internet.email }
     first_name    { FFaker::Name.first_name }
     last_name     { FFaker::Name.last_name }
-    created_at    { '2011-10-20T14:05:13-04:00' }
-    updated_at    { '2011-10-20T14:05:13-04:00' }
+    created_at    { "2011-10-20T14:05:13-04:00" }
+    updated_at    { "2011-10-20T14:05:13-04:00" }
   end
 end

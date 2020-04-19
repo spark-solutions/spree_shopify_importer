@@ -1,17 +1,17 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::ReturnAuthorizations::BaseData, type: :service do
   let(:shopify_refund) { create(:shopify_refund) }
   let(:spree_order) { create(:order) }
   subject { described_class.new(shopify_refund, spree_order) }
 
-  describe '#number' do
-    it 'returns return authorization number with prefix' do
+  describe "#number" do
+    it "returns return authorization number with prefix" do
       expect(subject.number).to eq "SRE#{shopify_refund.id}"
     end
   end
 
-  describe '#attributes' do
+  describe "#attributes" do
     let(:stock_location) do
       Spree::StockLocation.find_by!(name: I18n.t(:shopify))
     end
@@ -28,20 +28,20 @@ describe SpreeShopifyImporter::DataParsers::ReturnAuthorizations::BaseData, type
       }
     end
 
-    it 'creates shopify stock location' do
+    it "creates shopify stock location" do
       expect { subject.attributes }.to change(Spree::StockLocation, :count).by(1)
     end
 
-    it 'creates shopify reason' do
+    it "creates shopify reason" do
       expect { subject.attributes }.to change(Spree::ReturnAuthorizationReason, :count).by(1)
     end
 
-    it 'returns hash of return authorization attributes' do
+    it "returns hash of return authorization attributes" do
       expect(subject.attributes).to eq result
     end
   end
 
-  describe '#timestamps' do
+  describe "#timestamps" do
     let(:result) do
       {
         created_at: shopify_refund.created_at.to_datetime,
@@ -49,7 +49,7 @@ describe SpreeShopifyImporter::DataParsers::ReturnAuthorizations::BaseData, type
       }
     end
 
-    it 'returns hash of return authorization timestamps' do
+    it "returns hash of return authorization timestamps" do
       expect(subject.timestamps).to eq result
     end
   end

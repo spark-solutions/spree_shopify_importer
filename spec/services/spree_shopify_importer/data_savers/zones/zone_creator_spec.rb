@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
   include ActiveJob::TestHelper
@@ -7,8 +7,8 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
 
   before { authenticate_with_shopify }
 
-  describe '#create!' do
-    context 'with country shipping_zone data feed', vcr: { cassette_name: 'shopify/base_country_zone' } do
+  describe "#create!" do
+    context "with country shipping_zone data feed", vcr: { cassette_name: "shopify/base_country_zone" } do
       let(:shopify_shipping_zone) { ShopifyAPI::ShippingZone.first }
 
       let(:shipping_zone_data_feed) do
@@ -25,7 +25,7 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
                parent_id: shipping_zone_data_feed.id)
       end
 
-      let(:country) { create(:country, iso: 'HR') }
+      let(:country) { create(:country, iso: "HR") }
       let(:parent_object) { shopify_shipping_zone }
       let(:shopify_object) { parent_object.countries.first }
       let(:spree_zone) do
@@ -34,16 +34,16 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
 
       let(:spree_zone_member) do
         Spree::ZoneMember.find_by!(
-          zoneable_type: 'Spree::Country',
+          zoneable_type: "Spree::Country",
           zoneable_id: country.id,
           zone_id: spree_zone.id
         )
       end
 
-      let(:tax_category) { create(:tax_category, name: 'GENERAL PROFILE/18869387313') }
+      let(:tax_category) { create(:tax_category, name: "GENERAL PROFILE/18869387313") }
       let(:shop_data_feed) do
         create(:shopify_data_feed,
-               shopify_object_type: 'ShopifyAPI::Shop',
+               shopify_object_type: "ShopifyAPI::Shop",
                data_feed: '{"taxes_included":true}')
       end
       let(:shipping_methods) { [create(:shipping_method, zones: [])] }
@@ -55,11 +55,11 @@ describe SpreeShopifyImporter::DataSavers::Zones::ZoneCreator, type: :service do
         country
       end
 
-      it 'creates spree zone' do
+      it "creates spree zone" do
         expect { subject.create! }.to change(Spree::Zone, :count).by(1)
       end
 
-      it 'assigns correct associations' do
+      it "assigns correct associations" do
         subject.create!
 
         expect(zone_data_feed.reload.spree_object).to eq spree_zone

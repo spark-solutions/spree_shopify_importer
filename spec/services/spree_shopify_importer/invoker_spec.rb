@@ -1,7 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe SpreeShopifyImporter::Invoker do
-  describe '#import!' do
+  describe "#import!" do
     before do
       allow(SpreeShopifyImporter::Connections::Client.instance).to receive(:get_connection)
       SpreeShopifyImporter::Invoker::ROOT_FETCHERS.each do |importer|
@@ -9,24 +9,24 @@ RSpec.describe SpreeShopifyImporter::Invoker do
       end
     end
 
-    context 'with credentials parameter' do
+    context "with credentials parameter" do
       let(:credentials) do
         {
-          api_key: 'api_key',
-          password: 'password',
-          shop_domain: 'spree-shopify-importer-test-store.myshopify.com',
-          api_version: '2019-10'
+          api_key: "api_key",
+          password: "password",
+          shop_domain: "spree-shopify-importer-test-store.myshopify.com",
+          api_version: "2019-10"
         }
       end
 
-      it 'gets the connection from the client' do
+      it "gets the connection from the client" do
         SpreeShopifyImporter::Invoker.new(credentials: credentials).import!
 
         expect(SpreeShopifyImporter::Connections::Client.instance).to have_received(:get_connection).with(credentials)
       end
 
-      it 'calls all the importers' do
-        aggregate_failures 'testing each importer' do
+      it "calls all the importers" do
+        aggregate_failures "testing each importer" do
           SpreeShopifyImporter::Invoker::ROOT_FETCHERS.each do |importer|
             expect_any_instance_of(importer).to receive(:import!)
           end
@@ -35,22 +35,22 @@ RSpec.describe SpreeShopifyImporter::Invoker do
         SpreeShopifyImporter::Invoker.new(credentials: credentials).import!
       end
 
-      it 'sets current credentials' do
+      it "sets current credentials" do
         SpreeShopifyImporter::Invoker.new(credentials: credentials).import!
 
         expect(Spree::Config[:shopify_current_credentials]).to eq credentials
       end
     end
 
-    context 'with config credentials' do
+    context "with config credentials" do
       before do
-        Spree::Config[:shopify_api_key] = 'api_key'
-        Spree::Config[:shopify_password] = 'password'
-        Spree::Config[:shopify_shop_domain] = 'spree-shopify-importer-test-store.myshopify.com'
-        Spree::Config[:shopify_api_version] = '2019-10'
+        Spree::Config[:shopify_api_key] = "api_key"
+        Spree::Config[:shopify_password] = "password"
+        Spree::Config[:shopify_shop_domain] = "spree-shopify-importer-test-store.myshopify.com"
+        Spree::Config[:shopify_api_version] = "2019-10"
       end
 
-      it 'creates connection to Shopify API using preferences' do
+      it "creates connection to Shopify API using preferences" do
         SpreeShopifyImporter::Invoker.new.import!
 
         expect(SpreeShopifyImporter::Connections::Client.instance).to have_received(:get_connection).with(

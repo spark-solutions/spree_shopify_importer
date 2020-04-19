@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :service do
   subject { described_class.new(shopify_line_item, shopify_order, spree_order) }
@@ -8,7 +8,7 @@ describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :se
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
-  describe '#create', vcr: { cassette_name: 'shopify/base_order' } do
+  describe "#create", vcr: { cassette_name: "shopify/base_order" } do
     let(:shopify_order) { ShopifyAPI::Order.find(5_182_437_124) }
     let(:shopify_line_item) { shopify_order.line_items.first }
     let(:variant) { create(:variant) }
@@ -16,7 +16,7 @@ describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :se
       create(:shopify_data_feed,
              spree_object: variant,
              shopify_object_id: shopify_line_item.variant_id,
-             shopify_object_type: 'ShopifyAPI::Variant')
+             shopify_object_type: "ShopifyAPI::Variant")
     end
     let(:line_item) { Spree::LineItem.find_by(variant_id: variant.id) }
 
@@ -24,18 +24,18 @@ describe SpreeShopifyImporter::DataSavers::LineItems::LineItemCreator, type: :se
       data_feed
     end
 
-    it 'creates spree line item' do
+    it "creates spree line item" do
       expect { subject.create }.to change(Spree::LineItem, :count).by(1)
     end
 
-    it 'sets correct associations' do
+    it "sets correct associations" do
       subject.create
 
       expect(line_item.variant).to eq variant
       expect(line_item.order).to eq spree_order
     end
 
-    it 'sets correct attributes' do
+    it "sets correct attributes" do
       subject.create
 
       expect(line_item.quantity).to eq shopify_line_item.quantity

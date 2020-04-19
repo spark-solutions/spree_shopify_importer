@@ -13,7 +13,7 @@ module SpreeShopifyImporter
       end
 
       def set_currency
-        Spree::Config[:currency] = JSON.parse(@resource)['currency']
+        Spree::Config[:currency] = JSON.parse(@resource)["currency"]
       end
     end
   end

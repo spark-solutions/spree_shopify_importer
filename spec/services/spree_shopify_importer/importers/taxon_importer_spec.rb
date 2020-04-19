@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
   subject { described_class.new(resource) }
@@ -6,28 +6,28 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
-  describe '#import!', vcr: { cassette_name: 'shopify_import/importers/taxon_importer/import' } do
+  describe "#import!", vcr: { cassette_name: "shopify_import/importers/taxon_importer/import" } do
     let(:shopify_custom_collection) { ShopifyAPI::CustomCollection.find(:first) }
     let(:resource) { shopify_custom_collection.to_json }
 
-    it 'creates shopify data feeds' do
+    it "creates shopify data feeds" do
       expect { subject.import! }.to change(SpreeShopifyImporter::DataFeed, :count).by(1)
     end
 
-    it 'creates spree taxonomy' do
+    it "creates spree taxonomy" do
       expect { subject.import! }.to change(Spree::Taxonomy, :count).by(1)
     end
 
-    it 'creates spree taxons' do
+    it "creates spree taxons" do
       # One of taxons is taxonomy root.
       expect { subject.import! }.to change(Spree::Taxon, :count).by(2)
     end
 
-    context 'with existing data feed' do
+    context "with existing data feed" do
       let(:shopify_data_feed) do
         create(:shopify_data_feed,
                shopify_object_id: shopify_custom_collection.id,
-               shopify_object_type: 'ShopifyAPI::CustomCollection',
+               shopify_object_type: "ShopifyAPI::CustomCollection",
                data_feed: resource,
                spree_object: spree_object)
       end
@@ -37,33 +37,33 @@ describe SpreeShopifyImporter::Importers::TaxonImporter, type: :service do
         shopify_data_feed
       end
 
-      it 'does not create shopify data feeds' do
+      it "does not create shopify data feeds" do
         expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
       end
 
-      it 'creates spree taxonomy' do
+      it "creates spree taxonomy" do
         expect { subject.import! }.to change(Spree::Taxonomy, :count).by(1)
       end
 
-      it 'creates spree taxons' do
+      it "creates spree taxons" do
         # One of taxons is taxonomy root.
         expect { subject.import! }.to change(Spree::Taxon, :count).by(2)
       end
 
-      context 'and taxon' do
+      context "and taxon" do
         let(:spree_object) { spree_taxon }
         let(:spree_taxon) { create(:taxon, taxonomy: spree_taxonomy, parent: spree_taxonomy.root) }
-        let(:spree_taxonomy) { create(:taxonomy, name: I18n.t('shopify_custom_collections')) }
+        let(:spree_taxonomy) { create(:taxonomy, name: I18n.t("shopify_custom_collections")) }
 
-        it 'does not create shopify data feeds' do
+        it "does not create shopify data feeds" do
           expect { subject.import! }.not_to change(SpreeShopifyImporter::DataFeed, :count)
         end
 
-        it 'does not create spree taxonomy' do
+        it "does not create spree taxonomy" do
           expect { subject.import! }.not_to change(Spree::Taxonomy, :count)
         end
 
-        it 'does not create spree taxon' do
+        it "does not create spree taxon" do
           # One of taxons is taxonomy root.
           expect { subject.import! }.not_to change(Spree::Taxon, :count)
         end

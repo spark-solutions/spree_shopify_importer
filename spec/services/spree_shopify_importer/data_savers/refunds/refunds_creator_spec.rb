@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Refunds::RefundsCreator, type: :service do
   let(:spree_reimbursement) { create(:reimbursement) }
@@ -7,8 +7,8 @@ describe SpreeShopifyImporter::DataSavers::Refunds::RefundsCreator, type: :servi
   before  { authenticate_with_shopify }
   after   { ShopifyAPI::Base.clear_session }
 
-  describe '#create' do
-    context 'with base refund data', vcr: { cassette_name: 'shopify/base_refund' } do
+  describe "#create" do
+    context "with base refund data", vcr: { cassette_name: "shopify/base_refund" } do
       let(:shopify_refund) { ShopifyAPI::Refund.find(225_207_300, params: { order_id: 5_182_437_124 }) }
 
       before do
@@ -16,12 +16,12 @@ describe SpreeShopifyImporter::DataSavers::Refunds::RefundsCreator, type: :servi
           payment = create(:payment)
           create(:shopify_data_feed,
                  shopify_object_id: transaction.parent_id,
-                 shopify_object_type: 'ShopifyAPI::Transaction',
+                 shopify_object_type: "ShopifyAPI::Transaction",
                  spree_object: payment)
         end
       end
 
-      it 'creates spree refunds' do
+      it "creates spree refunds" do
         expect { subject.create }.to change(Spree::Refund, :count).by(1)
       end
     end

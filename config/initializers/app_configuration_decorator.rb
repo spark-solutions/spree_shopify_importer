@@ -9,7 +9,7 @@ module SpreeShopifyImporter
       base.preference :shopify_token, :string
       base.preference :shopify_rescue_limit, :integer, default: 5
       base.preference :shopify_current_credentials, :hash
-      base.preference :shopify_import_queue, :string, default: 'default'
+      base.preference :shopify_import_queue, :string, default: "default"
     end
   end
 end

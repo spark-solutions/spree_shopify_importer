@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataParsers::Reimbursements::BaseData, type: :service do
   let(:shopify_refund) { create(:shopify_refund) }
@@ -7,13 +7,13 @@ describe SpreeShopifyImporter::DataParsers::Reimbursements::BaseData, type: :ser
 
   subject { described_class.new(shopify_refund, spree_customer_return, spree_order) }
 
-  describe '#number' do
-    it 'returns reimbursement number' do
+  describe "#number" do
+    it "returns reimbursement number" do
       expect(subject.number).to eq "SRI#{shopify_refund.id}"
     end
   end
 
-  describe '#attributes' do
+  describe "#attributes" do
     let(:result) do
       {
         reimbursement_status: :reimbursed,
@@ -23,12 +23,12 @@ describe SpreeShopifyImporter::DataParsers::Reimbursements::BaseData, type: :ser
       }
     end
 
-    it 'returns hash of reimbursement attributes' do
+    it "returns hash of reimbursement attributes" do
       expect(subject.attributes).to eq result
     end
   end
 
-  describe '#timestamps' do
+  describe "#timestamps" do
     let(:result) do
       {
         created_at: shopify_refund.created_at.to_datetime,
@@ -36,7 +36,7 @@ describe SpreeShopifyImporter::DataParsers::Reimbursements::BaseData, type: :ser
       }
     end
 
-    it 'returns hash of reimbursement timestamps' do
+    it "returns hash of reimbursement timestamps" do
       expect(subject.timestamps).to eq result
     end
   end

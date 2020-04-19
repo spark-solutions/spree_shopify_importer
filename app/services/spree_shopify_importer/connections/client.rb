@@ -1,4 +1,4 @@
-require 'singleton'
+require "singleton"
 
 module SpreeShopifyImporter
   module Connections
@@ -33,7 +33,7 @@ module SpreeShopifyImporter
           session = ShopifyAPI::Session.new(domain: shop_domain, token: token, api_version: api_version)
           ShopifyAPI::Base.activate_session(session)
         else
-          raise SpreeShopifyImporter::Connections::ClientError, I18n.t('shopify_import.client.missing_credentials')
+          raise SpreeShopifyImporter::Connections::ClientError, I18n.t("shopify_import.client.missing_credentials")
         end
       end
     end

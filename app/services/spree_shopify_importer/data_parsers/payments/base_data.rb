@@ -41,14 +41,14 @@ module SpreeShopifyImporter
           when :failure, :error then :failed
           when :success then :completed
           else
-            raise InvalidStatus, I18n.t('errors.transaction.no_payment_state', status: status)
+            raise InvalidStatus, I18n.t("errors.transaction.no_payment_state", status: status)
           end
         end
 
         def payment_method
           Spree::PaymentMethod
             .create_with(active: false)
-            .find_or_create_by(name: @shopify_transaction.gateway, type: 'Spree::PaymentMethod::ShopifyPayment')
+            .find_or_create_by(name: @shopify_transaction.gateway, type: "Spree::PaymentMethod::ShopifyPayment")
         end
       end
     end

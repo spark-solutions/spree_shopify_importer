@@ -2,7 +2,7 @@
 
 module RestOfWorldZones
   class UpdateJob < ApplicationJob
-    SPREE_STATE = 'Spree::State'
+    SPREE_STATE = "Spree::State"
 
     def perform(spree_member, rest_of_world_country_zone, profile_name)
       @spree_member = spree_member
@@ -22,8 +22,8 @@ module RestOfWorldZones
     def rest_of_world_state_zone
       @rest_of_world_state_zone = Spree::Zone.find_or_create_by!(
         name: "Rest of World - States/#{@profile_name}",
-        description: 'shopify shipping to States Rest of World',
-        kind: 'state'
+        description: "shopify shipping to States Rest of World",
+        kind: "state"
       )
     end
 

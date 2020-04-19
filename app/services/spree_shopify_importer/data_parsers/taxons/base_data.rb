@@ -17,7 +17,7 @@ module SpreeShopifyImporter
         def product_ids
           @product_ids ||=
             SpreeShopifyImporter::DataFeed
-            .where(shopify_object_id: collection_product_ids, shopify_object_type: 'ShopifyAPI::Product')
+            .where(shopify_object_id: collection_product_ids, shopify_object_type: "ShopifyAPI::Product")
             .pluck(:spree_object_id)
         end
 

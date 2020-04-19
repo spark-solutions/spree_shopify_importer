@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator, type: :service do
   subject { described_class.new(spree_line_item, shopify_tax_line, spree_order) }
@@ -7,7 +7,7 @@ describe SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator, type: :servi
   let(:shopify_tax_line) { build_stubbed(:shopify_tax_line) }
   let(:spree_order) { create(:order_with_line_items) }
 
-  describe '#create!' do
+  describe "#create!" do
     let(:parser) { instance_double(SpreeShopifyImporter::DataParsers::Adjustments::Tax::BaseData) }
     let(:spree_tax_rate) { build_stubbed(:tax_rate) }
     let(:attributes) do
@@ -26,11 +26,11 @@ describe SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator, type: :servi
       expect(parser).to receive(:attributes).and_return(attributes)
     end
 
-    it 'creates tax adjustment' do
+    it "creates tax adjustment" do
       expect { subject.create! }.to change(Spree::Adjustment, :count).by(1)
     end
 
-    it 'sets correct attributes' do
+    it "sets correct attributes" do
       adjustment = subject.create!
 
       expect(adjustment.label).to eq shopify_tax_line.title
@@ -38,7 +38,7 @@ describe SpreeShopifyImporter::DataSavers::Adjustments::TaxCreator, type: :servi
       expect(adjustment).to be_closed
     end
 
-    it 'sets correct associations' do
+    it "sets correct associations" do
       adjustment = subject.create!
 
       expect(adjustment.order).to eq spree_order

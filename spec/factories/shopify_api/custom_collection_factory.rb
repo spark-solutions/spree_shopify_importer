@@ -6,9 +6,9 @@ FactoryBot.define do
     handle          { FFaker::Internet.slug }
     updated_at      { Time.current }
     published_at    { Time.current }
-    sort_order      { 'alpha-desc' }
+    sort_order      { "alpha-desc" }
     template_suffix { nil }
-    published_scope { 'global' }
+    published_scope { "global" }
     body_html       { FFaker::Lorem.paragraphs(2) }
   end
 end

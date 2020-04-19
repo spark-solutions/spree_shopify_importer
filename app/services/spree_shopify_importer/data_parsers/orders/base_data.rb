@@ -36,19 +36,19 @@ module SpreeShopifyImporter
 
         def user_data_feed(customer)
           @user_data_feed ||= SpreeShopifyImporter::DataFeed.find_by(shopify_object_id: customer.id,
-                                                                     shopify_object_type: 'ShopifyAPI::Customer')
+                                                                     shopify_object_type: "ShopifyAPI::Customer")
         end
 
         def handle_missing_user(customer)
           SpreeShopifyImporter::Importers::UserImporterJob.perform_later(customer.to_json)
-          raise UserNotFound, I18n.t('errors.customers.no_user_found', customer_id: customer.id)
+          raise UserNotFound, I18n.t("errors.customers.no_user_found", customer_id: customer.id)
         end
 
         def base_order_attributes
           {
             number: @shopify_order.order_number,
             email: @shopify_order.email,
-            channel: I18n.t('shopify'),
+            channel: I18n.t("shopify"),
             currency: @shopify_order.currency,
             note: @shopify_order.note,
             confirmation_delivered: @shopify_order.confirmed,
@@ -83,7 +83,7 @@ module SpreeShopifyImporter
             %w[sale capture].include?(t.kind)
           end
 
-          transactions.select { |t| t.status == 'success' }.sum { |t| t.amount.to_d }
+          transactions.select { |t| t.status == "success" }.sum { |t| t.amount.to_d }
         end
 
         def shipment_total
